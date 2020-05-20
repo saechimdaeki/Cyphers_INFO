@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C8E6C9"
+    android:orientation="vertical"
+    tools:context=".LoadingActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="사이퍼즈 정보통신기"
+        android:textColor="#FF8A65"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/cyphers_loading_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="9dp"
+        android:clickable="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bibum2"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FF000000"
+        android:layout_weight="10"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="준비는 되었는가"
+        android:textColor="#BA68C8"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold" />
+
+</LinearLayout>
