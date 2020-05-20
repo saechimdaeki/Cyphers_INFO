@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:includeFontPadding="false"
             android:text="TITLE"
+            android:fontFamily="@font/cookiebold"
             android:textSize="15sp"
             android:textColor="@android:color/black"
             android:textStyle="bold"/>
@@ -32,6 +33,7 @@
             android:layout_marginTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/cookieregular"
             android:includeFontPadding="false"
             android:text="content"
             android:textSize="11sp"
