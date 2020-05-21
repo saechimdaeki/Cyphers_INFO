@@ -19,6 +19,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class LoadingActivity extends AppCompatActivity {
     CircleImageView imageView;
+    int time;
     /*
     String[] ImageUrl={
             "http://static.cyphers.co.kr/img/data/fankit_carocho.jpg",
@@ -36,6 +37,8 @@ public class LoadingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
         imageView=findViewById(R.id.cyphers_loading_image);
+       time=getIntent().getIntExtra("where",0);
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,6 +54,6 @@ public class LoadingActivity extends AppCompatActivity {
             public void run() {
                 finish();
             }
-        }, 3000);
+        }, time);
     }
 }

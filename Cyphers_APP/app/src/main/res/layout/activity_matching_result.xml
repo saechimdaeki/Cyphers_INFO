@@ -1,34 +1,364 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="5dp"
+    android:layout_marginRight="3dp"
+    android:padding="2dp"
+    android:id="@+id/result_scrollview"
     tools:context=".matching_result">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
 
-        android:id="@+id/player_result"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/testinfo"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:padding="4dp"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/testrecord"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/binggrae"
+                android:gravity="center"
+                android:text="사이퍼 정보"
+                android:textSize="20sp"
+                android:textColor="@color/blue_A200"
+                android:textStyle="bold" />
 
-</LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="7dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/player_nickname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/cookieregular"
+                        android:text="닉네임: "
+                        android:textColor="#00796B"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/player_grade"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cookieregular"
+
+                        android:text="등급:"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:layout_marginLeft="7dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/player_total_rank"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/cookieregular"
+
+                        android:text="통합랭킹 :"
+                        android:textSize="16sp" />
+
+                    <TextView
+
+                        android:id="@+id/player_clan_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/cookieregular"
+
+                        android:text="클랜 :"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="3"
+                android:background="@drawable/circle"
+
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/cookiebold"
+                        android:gravity="center_horizontal"
+                        android:text="공식전 정보"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/tier_image"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/ranking_tier_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:fontFamily="@font/cookieblack"
+                        android:gravity="center_horizontal"
+                        android:text="티어이름 들어갈자리"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/ranking_now_point"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/ssyoung"
+                            android:gravity="center_horizontal"
+                            android:text="현재 점수: "
+                            android:textSize="10dp" />
+
+                        <TextView
+                            android:id="@+id/ranking_max_point"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/ssyoung"
+                            android:text="최대 점수: "
+                            android:textSize="10dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/ranking_winning_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+
+                        android:layout_marginRight="65dp"
+                        android:fontFamily="@font/ssyoung"
+
+                        android:gravity="center_horizontal"
+                        android:text="승리 : " />
+
+                    <TextView
+                        android:id="@+id/ranking_lose_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginRight="65dp"
+                        android:fontFamily="@font/ssyoung"
+
+                        android:gravity="center_horizontal"
+                        android:text="패배 : " />
+
+                    <TextView
+                        android:id="@+id/ranking_stop_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="65dp"
+                        android:fontFamily="@font/ssyoung"
+                        android:gravity="center_horizontal"
+                        android:text="중단 : " />
+
+                    <TextView
+                        android:id="@+id/ranking_win_rate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                       android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/ebsm"
+
+
+                        android:text="승률 : " />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/cookiebold"
+                        android:gravity="center_horizontal"
+
+                        android:text="일반전 정보"
+                        android:textSize="16sp"
+
+                        android:textStyle="bold" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ilban_image"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/bibum2" />
+
+                    <TextView
+                        android:id="@+id/ilban_winning_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="57dp"
+
+                        android:layout_marginRight="65dp"
+                        android:fontFamily="@font/ssyoung"
+
+                        android:gravity="center_horizontal"
+                        android:text="승리 : " />
+
+                    <TextView
+                        android:id="@+id/ilban_lose_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginRight="65dp"
+                        android:fontFamily="@font/ssyoung"
+
+                        android:gravity="center_horizontal"
+                        android:text="패배 : " />
+
+                    <TextView
+                        android:id="@+id/ilban_stop_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginRight="65dp"
+                        android:fontFamily="@font/ssyoung"
+
+                        android:gravity="center_horizontal"
+                        android:text="중단 : " />
+
+                    <TextView
+                        android:id="@+id/ilban_win_rate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/ebsm"
+                        android:gravity="left"
+                        android:layout_marginLeft="10dp"
+                        android:text="승률 : " />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <!--    광고넣을경우 여기다 넣기.
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+        </LinearLayout>
+        -->
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/hsnoon"
+                    android:layout_gravity="center_horizontal"
+                    android:text="최근 많이한 캐릭터 "
+                    android:gravity="center" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/player_recent_most_character"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center"
+                android:src="@drawable/bibum2" />
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:textColor="#00796B"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/Player_recent_character"
+                        android:fontFamily="@font/yeonsung"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="10sp"
+                        />
+
+            </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/matching_record_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbarSize="2dp"
+            android:scrollbars="vertical" />
+    </LinearLayout>
 
 
 </androidx.core.widget.NestedScrollView>

@@ -4,12 +4,14 @@
 ## [사이퍼즈오픈api](https://developers.neople.co.kr/contents/apiDocs/cyphers) 에서 RestApi를 수신합니다.
 
 #### neopleopenapi의 restapi를 retrofit2를 활용한 통신으로 MVVM,databinding을 이용하여 구현할 예정입니다.
-##### tmi) 아직 mvvm , databinding이 익숙치않아서 일단은 기존 findviewById()방식을 사용하고 있으며 수정예정입니다.
+##### tmi) 아직은 mvvm , databinding이 익숙치않아서 일단은 기존 findviewById()방식을 사용하고 있으며 수정예정입니다.
+
 
 ## Request player Modeling
 
-![playerRequest](https://user-images.githubusercontent.com/40031858/82415616-bed9f500-9ab3-11ea-97f3-3cf5bb358d14.jpg)
+![playerinfo](https://user-images.githubusercontent.com/40031858/82518117-94db0e00-9b59-11ea-9328-77d0477b051c.jpg)
 
 ## Requet player MatchingRecord Modeling
 
-![PlayerMatchingRecord](https://user-images.githubusercontent.com/40031858/82415722-e92bb280-9ab3-11ea-8e66-8d01d20cb363.jpg)
+![playermatchinginfo](https://user-images.githubusercontent.com/40031858/82518134-9e647600-9b59-11ea-9d41-852e1ce3cdad.jpg)
+

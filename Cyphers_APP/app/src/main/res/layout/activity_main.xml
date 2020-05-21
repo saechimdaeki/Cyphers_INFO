@@ -73,6 +73,7 @@
       android:scrollbarSize="2dp"
       android:layout_height="wrap_content">
     <androidx.recyclerview.widget.RecyclerView
+
         android:id="@+id/main_recycle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

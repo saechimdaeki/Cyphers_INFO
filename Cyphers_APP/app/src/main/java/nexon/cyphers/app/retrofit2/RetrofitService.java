@@ -1,5 +1,6 @@
 package nexon.cyphers.app.retrofit2;
 
+import nexon.cyphers.app.model.Character.CharacterInformation;
 import nexon.cyphers.app.model.PlayerInfo;
 import nexon.cyphers.app.model.PlayerModel;
 import nexon.cyphers.app.model.TotalRankRow;
@@ -27,4 +28,9 @@ public interface RetrofitService {
             @Path("playerId") String playerId,
             @Query("gameTypeId") String gameTypeId,
             @Query("apikey")String apikey);
+
+    @GET("cy/characters")
+    Call<CharacterInformation> GetCharacterUniqueID(
+            @Query("apikey") String apikey
+    );
 }
