@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,7 +55,7 @@ public class MatchingRecycleAdpater extends RecyclerView.Adapter<MatchingRecycle
         listData.add(data);
     }
     class MatchItemViewHolder extends RecyclerView.ViewHolder {
-
+        private LinearLayout linearLayout;
         private TextView gametype;
         private TextView CharacterName;
         private TextView AttackPoint;
@@ -86,6 +87,7 @@ public class MatchingRecycleAdpater extends RecyclerView.Adapter<MatchingRecycle
             MatchingPositionAttribute2=itemView.findViewById(R.id.matching_position_info_attribute2);
             MatchingPositionAttribute3=itemView.findViewById(R.id.matching_position_info_attribute3);
             playtime=itemView.findViewById(R.id.player_playtime);
+            linearLayout=itemView.findViewById(R.id.view_recycle);
             mView=itemView;
         }
         void onBind(matchResultRecycleModel data) {
@@ -108,9 +110,9 @@ public class MatchingRecycleAdpater extends RecyclerView.Adapter<MatchingRecycle
             else
                 MatchingPosition.setImageResource(R.drawable.support);
             if(data.getMatchingResult().equals("win"))
-                mView.setBackgroundColor(mView.getResources().getColor(R.color.blue_100));
+                linearLayout.setBackgroundResource(R.color.blue_100);
             else
-                mView.setBackgroundColor(mView.getResources().getColor(R.color.pink_100));
+                linearLayout.setBackgroundResource(R.color.pink_100);
             Glide.with(itemView.getContext()).load(data.getMatchingCharacterPositionAttribute1()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(MatchingPositionAttribute1);
             Glide.with(itemView.getContext()).load(data.getMatchingCharacterPositionAttribute2()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(MatchingPositionAttribute2);
             Glide.with(itemView.getContext()).load(data.getMatchingCharacterPositionAttribute3()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(MatchingPositionAttribute3);

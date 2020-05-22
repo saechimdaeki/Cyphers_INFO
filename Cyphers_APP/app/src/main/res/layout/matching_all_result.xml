@@ -6,7 +6,15 @@
     android:elevation="2dp"
     android:background="@drawable/circle"
     app:cardCornerRadius="4dp">
+    <LinearLayout
+        android:id="@+id/view_recycle"
+        android:background="@drawable/circle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
     <TextView
+        android:layout_marginTop="4dp"
         android:layout_marginLeft="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -177,6 +185,6 @@
 
     </LinearLayout>
 
-
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>
