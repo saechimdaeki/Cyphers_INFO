@@ -25,7 +25,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/binggrae"
+                android:fontFamily="@font/hsnoon"
+
                 android:gravity="center"
                 android:text="사이퍼 정보"
                 android:textSize="20sp"
@@ -44,7 +45,7 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="1.5"
                     android:layout_marginLeft="7dp"
                     android:orientation="vertical">
 
@@ -64,8 +65,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/cookieregular"
-
-                        android:text="등급:"
                         android:textSize="16sp" />
                 </LinearLayout>
 
@@ -337,6 +336,7 @@
                     android:orientation="vertical"
                     android:layout_weight="1">
                     <TextView
+                        android:text="여기에 뭐넣을까"
                         android:textColor="#00796B"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -347,10 +347,28 @@
                         />
 
             </LinearLayout>
-
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:textColor="#00796B"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/da"
+                    android:text="여기엔 뭐넣어야하지"
+                    android:fontFamily="@font/yeonsung"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="10sp"
+                    />
+            </LinearLayout>
             </LinearLayout>
 
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/green_A100"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/matching_record_recyclerview"

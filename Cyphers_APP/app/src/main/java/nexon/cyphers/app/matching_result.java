@@ -3,30 +3,23 @@ package nexon.cyphers.app;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.NestedScrollView;
-
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
-import com.bumptech.glide.request.target.SimpleTarget;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import de.hdodenhof.circleimageview.CircleImageView;
+import nexon.cyphers.app.Adapter.MatchingRecycleAdpater;
 import nexon.cyphers.app.model.Character.CharacterInformation;
 import nexon.cyphers.app.model.Character.character;
 import nexon.cyphers.app.model.GameTypeModel;
@@ -35,7 +28,7 @@ import nexon.cyphers.app.model.PlayerModel;
 import nexon.cyphers.app.model.PlayerInfo;
 import nexon.cyphers.app.model.TotalRank;
 import nexon.cyphers.app.model.TotalRankRow;
-import nexon.cyphers.app.model.matching_record.Matches;
+import nexon.cyphers.app.model.matchResultRecycleModel;
 import nexon.cyphers.app.model.matching_record.matchingRecordModel;
 import nexon.cyphers.app.retrofit2.RetrofitFactory;
 import nexon.cyphers.app.retrofit2.RetrofitService;
@@ -44,7 +37,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class matching_result extends AppCompatActivity {
+
     private static final String TAG ="matching_result" ;
+    RecyclerView recyclerView;
+    MatchingRecycleAdpater adapter;
     Map<String,Map<String,Integer>> RecentTenMatch=new HashMap<>();
     NestedScrollView nestedScrollView;
     TextView PlayerNickname,PlayerRanking;
@@ -89,6 +85,11 @@ public class matching_result extends AppCompatActivity {
         Player1banWinRate=findViewById(R.id.ilban_win_rate);
         PlayerRecentCharacter=findViewById(R.id.Player_recent_character);
         mostlyRecentCharacterImage=findViewById(R.id.player_recent_most_character);
+        recyclerView=findViewById(R.id.matching_record_recyclerview);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        adapter=new MatchingRecycleAdpater();
+        recyclerView.setAdapter(adapter);
         /*
         Glide.with(this)
                 .load(R.drawable.twilight)
@@ -235,6 +236,8 @@ public class matching_result extends AppCompatActivity {
                     }
                 });
     }
+
+    //최근 10판 매치 기록.
     public void PlayerAllMatchingRecord(){
         RetrofitService networkService=RetrofitFactory.create();
         networkService.GetPlayerMatchingRecord(playerUniqueID,"rating",getString(R.string.API_KEY))
@@ -248,7 +251,7 @@ public class matching_result extends AppCompatActivity {
                             ArrayList<String> strings=new ArrayList<>();
                             for (int i = 0; i < response.body().getMatches().getRows().size(); i++) {
                                 strings.add(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
-                                Log.d(TAG,"흠"+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
+                                Log.d(TAG,"최근 한 캐릭터 id들: "+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
                                 PlayerRecentCharacter.append(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterName()+"\n");
                             }
                            Map<String,Integer> count=new HashMap<>();
@@ -267,8 +270,41 @@ public class matching_result extends AppCompatActivity {
                                     mostFrequent.add(e.getKey());
                             }
                             mostlyRecentCharacter=mostFrequent.get(0);
-                            Glide.with(matching_result.this).load("https://img-api.neople.co.kr/cy/characters/"+mostlyRecentCharacter).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(mostlyRecentCharacterImage);
-                            Log.d(TAG,"가장 많이나온값은????::"+mostFrequent.get(0));//
+                            // Log.d(TAG,"가장 많이 나온 캐릭터의 ID 값은? : "+mostFrequent.get(0));
+                            Glide.with(matching_result.this)
+                                    .load("https://img-api.neople.co.kr/cy/characters/"+mostlyRecentCharacter)
+                                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                                    .into(mostlyRecentCharacterImage);
+                            for(int i=0; i<response.body().getMatches().getRows().size(); i++)
+                            {
+                                matchResultRecycleModel data=new matchResultRecycleModel();
+                                data.setBattlePoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getBattlePoint()));
+                                data.setKDA(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+"킬 "+response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount()+"데스 "+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount()+"어시");
+                                double killassi=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount());
+                                double deathcnt=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount());
+                                data.setKDAPOINT("KDA:"+String.format("%.2f",killassi/deathcnt));
+                                data.setCharacterNameLevel(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterName()+" 레벨: "+response.body().getMatches().getRows().get(i).getPlayInfo().getLevel());
+                                data.setMatchingCharacterImage("https://img-api.neople.co.kr/cy/characters/"+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
+                                data.setDamagedPoint(((double)response.body().getMatches().getRows().get(i).getPlayInfo().getDamagePoint())/1000 +"k");
+                                data.setDealingPoint(((double)response.body().getMatches().getRows().get(i).getPlayInfo().getAttackPoint())/1000 +"k");
+                                data.setSightPoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getSightPoint()));
+                                data.setMatchingCharacterPositionAttribute1("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(0).getId());
+                                data.setMatchingCharacterPositionAttribute2("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(1).getId());
+                                data.setMatchingCharacterPositionAttribute3("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(2).getId());
+                                data.setPlaytime(response.body().getMatches().getRows().get(i).getDate());
+                                data.setMatchingCharacterPosition(response.body().getMatches().getRows().get(i).getPosition().getName());
+                                String partycount="";
+                                if(response.body().getMatches().getRows().get(i).getPlayInfo().getPartyUserCount()==0)
+                                    partycount="솔로";
+                                else
+                                    partycount="파티: "+response.body().getMatches().getRows().get(i).getPlayInfo().getPartyUserCount()+"명";
+                                data.setMatchingType("공식전 / "+partycount+" / "+response.body().getMatches().getRows().get(i).getMap().getName()+" / "+response.body().getMatches().getRows().get(i).getMap().getName()+" / "+response.body().getMatches().getRows().get(i).getPlayInfo().getPlayTime()/60+"분   "+response.body().getMatches().getRows().get(i).getPlayInfo().getResult());
+                                data.setMatchingResult(response.body().getMatches().getRows().get(i).getPlayInfo().getResult());
+                                adapter.addItem(data);
+                            }
+                            adapter.notifyDataSetChanged();
+
+
                         }else
                             PlayerRecentCharacter.append("게임을 진행해 주세요!!");
                     }
