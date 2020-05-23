@@ -43,7 +43,8 @@ public class MatchingRecycleAdpater extends RecyclerView.Adapter<MatchingRecycle
             @Override
             public void onClick(View view) {
                 final Context context=view.getContext();
-                Toast.makeText(context, holder.gametype.getText(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,holder.matchId.getText() , Toast.LENGTH_SHORT).show();
+                //여기서 extra값으로 matchID가지고 상세보기로 넘기기
             }
         });
     }
@@ -70,6 +71,7 @@ public class MatchingRecycleAdpater extends RecyclerView.Adapter<MatchingRecycle
         private CircleImageView MatchingPositionAttribute1;
         private CircleImageView MatchingPositionAttribute2;
         private CircleImageView MatchingPositionAttribute3;
+        private TextView matchId;
         private View mView;
         MatchItemViewHolder(View itemView) {
             super(itemView);
@@ -88,27 +90,32 @@ public class MatchingRecycleAdpater extends RecyclerView.Adapter<MatchingRecycle
             MatchingPositionAttribute3=itemView.findViewById(R.id.matching_position_info_attribute3);
             playtime=itemView.findViewById(R.id.player_playtime);
             linearLayout=itemView.findViewById(R.id.view_recycle);
+            matchId=itemView.findViewById(R.id.matching_id);
             mView=itemView;
         }
         void onBind(matchResultRecycleModel data) {
             gametype.setText(data.getMatchingType());
             CharacterName.setText(data.getCharacterNameLevel());
-            AttackPoint.append(data.getDealingPoint());
-            damagedPoint.append(data.getDamagedPoint());
+            AttackPoint.setText("입힌 피해량: " +data.getDealingPoint());
+            damagedPoint.setText("받은 피해량: "+data.getDamagedPoint());
             kda.setText(data.getKDA());
-            kdaPoint.setText(data.getKDAPOINT());
-            BattlePoint.append(data.getBattlePoint());
-            SightPoint.append(data.getSightPoint());
+            kdaPoint.setText(" "+data.getKDAPOINT());
+            BattlePoint.setText("전투 참여: " +data.getBattlePoint());
+            SightPoint.setText("시야 점수: "+data.getSightPoint());
             playtime.setText(data.getPlaytime());
             Glide.with(itemView.getContext()).load(data.getMatchingCharacterImage()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(CharacterImage);
+            matchId.setText(data.getMatchId()); //매칭 상세정보 위한 ID값
             if(data.getMatchingCharacterPosition().contains("탱커"))
             MatchingPosition.setImageResource(R.drawable.tanker);
             else if(data.getMatchingCharacterPosition().contains("원거리"))
                 MatchingPosition.setImageResource(R.drawable.longdealer);
             else if(data.getMatchingCharacterPosition().contains("근거리"))
                 MatchingPosition.setImageResource(R.drawable.shortdealer);
-            else
+            else if(data.getMatchingCharacterPosition().contains("서"))
                 MatchingPosition.setImageResource(R.drawable.support);
+            else{
+                MatchingPosition.setImageResource(R.drawable.newbie);
+            }
             if(data.getMatchingResult().equals("win"))
                 linearLayout.setBackgroundResource(R.color.blue_100);
             else

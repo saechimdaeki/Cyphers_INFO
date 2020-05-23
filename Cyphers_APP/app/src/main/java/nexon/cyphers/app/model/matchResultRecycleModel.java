@@ -18,6 +18,15 @@ public class matchResultRecycleModel {
     String SightPoint;
     String playtime;
     String matchingResult;
+    String matchId;
+
+    public String getMatchId() {
+        return matchId;
+    }
+
+    public void setMatchId(String matchId) {
+        this.matchId = matchId;
+    }
 
     public String getMatchingResult() {
         return matchingResult;

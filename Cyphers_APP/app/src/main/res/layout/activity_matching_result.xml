@@ -91,7 +91,7 @@
                         android:id="@+id/player_clan_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/cookieregular"
 
                         android:text="클랜 :"
@@ -311,7 +311,7 @@
             android:orientation="horizontal">
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="1.3"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <TextView
@@ -320,49 +320,53 @@
                     android:textSize="12sp"
                     android:textStyle="bold"
                     android:fontFamily="@font/hsnoon"
+                    android:layout_marginTop="6dp"
                     android:layout_gravity="center_horizontal"
                     android:text="최근 많이한 캐릭터 "
                     android:gravity="center" />
             <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginTop="10dp"
                 android:id="@+id/player_recent_most_character"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginRight="3dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                >
+                <ImageView
+                    android:layout_marginTop="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/goratinggame"
+
+                    android:src="@drawable/ratinggame"/>
+
             </LinearLayout>
                 <LinearLayout
+                    android:layout_marginLeft="3dp"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:layout_weight="1">
-                    <TextView
-                        android:text="여기에 뭐넣을까"
-                        android:textColor="#00796B"
+                    android:layout_weight="1.5">
+
+                    <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/Player_recent_character"
-                        android:fontFamily="@font/yeonsung"
-                        android:layout_marginLeft="5dp"
-                        android:textSize="10sp"
-                        />
+
+                        android:layout_marginTop="3dp"
+                        android:id="@+id/gonormalgame"
+                        android:src="@drawable/normalgame"/>
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="1">
-                <TextView
-                    android:textColor="#00796B"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/da"
-                    android:text="여기엔 뭐넣어야하지"
-                    android:fontFamily="@font/yeonsung"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="10sp"
-                    />
-            </LinearLayout>
+
             </LinearLayout>
 
         <View
