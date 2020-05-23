@@ -318,6 +318,7 @@ public class matching_result extends AppCompatActivity {
                                 data.setKDAPOINT("KDA:"+String.format("%.2f",killassi/deathcnt));
                                 data.setCharacterNameLevel(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterName()+" 레벨: "+response.body().getMatches().getRows().get(i).getPlayInfo().getLevel());
                                 data.setMatchingCharacterImage("https://img-api.neople.co.kr/cy/characters/"+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
+
                                 data.setDamagedPoint(((double)response.body().getMatches().getRows().get(i).getPlayInfo().getDamagePoint())/1000 +"k");
                                 data.setDealingPoint(((double)response.body().getMatches().getRows().get(i).getPlayInfo().getAttackPoint())/1000 +"k");
                                 data.setSightPoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getSightPoint()));
