@@ -22,15 +22,13 @@ import java.util.List;
 import java.util.Map;
 import de.hdodenhof.circleimageview.CircleImageView;
 import nexon.cyphers.app.Adapter.MatchingRecycleAdpater;
-import nexon.cyphers.app.model.Character.CharacterInformation;
-import nexon.cyphers.app.model.Character.character;
 import nexon.cyphers.app.model.GameTypeModel;
 import nexon.cyphers.app.model.Player;
 import nexon.cyphers.app.model.PlayerModel;
 import nexon.cyphers.app.model.PlayerInfo;
 import nexon.cyphers.app.model.TotalRank;
 import nexon.cyphers.app.model.TotalRankRow;
-import nexon.cyphers.app.model.matchResultRecycleModel;
+import nexon.cyphers.app.model.RecyclerViewModel.matchResultRecycleModel;
 import nexon.cyphers.app.model.matching_record.matchingRecordModel;
 import nexon.cyphers.app.retrofit2.RetrofitFactory;
 import nexon.cyphers.app.retrofit2.RetrofitService;
@@ -182,6 +180,8 @@ public class matching_result extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<PlayerModel> call, Throwable t) {
                         Log.d(TAG,"뀨뀨 오류 나갑니다:!!"+t.getMessage());
+                        Toast.makeText(matching_result.this, "인터넷 상태가 원활하지 않습니다", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                 });
     }
@@ -273,7 +273,7 @@ public class matching_result extends AppCompatActivity {
         adapter=new MatchingRecycleAdpater();
         recyclerView.setAdapter(adapter);
         RetrofitService networkService=RetrofitFactory.create();
-        networkService.GetPlayerMatchingRecord(playerUniqueID,"rating",getString(R.string.API_KEY))
+        networkService.GetPlayerMatchingRecord(playerUniqueID,"rating",30,getString(R.string.API_KEY))
                 .enqueue(new Callback<matchingRecordModel>() {
                     @RequiresApi(api = Build.VERSION_CODES.N)
                     @Override
@@ -344,6 +344,7 @@ public class matching_result extends AppCompatActivity {
                                         .load(R.drawable.newbie)
                                         .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                                         .into(mostlyRecentCharacterImage);
+                            Toast.makeText(matching_result.this, "최근 10일간 경기 기록이없어요!!", Toast.LENGTH_SHORT).show();
                             }
 
 
@@ -363,7 +364,7 @@ public class matching_result extends AppCompatActivity {
         adapter=new MatchingRecycleAdpater();
         recyclerView.setAdapter(adapter);
         RetrofitService networkService=RetrofitFactory.create();
-        networkService.GetPlayerMatchingRecord(playerUniqueID,"normal",getString(R.string.API_KEY))
+        networkService.GetPlayerMatchingRecord(playerUniqueID,"normal",30,getString(R.string.API_KEY))
                 .enqueue(new Callback<matchingRecordModel>() {
                     @RequiresApi(api = Build.VERSION_CODES.N)
                     @Override
@@ -435,6 +436,7 @@ public class matching_result extends AppCompatActivity {
                                     .load(R.drawable.newbie)
                                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                                     .into(mostlyRecentCharacterImage);
+                            Toast.makeText(matching_result.this, "최근 10일간 경기 기록이없어요!!", Toast.LENGTH_SHORT).show();
                         }
                     }
 

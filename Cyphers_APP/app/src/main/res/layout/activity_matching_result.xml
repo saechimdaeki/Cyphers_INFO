@@ -377,7 +377,15 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/green_A100"/>
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="10dp"
+            android:text="최근 경기 기록"
+            android:textStyle="bold"
+            android:fontFamily="@font/ssyoung"
+            />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/matching_record_recyclerview"
             android:layout_width="match_parent"

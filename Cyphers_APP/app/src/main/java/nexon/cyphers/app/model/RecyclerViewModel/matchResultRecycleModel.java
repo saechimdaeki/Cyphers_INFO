@@ -1,4 +1,4 @@
-package nexon.cyphers.app.model;
+package nexon.cyphers.app.model.RecyclerViewModel;
 
 
 /* 텍스트뷰와 이미지뷰에 넣을것이기때문에 전부 String 으로 모델링처리  */

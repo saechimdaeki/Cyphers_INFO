@@ -1,6 +1,7 @@
 package nexon.cyphers.app.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +18,9 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import nexon.cyphers.app.MatchingDeatilActivity;
 import nexon.cyphers.app.R;
-import nexon.cyphers.app.model.MainRecycleModel;
-import nexon.cyphers.app.model.matchResultRecycleModel;
+import nexon.cyphers.app.model.RecyclerViewModel.matchResultRecycleModel;
 
 public class MatchingRecycleAdpater extends RecyclerView.Adapter<MatchingRecycleAdpater.MatchItemViewHolder> {
 
@@ -43,8 +44,11 @@ public class MatchingRecycleAdpater extends RecyclerView.Adapter<MatchingRecycle
             @Override
             public void onClick(View view) {
                 final Context context=view.getContext();
+                Intent intent=new Intent(context, MatchingDeatilActivity.class);
+                intent.putExtra("matchId",holder.matchId.getText());
+                context.startActivity(intent);
                 Toast.makeText(context,holder.matchId.getText() , Toast.LENGTH_SHORT).show();
-                //여기서 extra값으로 matchID가지고 상세보기로 넘기기
+
             }
         });
     }

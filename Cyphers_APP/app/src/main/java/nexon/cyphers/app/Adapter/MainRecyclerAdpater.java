@@ -1,10 +1,10 @@
 package nexon.cyphers.app.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +15,8 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import nexon.cyphers.app.R;
-import nexon.cyphers.app.model.MainRecycleModel;
+import nexon.cyphers.app.WebContentActivity;
+import nexon.cyphers.app.model.RecyclerViewModel.MainRecycleModel;
 
 public class MainRecyclerAdpater extends RecyclerView.Adapter<MainRecyclerAdpater.ItemViewHolder> {
 
@@ -35,11 +36,31 @@ public class MainRecyclerAdpater extends RecyclerView.Adapter<MainRecyclerAdpate
     @Override
     public void onBindViewHolder(@NonNull final ItemViewHolder holder, final int position) {
         holder.onBind(listData.get(position));
+
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final Context context=view.getContext();
+                final Intent intent;
                 Toast.makeText(context, holder.textView1.getText(), Toast.LENGTH_SHORT).show();
+                if(position==3)
+                {
+                    intent=new Intent(context,WebContentActivity.class);
+                    intent.putExtra("url","http://cyphers.nexon.com/cyphers/article/art");
+                    context.startActivity(intent);
+                }
+                else if(position==8)
+                {
+                    intent=new Intent(context,WebContentActivity.class);
+                    intent.putExtra("url","http://cyphers.nexon.com/cyphers/article/balance");
+                    context.startActivity(intent);
+                }
+                else if(position==9)
+                {
+                    intent=new Intent(context,WebContentActivity.class);
+                    intent.putExtra("url","http://cyphers.nexon.com/cyphers/article/free");
+                    context.startActivity(intent);
+                }
             }
         });
     }

@@ -1,4 +1,4 @@
-package nexon.cyphers.app.model;
+package nexon.cyphers.app.model.RecyclerViewModel;
 
 public class MainRecycleModel {
     private int Id;

@@ -1,29 +1,36 @@
-package nexon.cyphers.app.model.matching_record;
+package nexon.cyphers.app.model.matching_Detail;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class PlayInfo {
-    private String result;
+public class PlayDetailInfo {
     private Boolean random;
+
     private Integer partyUserCount;
+
     private String characterId;
+
     private String characterName;
+
     private Integer level;
+
     private Integer killCount;
+
     private Integer deathCount;
+
     private Integer assistCount;
-    private Double attackPoint;
-    private Double damagePoint;
+
+    private Integer attackPoint;
+
+    private Integer damagePoint;
+
     private Integer battlePoint;
+
     private Integer sightPoint;
+
     private Integer playTime;
 
-    private Map<String, Object> additional = new HashMap<String, Object>();
-
-    public String getResult() {
-        return result;
-    }
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     public Boolean getRandom() {
         return random;
@@ -57,11 +64,11 @@ public class PlayInfo {
         return assistCount;
     }
 
-    public Double getAttackPoint() {
+    public Integer getAttackPoint() {
         return attackPoint;
     }
 
-    public Double getDamagePoint() {
+    public Integer getDamagePoint() {
         return damagePoint;
     }
 
@@ -75,9 +82,5 @@ public class PlayInfo {
 
     public Integer getPlayTime() {
         return playTime;
-    }
-
-    public Map<String, Object> getAdditional() {
-        return additional;
     }
 }

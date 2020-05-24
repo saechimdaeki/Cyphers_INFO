@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import nexon.cyphers.app.Adapter.MainRecyclerAdpater;
-import nexon.cyphers.app.model.MainRecycleModel;
+import nexon.cyphers.app.model.RecyclerViewModel.MainRecycleModel;
 
 public class MainActivity extends AppCompatActivity {
     private MainRecyclerAdpater adapter;
@@ -88,13 +88,13 @@ public class MainActivity extends AppCompatActivity {
                 "사이퍼즈 이벤트/업데이트/오싸를 살펴봐용",
                 "사이퍼즈의 사이퍼들에대해 집중탐구",
                 "이 캐릭터는 내가 NO.1",
-                "재미있는 게임캐릭터 아트들",
+                "(웹 뷰) 재미있는 게임캐릭터 아트들",
                 "공략 게시판을 정독하면 티어상승",
                 "각 포지션 특성에 대해 알아봅시다",
                 "외침: 투신전 극 할사람 구해요 ",
                 "세계관을 알고 게임을하면 백전백승",
-                "사기케 너프좀",
-                "자게이",
+                "(웹 뷰) 사기케 너프좀",
+                "(웹 뷰) 자게이",
                 "처음 보는 아이템들도 있단다"
                 );
         List<Integer> listID=Arrays.asList(
