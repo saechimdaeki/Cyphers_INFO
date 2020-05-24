@@ -67,22 +67,114 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                             data.setMatchingDetailCharacterPositionAttribute2("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getPlayers().get(i).getPosition().getAttribute().get(1).getId());
                             data.setMatchingDetailCharacterPositionAttribute3("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getPlayers().get(i).getPosition().getAttribute().get(2).getId());
                             data.setMatchingDetailCharacterImage("https://img-api.neople.co.kr/cy/characters/"+response.body().getPlayers().get(i).getPlayInfo().getCharacterId());
-                                data.setDetailItem1("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(0).getItemId());
-                                data.setDetailItem2("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(1).getItemId());
-                                data.setDetailItem3("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(2).getItemId());
-                                data.setDetailItem4("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(3).getItemId());
-                                data.setDetailItem5("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(4).getItemId());
-                                data.setDetailItem6("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(5).getItemId());
-                                data.setDetailItem7("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(6).getItemId());
-                                data.setDetailItem8("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(7).getItemId());
-                                data.setDetailItem9("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(8).getItemId());
-                                data.setDetailItem10("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(9).getItemId());
-                                data.setDetailItem11("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(10).getItemId());
-                                data.setDetailItem12("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(11).getItemId());
-                                data.setDetailItem13("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(12).getItemId());
-                                data.setDetailItem14("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(13).getItemId());
-                                data.setDetailItem15("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(14).getItemId());
-                                data.setDetailItem16("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(15).getItemId());
+                          
+                                for(int j=0; j<response.body().getPlayers().get(i).getItems().size(); j++)
+                                {
+                                    String equipCode=response.body().getPlayers().get(i).getItems().get(j).getSlotCode();
+                                    if(equipCode.equals("101")){
+                                        data.setDetailItem1("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[0]=true;
+                                    }
+                                    else if(equipCode.equals("102")){
+                                        data.setDetailItem2("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[1]=true;
+                                    }
+                                    else if(equipCode.equals("103")){
+                                        data.setDetailItem3("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[2]=true;
+                                    }
+                                    else if(equipCode.equals("104")){
+                                        data.setDetailItem4("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[3]=true;
+                                    }
+                                    else if(equipCode.equals("105")){
+                                        data.setDetailItem5("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[4]=true;
+                                    }
+                                    else if(equipCode.equals("106")){
+                                        data.setDetailItem6("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[5]=true;
+                                    }
+                                    else if(equipCode.equals("202")){
+                                        data.setDetailItem7("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[6]=true;
+                                    }
+                                    else if(equipCode.equals("203")){
+                                        data.setDetailItem8("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[7]=true;
+                                    }
+                                    else if(equipCode.equals("301")){
+                                        data.setDetailItem9("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[8]=true;
+                                    }
+                                    else if(equipCode.equals("302")){
+                                        data.setDetailItem10("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[9]=true;
+                                    }
+                                    else if(equipCode.equals("303")){
+                                        data.setDetailItem11("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[10]=true;
+                                    }
+                                    else if(equipCode.equals("304")){
+                                        data.setDetailItem12("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[11]=true;
+                                    }
+                                    else if(equipCode.equals("305")){
+                                        data.setDetailItem13("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[12]=true;
+                                    }
+                                    else if(equipCode.equals("107")){
+                                        data.setDetailItem14("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[13]=true;
+                                    }
+                                    else if(equipCode.equals("204")){
+                                        data.setDetailItem15("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[14]=true;
+                                    }
+                                    else if(equipCode.equals("205")){
+                                        data.setDetailItem16("https://img-api.neople.co.kr/cy/items/" + response.body().getPlayers().get(i).getItems().get(j).getItemId());
+                                        arr[15]=true;
+                                    }
+                                }
+                                for(int j=0; j<16; j++)
+                                {
+                                    if(!arr[j]){
+                                        if(j==0)
+                                            data.setDetailItem1(getString(R.string.noitem));
+                                        else if(j==1)
+                                        data.setDetailItem2(getString(R.string.noitem));
+                                        else if(j==2)
+                                        data.setDetailItem3(getString(R.string.noitem));
+                                        else if(j==3)
+                                            data.setDetailItem4(getString(R.string.noitem));
+                                        else if(j==4)
+                                            data.setDetailItem5(getString(R.string.noitem));
+                                        else if(j==5)
+                                            data.setDetailItem6(getString(R.string.noitem));
+                                        else if(j==6)
+                                            data.setDetailItem7(getString(R.string.noitem));
+                                        else if(j==7)
+                                            data.setDetailItem8(getString(R.string.noitem));
+                                        else if(j==8)
+                                            data.setDetailItem9(getString(R.string.noitem));
+                                        else if(j==9)
+                                            data.setDetailItem10(getString(R.string.noitem));
+                                        else if(j==10)
+                                            data.setDetailItem11(getString(R.string.noitem));
+                                        else if(j==11)
+                                            data.setDetailItem12(getString(R.string.noitem));
+                                        else if(j==12)
+                                            data.setDetailItem13(getString(R.string.noitem));
+                                        else if(j==13)
+                                            data.setDetailItem14(getString(R.string.noitem));
+                                        else if(j==14)
+                                            data.setDetailItem15(getString(R.string.noitem));
+                                        else if(j==15)
+                                            data.setDetailItem16(getString(R.string.noitem));
+                                    }
+
+
+                                }
                             adapter.addItem(data);
                         }
                         adapter.notifyDataSetChanged();
