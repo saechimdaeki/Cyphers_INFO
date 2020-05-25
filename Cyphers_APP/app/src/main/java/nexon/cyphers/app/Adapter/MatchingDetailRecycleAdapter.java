@@ -51,15 +51,6 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                 //Toast.makeText(context,holder.matchId.getText() , Toast.LENGTH_SHORT).show();
             }
         });
-        if(position==0) {
-            holder.TeamResult.setText("승리 팀");
-            holder.TeamResult.setVisibility(View.VISIBLE);
-        }else if(position==5){
-            holder.TeamResult.setText("패배 팀");
-            holder.TeamResult.setVisibility(View.VISIBLE);
-        }else{
-            holder.TeamResult.setVisibility(View.GONE);
-        }
     }
     @Override
     public int getItemCount() {

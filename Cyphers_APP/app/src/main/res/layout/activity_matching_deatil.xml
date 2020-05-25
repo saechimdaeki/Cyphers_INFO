@@ -4,14 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="15dp"
     tools:context=".MatchingDeatilActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginLeft="20dp"
+        android:text="승리한 팀"
+        android:fontFamily="@font/ssyoung"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:id="@+id/matching_Detail_recyclerview"
+        android:id="@+id/matching_Detail_winner_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbarSize="2dp"
         android:scrollbars="vertical" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginLeft="20dp"
+        android:text="패배한 팀"
+        android:fontFamily="@font/ssyoung"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:id="@+id/matching_Detail_looser_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbarSize="2dp"
+        android:scrollbars="vertical" />
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>
