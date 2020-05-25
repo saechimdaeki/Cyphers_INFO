@@ -15,3 +15,8 @@
 
 ![playermatchinginfo](https://user-images.githubusercontent.com/40031858/82518134-9e647600-9b59-11ea-9d41-852e1ce3cdad.jpg)
 
+
+## Request Matching Detail Modeling
+
+
+![MatchingDetail](https://user-images.githubusercontent.com/40031858/82780084-ffa98380-9e90-11ea-9a82-f96c962ff5e4.jpg)

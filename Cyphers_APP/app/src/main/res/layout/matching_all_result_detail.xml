@@ -14,28 +14,22 @@
         android:orientation="vertical"
         android:elevation="6dp"
         >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="팀"
-            android:layout_marginLeft="10dp"
-            android:fontFamily="@font/hsnoon"
-            android:visibility="gone"
-            android:id="@+id/teamresult"/>
-        <TextView
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="7dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:text="태그 들어갈 자리."
-            android:fontFamily="@font/yeonsung"
-            android:id="@+id/matching_Detail_TAG"
-            />
+
+            <TextView
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="7dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:text="태그 들어갈 자리."
+                android:fontFamily="@font/yeonsung"
+                android:id="@+id/matching_Detail_TAG"
+                />
+
+
         <LinearLayout
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="9dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

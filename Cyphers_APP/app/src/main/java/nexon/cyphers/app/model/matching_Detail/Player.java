@@ -6,12 +6,13 @@ import nexon.cyphers.app.model.matching_record.PlayInfo;
 import nexon.cyphers.app.model.matching_record.Position;
 import nexon.cyphers.app.model.matching_record.map;
 
+
 public class Player {
     private String playerId;
 
     private String nickname;
 
-    private nexon.cyphers.app.model.matching_record.map map;
+    private map map;
 
     private PlayInfo playInfo;
 

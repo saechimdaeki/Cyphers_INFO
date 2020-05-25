@@ -47,7 +47,7 @@ public class MatchingRecycleAdpater extends RecyclerView.Adapter<MatchingRecycle
                 Intent intent=new Intent(context, MatchingDeatilActivity.class);
                 intent.putExtra("matchId",holder.matchId.getText());
                 context.startActivity(intent);
-                Toast.makeText(context,holder.matchId.getText() , Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context,holder.matchId.getText() , Toast.LENGTH_SHORT).show();
 
             }
         });

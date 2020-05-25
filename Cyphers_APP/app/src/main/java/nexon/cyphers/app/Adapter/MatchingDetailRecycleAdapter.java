@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 import nexon.cyphers.app.MatchingDeatilActivity;
 import nexon.cyphers.app.R;
+import nexon.cyphers.app.matching_result;
 import nexon.cyphers.app.model.RecyclerViewModel.MatchingResultDetailModel;
 import nexon.cyphers.app.model.RecyclerViewModel.matchResultRecycleModel;
 
@@ -48,7 +49,9 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
             @Override
             public void onClick(View view) {
                 final Context context=view.getContext();
-                //Toast.makeText(context,holder.matchId.getText() , Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(context, matching_result.class);
+                intent.putExtra("nick",holder.nickname.getText());
+                context.startActivity(intent);
             }
         });
     }
@@ -92,7 +95,7 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
         private CircleImageView item15;
         private CircleImageView item16;
         private TextView nickname;
-
+        private TextView eachPlayerID;
         private View mView;
         MatchItemViewHolder(View itemView) {
             super(itemView);
@@ -128,10 +131,10 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
             item16=itemView.findViewById(R.id.matcing_detail_item16);
             nickname=itemView.findViewById(R.id.player_detail_nickname);
             mView=itemView;
-            TeamResult=itemView.findViewById(R.id.teamresult);
+
         }
         void onBind(MatchingResultDetailModel data) {
-            TAG.setText(" ");
+            TAG.setText(data.getMatchingDetailTag());
             dealPoint.setText("입힌 피해량: " +data.getDealingDetailPoint());
             damagedPoint.setText("받은 피해량: "+data.getDamagedDetailPoint());
             killDeathAssist.setText(data.getKDADetail());
