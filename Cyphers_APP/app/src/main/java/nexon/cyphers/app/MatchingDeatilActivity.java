@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -43,6 +44,12 @@ public class MatchingDeatilActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(savedInstanceState==null)
+        {
+            Intent intent=new Intent(this,LoadingActivity.class);
+            intent.putExtra("where",1000);
+            startActivity(intent);
+        }
         setContentView(R.layout.activity_matching_deatil);
         matchId=getIntent().getStringExtra("matchId");
         recyclerViewForWinner=findViewById(R.id.matching_Detail_winner_recyclerview);
@@ -310,6 +317,7 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<MatchingDetailModel> call, Throwable t) {
                         Log.d(TAG, "request 요청 실패 URL: "+call.request().url());
+                        Toast.makeText(MatchingDeatilActivity.this, "연결 상태가 원활하지 않습니다.", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });

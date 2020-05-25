@@ -20,18 +20,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class LoadingActivity extends AppCompatActivity {
     CircleImageView imageView;
     int time;
-    /*
-    String[] ImageUrl={
-            "http://static.cyphers.co.kr/img/data/fankit_carocho.jpg",
-            "http://static.cyphers.co.kr/img/data/fankit_tisha.jpg",
-            "http://static.cyphers.co.kr/img/data/fankit_elfriede.jpg",
-            "http://static.cyphers.co.kr/img/data/fankit_timothy.jpg",
-            "http://static.cyphers.co.kr/img/data/fankit_tei.jpg",
-            "http://static.cyphers.co.kr/img/data/fankit_sidney.jpg",
-            "http://static.cyphers.co.kr/img/data/fankit_leonor.jpg",
-            "http://static.cyphers.co.kr/img/data/fankit_corgi.jpg",
-    };
-     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
