@@ -17,8 +17,13 @@
         android:textSize="16sp"
         android:layout_marginLeft="20dp"
         android:text="승리한 팀"
+        android:layout_marginTop="7dp"
+        android:elevation="9dp"
+        android:background="#ffffff"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="20dp"
         android:fontFamily="@font/ssyoung"
-        />
+        android:gravity="center_horizontal" />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
@@ -28,12 +33,18 @@
         android:scrollbarSize="2dp"
         android:scrollbars="vertical" />
     <TextView
+        android:layout_marginTop="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
+        android:layout_marginBottom="5dp"
         android:layout_marginLeft="20dp"
         android:text="패배한 팀"
+        android:gravity="center_horizontal"
         android:fontFamily="@font/ssyoung"
+        android:elevation="9dp"
+        android:layout_marginRight="20dp"
+        android:background="#ffffff"
         />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginLeft="5dp"

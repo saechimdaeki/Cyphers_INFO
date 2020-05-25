@@ -44,9 +44,13 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<MatchingDetailModel> call, Response<MatchingDetailModel> response) {
                         Log.d(TAG, "request 요청 성공 URL: " + call.request().url());
-                        List<String> winnerTeam=response.body().getTeams().get(0).getPlayers();
-                        List<String> loseTeam=response.body().getTeams().get(1).getPlayers();
+                        Map<String,List<String>> resultMap=new HashMap<>();
+                        for(int i=0; i<response.body().getTeams().size(); i++)
+                            resultMap.put(response.body().getTeams().get(i).getResult(),response.body().getTeams().get(i).getPlayers());
+                        List<String> winnerTeam=resultMap.get("win");
+                        List<String> loseTeam=resultMap.get("lose");
                         List<Player> players=response.body().getPlayers();
+
                         for(int i=0; i<winnerTeam.size(); i++)
                         {
                             MatchingResultDetailModel data=new MatchingResultDetailModel();
