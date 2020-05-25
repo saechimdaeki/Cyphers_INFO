@@ -6,6 +6,7 @@ import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -91,15 +92,14 @@ public class matching_result extends AppCompatActivity {
         recyclerView=findViewById(R.id.matching_record_recyclerview);
         ratingResult=findViewById(R.id.goratinggame);
         normalResult=findViewById(R.id.gonormalgame);
-
         ratingResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(!ratingClick)
                 {
-                    PlayerAllMatchingRatingRecord();
                     ratingClick=true;
                     normalClick=false;
+                    PlayerAllMatchingRatingRecord();
                 }
 
             }
@@ -109,37 +109,20 @@ public class matching_result extends AppCompatActivity {
             public void onClick(View view) {
                 if(!normalClick)
                 {
-                    PlayerAllMatching1banRecord();
                     ratingClick=false;
                     normalClick=true;
+                    PlayerAllMatching1banRecord();
                 }
-
             }
         });
-
-        /*
-        Glide.with(this)
-                .load(R.drawable.twilight)
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .into(new SimpleTarget<GlideDrawable>() {
-                    @Override
-                    public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
-                        nestedScrollView.setBackground(resource)
-                        ;
-                    }
-                });
-
-         */
         RetrofitService networkService= RetrofitFactory.create();
         networkService.GetPlayerBasic(nickname,getString(R.string.API_KEY))
                 .enqueue(new Callback<PlayerModel>() {
                     @Override
                     public void onResponse(Call<PlayerModel> call, Response<PlayerModel> response) {
                         if(!response.isSuccessful()){
-                           // PlayerResult.setText(response.code());
                             return;
                         }
-                        /*먼저 여기서 playerID를 얻어야 이후 기능들 작동*/
                         if(response.code()==200) {
                             if (response.body().getRows().size() == 0){
                                 Toast.makeText(matching_result.this, "등록되지 않은 닉네임입니다.", Toast.LENGTH_SHORT).show();
@@ -153,11 +136,11 @@ public class matching_result extends AppCompatActivity {
                                 PlayerNickname.setText(nickname);
                                 PlayerGrade.append(Integer.toString(grade)+"급");
                                 playerUniqueID = playerId;
-                                /* 일단은 구현 나중에 스레드로 돌릴 함수들임.*/
+
+                                /*  UI 스레드에서 처리  */
                                 PlayerInfo();
                                 PlayerTotalRank();
-                                PlayerAllMatchingRatingRecord();  // Default 공식전.
-                                //getAllCharacterId();
+                                PlayerAllMatchingRatingRecord();
                             }
                         }else if(response.code()==400){
                             Toast.makeText(matching_result.this, "요청에 대한 유효성 검증 실패 또는 파라미터 에러입니다.", Toast.LENGTH_SHORT).show();
@@ -185,269 +168,306 @@ public class matching_result extends AppCompatActivity {
                     }
                 });
     }
-
     public void PlayerInfo(){
-        RetrofitService networkService= RetrofitFactory.create();
-        networkService.GetPlayerDetail(playerUniqueID,getString(R.string.API_KEY))
-                .enqueue(new Callback<PlayerInfo>() {
-                    @Override
-                    public void onResponse(Call<PlayerInfo> call, Response<PlayerInfo> response) {
-                        if(!response.isSuccessful()){
-                            Log.d(TAG, String.valueOf(response.code()));
-                            return;
-                        }
-                        if(response.body().getClanName()==null)
-                            PlayerClanName.append(" 없음 ");
-                        else
-                        PlayerClanName.append(response.body().getClanName());
-                        PlayerTierName.setText(response.body().getTierName());
-                        Log.d(TAG,"anr:"+response.body().getTierName());
-                        if(response.body().getTierName()==null)
-                            TierImage.setImageResource(R.drawable.newbie);
-                        else if(response.body().getTierName().contains("JOKER"))
-                            TierImage.setImageResource(R.drawable.joker_tier);
-                        else if(response.body().getTierName().contains("BRONZE"))
-                            TierImage.setImageResource(R.drawable.bronze_tier);
-                        else if(response.body().getTierName().contains("SILVER"))
-                            TierImage.setImageResource(R.drawable.silver_tier);
-                        else if(response.body().getTierName().contains("GOLD"))
-                            TierImage.setImageResource(R.drawable.gold_tier);
-                        else if(response.body().getTierName().contains("ACE"))
-                            TierImage.setImageResource(R.drawable.ace_tier);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
 
-                        PlayerRankingNowPoint.append(Integer.toString(response.body().getRatingPoint()));
-                        PlayerRankingMaxPoint.append(Integer.toString(response.body().getMaxRatingPoint()));
-                        List<GameTypeModel> models=response.body().getRecords();
-
-                        for(int i=0; i<models.size(); i++)
-                        {
-                            if(i==0) {
-                                PlayerRankingWinCount.append( Integer.toString(models.get(i).getWinCount()));
-                                PlayerRankingLoseCount.append(Integer.toString(models.get(i).getLoseCount()));
-                                PlayerRankingStopCount.append(Integer.toString(models.get(i).getStopCount()));
-                                if(models.get(i).getWinCount()>0 && models.get(i).getLoseCount()>0)
-                                PlayerRankingWinRate.append((models.get(i).getWinCount()*100)/(models.get(i).getWinCount()+models.get(i).getLoseCount())+"%");
-                                else
-                                    PlayerRankingWinRate.append("진행한 게임이 없어 표시되지 않습니다");
-                            }
-                            else{
-                                Player1banWinCount.append(Integer.toString(models.get(i).getWinCount()));
-                                Player1banLoseCount.append(Integer.toString(models.get(i).getLoseCount()));
-                                Player1banStopcount.append(Integer.toString(models.get(i).getStopCount()));
-                                if(models.get(i).getWinCount()>0 && models.get(i).getLoseCount()>0)
-                                    Player1banWinRate.append((models.get(i).getWinCount()*100)/(models.get(i).getWinCount()+models.get(i).getLoseCount())+"%");
-                                else
-                                    Player1banWinRate.append("진행한 게임이 없어 표시되지 않습니다");
-                            }
-                        }
-                        // Log.d(TAG, "request 요청 URL: "+call.request().url());
-                    }
+                runOnUiThread(new Runnable() {
                     @Override
-                    public void onFailure(Call<PlayerInfo> call, Throwable t) {
-                        Log.d(TAG,"뀨뀨뀨 오류"+t.getMessage());
+                    public void run() {
+                        RetrofitService networkService= RetrofitFactory.create();
+                        networkService.GetPlayerDetail(playerUniqueID,getString(R.string.API_KEY))
+                                .enqueue(new Callback<PlayerInfo>() {
+                                    @Override
+                                    public void onResponse(Call<PlayerInfo> call, Response<PlayerInfo> response) {
+                                        if(!response.isSuccessful()){
+                                            Log.d(TAG, String.valueOf(response.code()));
+                                            return;
+                                        }
+                                        if(response.body().getClanName()==null)
+                                            PlayerClanName.append(" 없음 ");
+                                        else
+                                            PlayerClanName.append(response.body().getClanName());
+                                        PlayerTierName.setText(response.body().getTierName());
+                                        Log.d(TAG,"anr:"+response.body().getTierName());
+                                        if(response.body().getTierName()==null)
+                                            TierImage.setImageResource(R.drawable.newbie);
+                                        else if(response.body().getTierName().contains("JOKER"))
+                                            TierImage.setImageResource(R.drawable.joker_tier);
+                                        else if(response.body().getTierName().contains("BRONZE"))
+                                            TierImage.setImageResource(R.drawable.bronze_tier);
+                                        else if(response.body().getTierName().contains("SILVER"))
+                                            TierImage.setImageResource(R.drawable.silver_tier);
+                                        else if(response.body().getTierName().contains("GOLD"))
+                                            TierImage.setImageResource(R.drawable.gold_tier);
+                                        else if(response.body().getTierName().contains("ACE"))
+                                            TierImage.setImageResource(R.drawable.ace_tier);
+                                        PlayerRankingNowPoint.append(Integer.toString(response.body().getRatingPoint()));
+                                        PlayerRankingMaxPoint.append(Integer.toString(response.body().getMaxRatingPoint()));
+                                        List<GameTypeModel> models=response.body().getRecords();
+                                        for(int i=0; i<models.size(); i++)
+                                        {
+                                            if(i==0) {
+                                                PlayerRankingWinCount.append( Integer.toString(models.get(i).getWinCount()));
+                                                PlayerRankingLoseCount.append(Integer.toString(models.get(i).getLoseCount()));
+                                                PlayerRankingStopCount.append(Integer.toString(models.get(i).getStopCount()));
+                                                if(models.get(i).getWinCount()>0 && models.get(i).getLoseCount()>0)
+                                                    PlayerRankingWinRate.append((models.get(i).getWinCount()*100)/(models.get(i).getWinCount()+models.get(i).getLoseCount())+"%");
+                                                else
+                                                    PlayerRankingWinRate.append("진행한 게임이 없어 표시되지 않습니다");
+                                            }
+                                            else{
+                                                Player1banWinCount.append(Integer.toString(models.get(i).getWinCount()));
+                                                Player1banLoseCount.append(Integer.toString(models.get(i).getLoseCount()));
+                                                Player1banStopcount.append(Integer.toString(models.get(i).getStopCount()));
+                                                if(models.get(i).getWinCount()>0 && models.get(i).getLoseCount()>0)
+                                                    Player1banWinRate.append((models.get(i).getWinCount()*100)/(models.get(i).getWinCount()+models.get(i).getLoseCount())+"%");
+                                                else
+                                                    Player1banWinRate.append("진행한 게임이 없어 표시되지 않습니다");
+                                            }
+                                        }
+                                        // Log.d(TAG, "request 요청 URL: "+call.request().url());
+                                    }
+                                    @Override
+                                    public void onFailure(Call<PlayerInfo> call, Throwable t) {
+                                        Log.d(TAG,"뀨뀨뀨 오류"+t.getMessage());
+                                    }
+                                });
                     }
                 });
+            }
+        }).start();
+
     }
     public void PlayerTotalRank(){
-        RetrofitService networkService= RetrofitFactory.create();
-        networkService.GetTotalRANKING(playerUniqueID,getString(R.string.API_KEY))
-                .enqueue(new Callback<TotalRankRow>() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
                     @Override
-                    public void onResponse(Call<TotalRankRow> call, Response<TotalRankRow> response) {
-                        List<TotalRank> model = response.body().getRows();
-                        if(model.size()==0)
-                            PlayerRanking.setText("랭킹내역이 없습니다.");
-                        else
-                            PlayerRanking.append(Integer.toString(model.get(0).getRank())+"위");
-                    }
-                    @Override
-                    public void onFailure(Call<TotalRankRow> call, Throwable t) {
+                    public void run() {
+                        RetrofitService networkService= RetrofitFactory.create();
+                        networkService.GetTotalRANKING(playerUniqueID,getString(R.string.API_KEY))
+                                .enqueue(new Callback<TotalRankRow>() {
+                                    @Override
+                                    public void onResponse(Call<TotalRankRow> call, Response<TotalRankRow> response) {
+                                        List<TotalRank> model = response.body().getRows();
+                                        if(model.size()==0)
+                                            PlayerRanking.setText("랭킹내역이 없습니다.");
+                                        else
+                                            PlayerRanking.append(Integer.toString(model.get(0).getRank())+"위");
+                                    }
+                                    @Override
+                                    public void onFailure(Call<TotalRankRow> call, Throwable t) {
+                                    }}
+                                    );
                     }
                 });
+            }
+        }).start();
+
     }
 
     //최근 10판 매치 기록.
     public void PlayerAllMatchingRatingRecord(){
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        adapter=new MatchingRecycleAdpater();
-        recyclerView.setAdapter(adapter);
-        RetrofitService networkService=RetrofitFactory.create();
-        networkService.GetPlayerMatchingRecord(playerUniqueID,"rating",30,getString(R.string.API_KEY))
-                .enqueue(new Callback<matchingRecordModel>() {
-                    @RequiresApi(api = Build.VERSION_CODES.N)
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
                     @Override
-                    public void onResponse(Call<matchingRecordModel> call, Response<matchingRecordModel> response) {
-                        Log.d(TAG, "request 요청 URL 성공:" + call.request().url());
+                    public void run() {
+                        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(matching_result.this);
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                        adapter=new MatchingRecycleAdpater();
+                        recyclerView.setAdapter(adapter);
+                        RetrofitService networkService=RetrofitFactory.create();
+                        networkService.GetPlayerMatchingRecord(playerUniqueID,"rating",30,getString(R.string.API_KEY))
+                                .enqueue(new Callback<matchingRecordModel>() {
+                                    @RequiresApi(api = Build.VERSION_CODES.N)
+                                    @Override
+                                    public void onResponse(Call<matchingRecordModel> call, Response<matchingRecordModel> response) {
+                                        Log.d(TAG, "request 요청 URL 성공:" + call.request().url());
 
-                        if (response.body().getMatches().getRows().size() != 0) {
-                            ArrayList<String> strings=new ArrayList<>();
-                            for (int i = 0; i < response.body().getMatches().getRows().size(); i++) {
-                                strings.add(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
-                                Log.d(TAG,"최근 한 캐릭터 id들: "+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
+                                        if (response.body().getMatches().getRows().size() != 0) {
+                                            ArrayList<String> strings=new ArrayList<>();
+                                            for (int i = 0; i < response.body().getMatches().getRows().size(); i++) {
+                                                strings.add(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
+                                                Log.d(TAG,"최근 한 캐릭터 id들: "+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
 
-                            }
-                           Map<String,Integer> count=new HashMap<>();
-                            for(String word:strings){
-                                if(!count.containsKey(word))
-                                count.put(word,1);
-                                else{
-                                    int value=count.get(word);
-                                    value++;
-                                    count.put(word,value);
-                                }
-                            }
-                            List<String> mostFrequent=new ArrayList<>();
-                            for(Map.Entry<String,Integer> e:count.entrySet()){
-                                if(e.getValue()== Collections.max(count.values()))
-                                    mostFrequent.add(e.getKey());
-                            }
-                            mostlyRecentCharacter=mostFrequent.get(0);
-                            // Log.d(TAG,"가장 많이 나온 캐릭터의 ID 값은? : "+mostFrequent.get(0));
-                            Glide.with(matching_result.this)
-                                    .load("https://img-api.neople.co.kr/cy/characters/"+mostlyRecentCharacter)
-                                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                                    .into(mostlyRecentCharacterImage);
-                            for(int i=0; i<response.body().getMatches().getRows().size(); i++)
-                            {
-                                matchResultRecycleModel data=new matchResultRecycleModel();
-                                data.setBattlePoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getBattlePoint()));
-                                data.setKDA(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+"킬 "+response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount()+"데스 "+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount()+"어시");
-                                double killassi=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount());
-                                double deathcnt=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount());
-                                data.setKDAPOINT("KDA:"+String.format("%.2f",killassi/deathcnt));
-                                data.setCharacterNameLevel(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterName()+" 레벨: "+response.body().getMatches().getRows().get(i).getPlayInfo().getLevel());
-                                data.setMatchingCharacterImage("https://img-api.neople.co.kr/cy/characters/"+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
-                                int damagePoint= (int) (response.body().getMatches().getRows().get(i).getPlayInfo().getDamagePoint()/1000);
-                                int dealPoint=(int)(response.body().getMatches().getRows().get(i).getPlayInfo().getAttackPoint()/1000);
-                                data.setDamagedPoint(damagePoint +"K");
-                                data.setDealingPoint(dealPoint +"K");
-                                data.setSightPoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getSightPoint()));
-                                data.setMatchingCharacterPositionAttribute1("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(0).getId());
-                                data.setMatchingCharacterPositionAttribute2("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(1).getId());
-                                data.setMatchingCharacterPositionAttribute3("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(2).getId());
-                                data.setPlaytime(response.body().getMatches().getRows().get(i).getDate());
-                                data.setMatchingCharacterPosition(response.body().getMatches().getRows().get(i).getPosition().getName());
-                                data.setMatchId(response.body().getMatches().getRows().get(i).getMatchId());   ///매칭 상세정보 보기위함.
-                                String partycount="";
-                                if(response.body().getMatches().getRows().get(i).getPlayInfo().getPartyUserCount()==0)
-                                    partycount="솔로";
-                                else
-                                    partycount="파티: "+response.body().getMatches().getRows().get(i).getPlayInfo().getPartyUserCount()+"명";
-                                data.setMatchingType("공식전 / "+partycount+" / "+response.body().getMatches().getRows().get(i).getMap().getName()+" / "+response.body().getMatches().getRows().get(i).getPlayInfo().getPlayTime()/60+"분   "+response.body().getMatches().getRows().get(i).getPlayInfo().getResult());
-                                data.setMatchingResult(response.body().getMatches().getRows().get(i).getPlayInfo().getResult());
-                                adapter.addItem(data);
-                            }
-                            adapter.notifyDataSetChanged();
-                        }else
-                        {
-                                Glide.with(matching_result.this)
-                                        .load(R.drawable.newbie)
-                                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                                        .into(mostlyRecentCharacterImage);
-                            Toast.makeText(matching_result.this, "최근 10일간 경기 기록이없어요!!", Toast.LENGTH_SHORT).show();
-                            }
-
-
-
-                    }
-
-                    @Override
-                    public void onFailure(Call<matchingRecordModel> call, Throwable t) {
-                        Log.d(TAG, "request 요청 URL 실패:"+call.request().url());
-
+                                            }
+                                            Map<String,Integer> count=new HashMap<>();
+                                            for(String word:strings){
+                                                if(!count.containsKey(word))
+                                                    count.put(word,1);
+                                                else{
+                                                    int value=count.get(word);
+                                                    value++;
+                                                    count.put(word,value);
+                                                }
+                                            }
+                                            List<String> mostFrequent=new ArrayList<>();
+                                            for(Map.Entry<String,Integer> e:count.entrySet()){
+                                                if(e.getValue()== Collections.max(count.values()))
+                                                    mostFrequent.add(e.getKey());
+                                            }
+                                            mostlyRecentCharacter=mostFrequent.get(0);
+                                            // Log.d(TAG,"가장 많이 나온 캐릭터의 ID 값은? : "+mostFrequent.get(0));
+                                            Glide.with(matching_result.this)
+                                                    .load("https://img-api.neople.co.kr/cy/characters/"+mostlyRecentCharacter)
+                                                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                                                    .into(mostlyRecentCharacterImage);
+                                            for(int i=0; i<response.body().getMatches().getRows().size(); i++)
+                                            {
+                                                matchResultRecycleModel data=new matchResultRecycleModel();
+                                                data.setBattlePoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getBattlePoint()));
+                                                data.setKDA(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+"킬 "+response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount()+"데스 "+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount()+"어시");
+                                                double killassi=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount());
+                                                double deathcnt=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount());
+                                                data.setKDAPOINT("KDA:"+String.format("%.2f",killassi/deathcnt));
+                                                data.setCharacterNameLevel(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterName()+" 레벨: "+response.body().getMatches().getRows().get(i).getPlayInfo().getLevel());
+                                                data.setMatchingCharacterImage("https://img-api.neople.co.kr/cy/characters/"+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
+                                                int damagePoint= (int) (response.body().getMatches().getRows().get(i).getPlayInfo().getDamagePoint()/1000);
+                                                int dealPoint=(int)(response.body().getMatches().getRows().get(i).getPlayInfo().getAttackPoint()/1000);
+                                                data.setDamagedPoint(damagePoint +"K");
+                                                data.setDealingPoint(dealPoint +"K");
+                                                data.setSightPoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getSightPoint()));
+                                                data.setMatchingCharacterPositionAttribute1("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(0).getId());
+                                                data.setMatchingCharacterPositionAttribute2("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(1).getId());
+                                                data.setMatchingCharacterPositionAttribute3("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(2).getId());
+                                                data.setPlaytime(response.body().getMatches().getRows().get(i).getDate());
+                                                data.setMatchingCharacterPosition(response.body().getMatches().getRows().get(i).getPosition().getName());
+                                                data.setMatchId(response.body().getMatches().getRows().get(i).getMatchId());   ///매칭 상세정보 보기위함.
+                                                String partycount="";
+                                                if(response.body().getMatches().getRows().get(i).getPlayInfo().getPartyUserCount()==0)
+                                                    partycount="솔로";
+                                                else
+                                                    partycount="파티: "+response.body().getMatches().getRows().get(i).getPlayInfo().getPartyUserCount()+"명";
+                                                data.setMatchingType("공식전 / "+partycount+" / "+response.body().getMatches().getRows().get(i).getMap().getName()+" / "+response.body().getMatches().getRows().get(i).getPlayInfo().getPlayTime()/60+"분   "+response.body().getMatches().getRows().get(i).getPlayInfo().getResult());
+                                                data.setMatchingResult(response.body().getMatches().getRows().get(i).getPlayInfo().getResult());
+                                                adapter.addItem(data);
+                                            }
+                                            adapter.notifyDataSetChanged();
+                                        }else
+                                        {
+                                            Glide.with(matching_result.this)
+                                                    .load(R.drawable.newbie)
+                                                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                                                    .into(mostlyRecentCharacterImage);
+                                            Toast.makeText(matching_result.this, "최근 10일간 경기 기록이없어요!!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                    @Override
+                                    public void onFailure(Call<matchingRecordModel> call, Throwable t) {
+                                        Log.d(TAG, "request 요청 URL 실패:"+call.request().url());
+                                    }
+                                });
                     }
                 });
+            }
+        }).start();
     }
     public void PlayerAllMatching1banRecord(){
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        adapter=new MatchingRecycleAdpater();
-        recyclerView.setAdapter(adapter);
-        RetrofitService networkService=RetrofitFactory.create();
-        networkService.GetPlayerMatchingRecord(playerUniqueID,"normal",30,getString(R.string.API_KEY))
-                .enqueue(new Callback<matchingRecordModel>() {
-                    @RequiresApi(api = Build.VERSION_CODES.N)
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
                     @Override
-                    public void onResponse(Call<matchingRecordModel> call, Response<matchingRecordModel> response) {
-                        Log.d(TAG, "request 요청 URL 성공:" + call.request().url());
+                    public void run() {
+                        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(matching_result.this);
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                        adapter=new MatchingRecycleAdpater();
+                        recyclerView.setAdapter(adapter);
+                        RetrofitService networkService=RetrofitFactory.create();
+                        networkService.GetPlayerMatchingRecord(playerUniqueID,"normal",30,getString(R.string.API_KEY))
+                                .enqueue(new Callback<matchingRecordModel>() {
+                                    @RequiresApi(api = Build.VERSION_CODES.N)
+                                    @Override
+                                    public void onResponse(Call<matchingRecordModel> call, Response<matchingRecordModel> response) {
+                                        Log.d(TAG, "request 요청 URL 성공:" + call.request().url());
 
-                        if (response.body().getMatches().getRows().size() != 0) {
-                            ArrayList<String> strings=new ArrayList<>();
-                            for (int i = 0; i < response.body().getMatches().getRows().size(); i++) {
-                                strings.add(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
-                                Log.d(TAG,"최근 한 캐릭터 id들: "+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
-                               // PlayerRecentCharacter.append(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterName()+"\n");
-                            }
-                            Map<String,Integer> count=new HashMap<>();
-                            for(String word:strings){
-                                if(!count.containsKey(word))
-                                    count.put(word,1);
-                                else{
-                                    int value=count.get(word);
-                                    value++;
-                                    count.put(word,value);
-                                }
-                            }
-                            List<String> mostFrequent=new ArrayList<>();
-                            for(Map.Entry<String,Integer> e:count.entrySet()){
-                                if(e.getValue()== Collections.max(count.values()))
-                                    mostFrequent.add(e.getKey());
-                            }
-                            mostlyRecentCharacter=mostFrequent.get(0);
-                            // Log.d(TAG,"가장 많이 나온 캐릭터의 ID 값은? : "+mostFrequent.get(0));
-                            Glide.with(matching_result.this)
-                                    .load("https://img-api.neople.co.kr/cy/characters/"+mostlyRecentCharacter)
-                                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                                    .into(mostlyRecentCharacterImage);
-                            for(int i=0; i<response.body().getMatches().getRows().size(); i++)
-                            {
-                                matchResultRecycleModel data=new matchResultRecycleModel();
-                                data.setBattlePoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getBattlePoint()));
-                                data.setKDA(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+"킬 "+response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount()+"데스 "+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount()+"어시");
-                                double killassi=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount());
-                                double deathcnt=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount());
-                                data.setKDAPOINT("KDA:"+String.format("%.2f",killassi/deathcnt));
-                                data.setCharacterNameLevel(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterName()+" 레벨: "+response.body().getMatches().getRows().get(i).getPlayInfo().getLevel());
-                                data.setMatchingCharacterImage("https://img-api.neople.co.kr/cy/characters/"+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
-                                int damagePoint= (int) (response.body().getMatches().getRows().get(i).getPlayInfo().getDamagePoint()/1000);
-                                int dealPoint=(int)(response.body().getMatches().getRows().get(i).getPlayInfo().getAttackPoint()/1000);
-                                data.setDamagedPoint(damagePoint +"K");
-                                data.setDealingPoint(dealPoint +"K");
-                                Log.d(TAG,"딜량:"+damagePoint+"k");
-                                data.setSightPoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getSightPoint()));
-                                data.setMatchingCharacterPositionAttribute1("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(0).getId());
-                                data.setMatchingCharacterPositionAttribute2("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(1).getId());
-                                data.setMatchingCharacterPositionAttribute3("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(2).getId());
-                                data.setPlaytime(response.body().getMatches().getRows().get(i).getDate());
-                                data.setMatchingCharacterPosition(response.body().getMatches().getRows().get(i).getPosition().getName());
-                                data.setMatchId(response.body().getMatches().getRows().get(i).getMatchId());   ///매칭 상세정보 보기위함.
-                                String partycount="";
-                                if(response.body().getMatches().getRows().get(i).getPlayInfo().getPartyUserCount()==0)
-                                    partycount="솔로";
-                                else
-                                    partycount="파티: "+response.body().getMatches().getRows().get(i).getPlayInfo().getPartyUserCount()+"명";
-                                data.setMatchingType("일반전 / "+partycount+" / "+response.body().getMatches().getRows().get(i).getMap().getName()+" / "+response.body().getMatches().getRows().get(i).getPlayInfo().getPlayTime()/60+"분   "+response.body().getMatches().getRows().get(i).getPlayInfo().getResult());
-                                data.setMatchingResult(response.body().getMatches().getRows().get(i).getPlayInfo().getResult());
-                                adapter.addItem(data);
-                            }
-                            adapter.notifyDataSetChanged();
-                        }else
-                        {
-                            Glide.with(matching_result.this)
-                                    .load(R.drawable.newbie)
-                                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                                    .into(mostlyRecentCharacterImage);
-                            Toast.makeText(matching_result.this, "최근 10일간 경기 기록이없어요!!", Toast.LENGTH_SHORT).show();
-                        }
-                    }
+                                        if (response.body().getMatches().getRows().size() != 0) {
+                                            ArrayList<String> strings=new ArrayList<>();
+                                            for (int i = 0; i < response.body().getMatches().getRows().size(); i++) {
+                                                strings.add(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
+                                                Log.d(TAG,"최근 한 캐릭터 id들: "+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
+                                                // PlayerRecentCharacter.append(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterName()+"\n");
+                                            }
+                                            Map<String,Integer> count=new HashMap<>();
+                                            for(String word:strings){
+                                                if(!count.containsKey(word))
+                                                    count.put(word,1);
+                                                else{
+                                                    int value=count.get(word);
+                                                    value++;
+                                                    count.put(word,value);
+                                                }
+                                            }
+                                            List<String> mostFrequent=new ArrayList<>();
+                                            for(Map.Entry<String,Integer> e:count.entrySet()){
+                                                if(e.getValue()== Collections.max(count.values()))
+                                                    mostFrequent.add(e.getKey());
+                                            }
+                                            mostlyRecentCharacter=mostFrequent.get(0);
+                                            // Log.d(TAG,"가장 많이 나온 캐릭터의 ID 값은? : "+mostFrequent.get(0));
+                                            Glide.with(matching_result.this)
+                                                    .load("https://img-api.neople.co.kr/cy/characters/"+mostlyRecentCharacter)
+                                                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                                                    .into(mostlyRecentCharacterImage);
+                                            for(int i=0; i<response.body().getMatches().getRows().size(); i++)
+                                            {
+                                                matchResultRecycleModel data=new matchResultRecycleModel();
+                                                data.setBattlePoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getBattlePoint()));
+                                                data.setKDA(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+"킬 "+response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount()+"데스 "+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount()+"어시");
+                                                double killassi=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount());
+                                                double deathcnt=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount());
+                                                data.setKDAPOINT("KDA:"+String.format("%.2f",killassi/deathcnt));
+                                                data.setCharacterNameLevel(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterName()+" 레벨: "+response.body().getMatches().getRows().get(i).getPlayInfo().getLevel());
+                                                data.setMatchingCharacterImage("https://img-api.neople.co.kr/cy/characters/"+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
+                                                int damagePoint= (int) (response.body().getMatches().getRows().get(i).getPlayInfo().getDamagePoint()/1000);
+                                                int dealPoint=(int)(response.body().getMatches().getRows().get(i).getPlayInfo().getAttackPoint()/1000);
+                                                data.setDamagedPoint(damagePoint +"K");
+                                                data.setDealingPoint(dealPoint +"K");
+                                                Log.d(TAG,"딜량:"+damagePoint+"k");
+                                                data.setSightPoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getSightPoint()));
+                                                data.setMatchingCharacterPositionAttribute1("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(0).getId());
+                                                data.setMatchingCharacterPositionAttribute2("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(1).getId());
+                                                data.setMatchingCharacterPositionAttribute3("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(2).getId());
+                                                data.setPlaytime(response.body().getMatches().getRows().get(i).getDate());
+                                                data.setMatchingCharacterPosition(response.body().getMatches().getRows().get(i).getPosition().getName());
+                                                data.setMatchId(response.body().getMatches().getRows().get(i).getMatchId());   ///매칭 상세정보 보기위함.
+                                                String partycount="";
+                                                if(response.body().getMatches().getRows().get(i).getPlayInfo().getPartyUserCount()==0)
+                                                    partycount="솔로";
+                                                else
+                                                    partycount="파티: "+response.body().getMatches().getRows().get(i).getPlayInfo().getPartyUserCount()+"명";
+                                                data.setMatchingType("일반전 / "+partycount+" / "+response.body().getMatches().getRows().get(i).getMap().getName()+" / "+response.body().getMatches().getRows().get(i).getPlayInfo().getPlayTime()/60+"분   "+response.body().getMatches().getRows().get(i).getPlayInfo().getResult());
+                                                data.setMatchingResult(response.body().getMatches().getRows().get(i).getPlayInfo().getResult());
+                                                adapter.addItem(data);
+                                            }
+                                            adapter.notifyDataSetChanged();
+                                        }else
+                                        {
+                                            Glide.with(matching_result.this)
+                                                    .load(R.drawable.newbie)
+                                                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                                                    .into(mostlyRecentCharacterImage);
+                                            Toast.makeText(matching_result.this, "최근 10일간 경기 기록이없어요!!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
 
-                    @Override
-                    public void onFailure(Call<matchingRecordModel> call, Throwable t) {
-                        Log.d(TAG, "request 요청 URL 실패:"+call.request().url());
+                                    @Override
+                                    public void onFailure(Call<matchingRecordModel> call, Throwable t) {
+                                        Log.d(TAG, "request 요청 URL 실패:"+call.request().url());
 
+                                    }
+                                });
                     }
                 });
+            }
+        }).start();
+
+
     }
     /*
     public void getAllCharacterId(){
