@@ -42,7 +42,7 @@ public class MainRecyclerAdpater extends RecyclerView.Adapter<MainRecyclerAdpate
             public void onClick(View view) {
                 final Context context=view.getContext();
                 final Intent intent;
-                Toast.makeText(context, holder.textView1.getText(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, holder.textView1.getText()+"(으)로 이동합니다.", Toast.LENGTH_SHORT).show();
                 if(position==3)
                 {
                     intent=new Intent(context,WebContentActivity.class);

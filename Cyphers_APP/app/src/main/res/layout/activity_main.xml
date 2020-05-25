@@ -48,7 +48,9 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="12dp"
                 android:layout_weight="5"
+                android:imeOptions="actionDone"
                 android:fontFamily="@font/cookieblack"
+                android:textSize="20dp"
                 android:hint="@string/serach_hint"
                 android:inputType="text"
                 android:singleLine="true" />

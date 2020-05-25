@@ -97,12 +97,14 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                                     data.setSightPointDetail(Integer.toString(players.get(j).getPlayInfo().getSightPoint()));
                                     data.setNickname(players.get(j).getNickname());
                                     data.setPlayerId(players.get(j).getPlayerId());
-                                    data.setDealingDetailPoint((players.get(j).getPlayInfo().getAttackPoint())/1000 +"k");
-                                    data.setDamagedDetailPoint((players.get(j).getPlayInfo().getDamagePoint())/1000 +"k");
+                                    int damagePoint= (int) (players.get(j).getPlayInfo().getDamagePoint()/1000);
+                                    int dealPoint=(int)(players.get(j).getPlayInfo().getAttackPoint()/1000);
+                                    data.setDealingDetailPoint(dealPoint+"K");
+                                    data.setDamagedDetailPoint(damagePoint+"K");
                                     double killassi=(double)(players.get(j).getPlayInfo().getKillCount()+players.get(j).getPlayInfo().getAssistCount());
                                     double deathcnt=(double)(players.get(j).getPlayInfo().getDeathCount());
                                     double kda=(killassi/deathcnt);
-                                    data.setKDADetail(players.get(j).getPlayInfo().getKillCount()+" 킬 "+players.get(j).getPlayInfo().getDeathCount()+" 데스 "+players.get(j).getPlayInfo().getAssistCount()+"어시스트");
+                                    data.setKDADetail(players.get(j).getPlayInfo().getKillCount()+" 킬 "+players.get(j).getPlayInfo().getDeathCount()+" 데스 "+players.get(j).getPlayInfo().getAssistCount()+"어시");
                                     data.setKDAPOINTDetail("KDA:"+String.format("%.2f",killassi/deathcnt));
                                     data.setCharacterDetailNameLevel(players.get(j).getPlayInfo().getCharacterName()+" 레벨: "+players.get(j).getPlayInfo().getLevel());
                                     data.setMatchingDetailCharacterImage("https://img-api.neople.co.kr/cy/characters/"+players.get(j).getPlayInfo().getCharacterId());
@@ -217,7 +219,7 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                                     data.setDamagedDetailPoint((players.get(j).getPlayInfo().getDamagePoint())/1000 +"k");
                                     double killassi=(double)(players.get(j).getPlayInfo().getKillCount()+players.get(j).getPlayInfo().getAssistCount());
                                     double deathcnt=(double)(players.get(j).getPlayInfo().getDeathCount());
-                                    data.setKDADetail(players.get(j).getPlayInfo().getKillCount()+" 킬 "+players.get(j).getPlayInfo().getDeathCount()+" 데스 "+players.get(j).getPlayInfo().getAssistCount()+"어시스트");
+                                    data.setKDADetail(players.get(j).getPlayInfo().getKillCount()+" 킬 "+players.get(j).getPlayInfo().getDeathCount()+" 데스 "+players.get(j).getPlayInfo().getAssistCount()+"어시");
                                     data.setKDAPOINTDetail("KDA:"+String.format("%.2f",killassi/deathcnt));
                                     data.setCharacterDetailNameLevel(players.get(j).getPlayInfo().getCharacterName()+" 레벨: "+players.get(j).getPlayInfo().getLevel());
                                     data.setMatchingDetailCharacterImage("https://img-api.neople.co.kr/cy/characters/"+players.get(j).getPlayInfo().getCharacterId());

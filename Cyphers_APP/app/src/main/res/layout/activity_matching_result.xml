@@ -18,7 +18,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="wrap_content"
             android:padding="4dp"
             android:orientation="vertical">
 
@@ -35,10 +35,10 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="1"
+
                 android:elevation="5dp"
                 android:background="#ffffff"
                 android:layout_centerInParent="true"
@@ -104,16 +104,16 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:layout_weight="3"
+
                 android:background="#ffffff"
                 android:elevation="10dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
 
                     android:orientation="vertical">
@@ -209,6 +209,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
+                        android:layout_marginTop="5dp"
                        android:layout_marginLeft="10dp"
                         android:fontFamily="@font/ebsm"
 
@@ -286,8 +287,9 @@
                         android:id="@+id/ilban_win_rate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        android:layout_marginTop="5dp"
                         android:fontFamily="@font/ebsm"
+
                         android:gravity="left"
                         android:layout_marginLeft="10dp"
                         android:text="승률 : " />
@@ -321,13 +323,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
+                    android:textSize="10sp"
                     android:textStyle="bold"
                     android:fontFamily="@font/hsnoon"
                     android:layout_marginTop="6dp"
                     android:layout_gravity="center_horizontal"
                     android:text="최근 많이한 캐릭터 "
-                    android:gravity="center" />
+                    android:gravity="left" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_marginTop="10dp"
                 android:id="@+id/player_recent_most_character"
@@ -342,6 +344,7 @@
             <LinearLayout
                 android:layout_marginRight="3dp"
                 android:layout_width="0dp"
+                android:layout_marginLeft="5dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.5"
                 >

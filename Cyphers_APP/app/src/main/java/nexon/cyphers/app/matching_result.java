@@ -318,9 +318,10 @@ public class matching_result extends AppCompatActivity {
                                 data.setKDAPOINT("KDA:"+String.format("%.2f",killassi/deathcnt));
                                 data.setCharacterNameLevel(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterName()+" 레벨: "+response.body().getMatches().getRows().get(i).getPlayInfo().getLevel());
                                 data.setMatchingCharacterImage("https://img-api.neople.co.kr/cy/characters/"+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
-
-                                data.setDamagedPoint(((double)response.body().getMatches().getRows().get(i).getPlayInfo().getDamagePoint())/1000 +"k");
-                                data.setDealingPoint(((double)response.body().getMatches().getRows().get(i).getPlayInfo().getAttackPoint())/1000 +"k");
+                                int damagePoint= (int) (response.body().getMatches().getRows().get(i).getPlayInfo().getDamagePoint()/1000);
+                                int dealPoint=(int)(response.body().getMatches().getRows().get(i).getPlayInfo().getAttackPoint()/1000);
+                                data.setDamagedPoint(damagePoint +"K");
+                                data.setDealingPoint(dealPoint +"K");
                                 data.setSightPoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getSightPoint()));
                                 data.setMatchingCharacterPositionAttribute1("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(0).getId());
                                 data.setMatchingCharacterPositionAttribute2("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(1).getId());
@@ -409,8 +410,11 @@ public class matching_result extends AppCompatActivity {
                                 data.setKDAPOINT("KDA:"+String.format("%.2f",killassi/deathcnt));
                                 data.setCharacterNameLevel(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterName()+" 레벨: "+response.body().getMatches().getRows().get(i).getPlayInfo().getLevel());
                                 data.setMatchingCharacterImage("https://img-api.neople.co.kr/cy/characters/"+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
-                                data.setDamagedPoint(((double)response.body().getMatches().getRows().get(i).getPlayInfo().getDamagePoint())/1000 +"k");
-                                data.setDealingPoint(((double)response.body().getMatches().getRows().get(i).getPlayInfo().getAttackPoint())/1000 +"k");
+                                int damagePoint= (int) (response.body().getMatches().getRows().get(i).getPlayInfo().getDamagePoint()/1000);
+                                int dealPoint=(int)(response.body().getMatches().getRows().get(i).getPlayInfo().getAttackPoint()/1000);
+                                data.setDamagedPoint(damagePoint +"K");
+                                data.setDealingPoint(dealPoint +"K");
+                                Log.d(TAG,"딜량:"+damagePoint+"k");
                                 data.setSightPoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getSightPoint()));
                                 data.setMatchingCharacterPositionAttribute1("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(0).getId());
                                 data.setMatchingCharacterPositionAttribute2("https://img-api.neople.co.kr/cy/position-attributes/"+response.body().getMatches().getRows().get(i).getPosition().getAttribute().get(1).getId());
@@ -428,8 +432,6 @@ public class matching_result extends AppCompatActivity {
                                 adapter.addItem(data);
                             }
                             adapter.notifyDataSetChanged();
-
-
                         }else
                         {
                             Glide.with(matching_result.this)
