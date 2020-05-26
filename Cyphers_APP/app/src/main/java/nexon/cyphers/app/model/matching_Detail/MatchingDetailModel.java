@@ -2,8 +2,6 @@ package nexon.cyphers.app.model.matching_Detail;
 
 import java.util.List;
 
-import nexon.cyphers.app.model.matching_Detail.Player;
-
 
 public class MatchingDetailModel {
     private String date;

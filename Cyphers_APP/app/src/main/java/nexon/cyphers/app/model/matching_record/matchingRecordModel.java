@@ -1,7 +1,6 @@
 package nexon.cyphers.app.model.matching_record;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class matchingRecordModel {

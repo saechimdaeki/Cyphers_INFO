@@ -1,12 +1,6 @@
 package nexon.cyphers.app;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.widget.NestedScrollView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,22 +8,31 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import nexon.cyphers.app.Adapter.MatchingRecycleAdpater;
 import nexon.cyphers.app.model.GameTypeModel;
 import nexon.cyphers.app.model.Player;
-import nexon.cyphers.app.model.PlayerModel;
 import nexon.cyphers.app.model.PlayerInfo;
+import nexon.cyphers.app.model.PlayerModel;
+import nexon.cyphers.app.model.RecyclerViewModel.matchResultRecycleModel;
 import nexon.cyphers.app.model.TotalRank;
 import nexon.cyphers.app.model.TotalRankRow;
-import nexon.cyphers.app.model.RecyclerViewModel.matchResultRecycleModel;
 import nexon.cyphers.app.model.matching_record.matchingRecordModel;
 import nexon.cyphers.app.retrofit2.RetrofitFactory;
 import nexon.cyphers.app.retrofit2.RetrofitService;
@@ -134,7 +137,7 @@ public class matching_result extends AppCompatActivity {
                                 String nickname = model.get(0).getNickname();
                                 int grade = model.get(0).getGrade();
                                 PlayerNickname.setText(nickname);
-                                PlayerGrade.append(Integer.toString(grade)+"급");
+                                PlayerGrade.append(grade +"급");
                                 playerUniqueID = playerId;
 
                                 /*  UI 스레드에서 처리  */
@@ -256,7 +259,7 @@ public class matching_result extends AppCompatActivity {
                                         if(model.size()==0)
                                             PlayerRanking.setText("랭킹내역이 없습니다.");
                                         else
-                                            PlayerRanking.append(Integer.toString(model.get(0).getRank())+"위");
+                                            PlayerRanking.append(model.get(0).getRank() +"위");
                                     }
                                     @Override
                                     public void onFailure(Call<TotalRankRow> call, Throwable t) {
@@ -282,19 +285,17 @@ public class matching_result extends AppCompatActivity {
                         adapter=new MatchingRecycleAdpater();
                         recyclerView.setAdapter(adapter);
                         RetrofitService networkService=RetrofitFactory.create();
-                        networkService.GetPlayerMatchingRecord(playerUniqueID,"rating",30,getString(R.string.API_KEY))
+                        networkService.GetPlayerMatchingRecord(playerUniqueID,"rating",70,getString(R.string.API_KEY))
                                 .enqueue(new Callback<matchingRecordModel>() {
                                     @RequiresApi(api = Build.VERSION_CODES.N)
                                     @Override
                                     public void onResponse(Call<matchingRecordModel> call, Response<matchingRecordModel> response) {
-                                        Log.d(TAG, "request 요청 URL 성공:" + call.request().url());
+                                        Log.d(TAG,Integer.toString(response.body().getMatches().getRows().size()));
 
                                         if (response.body().getMatches().getRows().size() != 0) {
                                             ArrayList<String> strings=new ArrayList<>();
                                             for (int i = 0; i < response.body().getMatches().getRows().size(); i++) {
                                                 strings.add(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
-                                                Log.d(TAG,"최근 한 캐릭터 id들: "+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
-
                                             }
                                             Map<String,Integer> count=new HashMap<>();
                                             for(String word:strings){
@@ -322,7 +323,7 @@ public class matching_result extends AppCompatActivity {
                                                 matchResultRecycleModel data=new matchResultRecycleModel();
                                                 data.setBattlePoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getBattlePoint()));
                                                 data.setKDA(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+"킬 "+response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount()+"데스 "+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount()+"어시");
-                                                double killassi=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount());
+                                                double killassi= response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount();
                                                 double deathcnt=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount());
                                                 data.setKDAPOINT("KDA:"+String.format("%.2f",killassi/deathcnt));
                                                 data.setCharacterNameLevel(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterName()+" 레벨: "+response.body().getMatches().getRows().get(i).getPlayInfo().getLevel());
@@ -379,19 +380,16 @@ public class matching_result extends AppCompatActivity {
                         adapter=new MatchingRecycleAdpater();
                         recyclerView.setAdapter(adapter);
                         RetrofitService networkService=RetrofitFactory.create();
-                        networkService.GetPlayerMatchingRecord(playerUniqueID,"normal",30,getString(R.string.API_KEY))
+                        networkService.GetPlayerMatchingRecord(playerUniqueID,"normal",70,getString(R.string.API_KEY))
                                 .enqueue(new Callback<matchingRecordModel>() {
                                     @RequiresApi(api = Build.VERSION_CODES.N)
                                     @Override
                                     public void onResponse(Call<matchingRecordModel> call, Response<matchingRecordModel> response) {
-                                        Log.d(TAG, "request 요청 URL 성공:" + call.request().url());
-
                                         if (response.body().getMatches().getRows().size() != 0) {
+                                            Log.d("뀨",Integer.toString(response.body().getMatches().getRows().size()));
                                             ArrayList<String> strings=new ArrayList<>();
                                             for (int i = 0; i < response.body().getMatches().getRows().size(); i++) {
                                                 strings.add(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
-                                                Log.d(TAG,"최근 한 캐릭터 id들: "+response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterId());
-                                                // PlayerRecentCharacter.append(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterName()+"\n");
                                             }
                                             Map<String,Integer> count=new HashMap<>();
                                             for(String word:strings){
@@ -419,7 +417,7 @@ public class matching_result extends AppCompatActivity {
                                                 matchResultRecycleModel data=new matchResultRecycleModel();
                                                 data.setBattlePoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getBattlePoint()));
                                                 data.setKDA(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+"킬 "+response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount()+"데스 "+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount()+"어시");
-                                                double killassi=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount());
+                                                double killassi= response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount();
                                                 double deathcnt=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount());
                                                 data.setKDAPOINT("KDA:"+String.format("%.2f",killassi/deathcnt));
                                                 data.setCharacterNameLevel(response.body().getMatches().getRows().get(i).getPlayInfo().getCharacterName()+" 레벨: "+response.body().getMatches().getRows().get(i).getPlayInfo().getLevel());
@@ -469,24 +467,5 @@ public class matching_result extends AppCompatActivity {
 
 
     }
-    /*
-    public void getAllCharacterId(){
-        RetrofitService networkService=RetrofitFactory.create();
-        networkService.GetCharacterUniqueID(getString(R.string.API_KEY))
-                .enqueue(new Callback<CharacterInformation>() {
-                    @Override
-                    public void onResponse(Call<CharacterInformation> call, Response<CharacterInformation> response) {
-                        Log.d(TAG, "request 요청 성공 URL : "+call.request().url());
-                        List<character> model=response.body().getRows();
-                        Log.d(TAG,"로라스를 출력해야 정상 출력값: "+model.get(0).getCharacterName());
-                    }
 
-                    @Override
-                    public void onFailure(Call<CharacterInformation> call, Throwable t) {
-                        Log.d(TAG, "request 요청 실패 URL : "+call.request().url());
-                    }
-                });
-    }
-
-     */
 }

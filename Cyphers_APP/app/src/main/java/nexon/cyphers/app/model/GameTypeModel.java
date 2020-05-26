@@ -1,7 +1,5 @@
 package nexon.cyphers.app.model;
 
-import java.util.List;
-
 public class GameTypeModel {
      String gameTypeId; // 딱히..
      int winCount;

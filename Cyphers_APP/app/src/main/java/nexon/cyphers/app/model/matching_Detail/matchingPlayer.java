@@ -2,7 +2,6 @@ package nexon.cyphers.app.model.matching_Detail;
 
 import java.util.List;
 
-import nexon.cyphers.app.model.matching_record.PlayInfo;
 import nexon.cyphers.app.model.matching_record.Position;
 import nexon.cyphers.app.model.matching_record.map;
 

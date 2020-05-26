@@ -2,13 +2,11 @@ package nexon.cyphers.app.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.nfc.Tag;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,16 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import nexon.cyphers.app.MatchingDeatilActivity;
 import nexon.cyphers.app.R;
 import nexon.cyphers.app.matching_result;
 import nexon.cyphers.app.model.RecyclerViewModel.MatchingResultDetailModel;
-import nexon.cyphers.app.model.RecyclerViewModel.matchResultRecycleModel;
 
 public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingDetailRecycleAdapter.MatchItemViewHolder> {
 

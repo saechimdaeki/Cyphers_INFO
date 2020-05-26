@@ -11,6 +11,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -87,8 +90,7 @@ public class MainRecyclerAdpater extends RecyclerView.Adapter<MainRecyclerAdpate
         void onBind(MainRecycleModel data) {
             textView1.setText(data.getTitle());
             textView2.setText(data.getSubTitle());
-            imageView.setImageResource(data.getId());
-           // Glide.with(itemView.getContext()).load(data.getImageId()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imageView);
+            Glide.with(itemView.getContext()).load(data.getId()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imageView);
         }
     }
 }
