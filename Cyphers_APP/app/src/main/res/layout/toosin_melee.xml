@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:orientation="horizontal">
+            <EditText
+                android:background="@null"
+                android:id="@+id/toosin_melee_player_search"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="12dp"
+                android:layout_weight="5"
+                android:imeOptions="actionDone"
+                android:fontFamily="@font/cookieblack"
+                android:textSize="20dp"
+                android:hint="@string/serach_hint"
+                android:inputType="text"
+                android:singleLine="true" />
+            <ImageView
+                android:id="@+id/goSerach_melee"
+                android:clickable="true"
+                android:layout_marginRight="12dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_search_black_24dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/after_search"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/blue_A100"
+                android:fontFamily="@font/bm"
+                android:textSize="25dp"
+                android:text="nickname"
+                android:id="@+id/melee_nickname"
+                android:layout_gravity="center_horizontal"
+                />
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1.4"
+                    >
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/result_melee_image"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/bibum2" />
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/ssyoung"
+                        android:id="@+id/melee_winstreak"
+                        android:textSize="20dp"
+                        android:text="최대 연승:"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+
+                    android:layout_weight="1">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ranking_melee"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/yeonsung"
+                            android:text="랭킹: "
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ranking_point_melee"
+                            android:text="랭킹 포인트: "
+                            android:textSize="17dp"
+                            android:fontFamily="@font/cookiebold"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/ranking_melee"
+                            />
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:id="@+id/melee_win_cnt"
+                    android:fontFamily="@font/bm"
+                    android:layout_height="wrap_content"
+                    android:text="승리: "/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:id="@+id/melee_lose_cnt"
+                    android:fontFamily="@font/bm"
+                    android:layout_height="wrap_content"
+                    android:text="패배: "/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="랭킹"/>
+            <TextView
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="닉네임"/>
+            <TextView
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="RP"/>
+            <TextView
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="연승"/>
+            <TextView
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="전적"/>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/melee_recycle"/>
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

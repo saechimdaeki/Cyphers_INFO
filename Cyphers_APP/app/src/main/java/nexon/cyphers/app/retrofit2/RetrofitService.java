@@ -3,6 +3,7 @@ package nexon.cyphers.app.retrofit2;
 import nexon.cyphers.app.model.Character.CharacterInformation;
 import nexon.cyphers.app.model.PlayerInfo;
 import nexon.cyphers.app.model.PlayerModel;
+import nexon.cyphers.app.model.ToosinModel.ToosinModel;
 import nexon.cyphers.app.model.TotalRankRow;
 import nexon.cyphers.app.model.matching_Detail.MatchingDetailModel;
 import nexon.cyphers.app.model.matching_record.matchingRecordModel;
@@ -24,6 +25,7 @@ public interface RetrofitService {
     Call<TotalRankRow> GetTotalRANKING(@Query("playerId")String playerId,
                                        @Query("apikey") String apikey);
 
+
     @GET("cy/players/{playerId}/matches")
     Call<matchingRecordModel> GetPlayerMatchingRecord(
             @Path("playerId") String playerId,
@@ -31,13 +33,25 @@ public interface RetrofitService {
             @Query("limit") Integer limit,
             @Query("apikey")String apikey);
 
+
     @GET("cy/characters")
     Call<CharacterInformation> GetCharacterUniqueID(
             @Query("apikey") String apikey
     );
+
+
     @GET("cy/matches/{matchId}")
     Call<MatchingDetailModel> GetMatchingDetail(
             @Path("matchId") String matchId,
             @Query("apikey") String apikey
+    );
+
+
+
+    @GET("cy/ranking/tsj/{tsjType}")
+    Call<ToosinModel> GetTooSin(
+            @Path("tsjType") String tsjType,
+            @Query("playerId") String playerId,
+            @Query("apikey")String apikey
     );
 }

@@ -6,14 +6,15 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MatchingDeatilActivity"></activity>
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".Toosin.ToosinActivity"></activity>
+        <activity android:name=".MatchingDeatilActivity" />
         <activity android:name=".WebContentActivity" />
         <activity android:name=".LoadingActivity" />
         <activity android:name=".matching_result" />

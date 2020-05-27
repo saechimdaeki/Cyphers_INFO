@@ -26,16 +26,16 @@ import retrofit2.Response;
 public class MatchingDeatilActivity extends AppCompatActivity {
     String matchId;
     /* key값은 nickname, 나머지는 점수 */
-    Map<String,Double> dealPoint =new HashMap<>(),damagedPoint=new HashMap<>(),loseTeamDealPoint=new HashMap<>();
+    Map<String,Double> dealPoint =new HashMap<>(),damagedPoint=new HashMap<>();
     Map<String,Integer> battlePoint=new HashMap<>(),SightPoint=new HashMap<>(),killPoint=new HashMap<>(),assistPoint=new HashMap<>(),deathPoint=new HashMap<>();
     Map<String ,Double> kdaPoint=new HashMap<>();
-    Map.Entry<String,Double> maxDeal=null,maxDamaged=null,maxKdaPoint=null,loseTeamMaxdDeal=null;
+    Map.Entry<String,Double> maxDeal=null,maxDamaged=null,maxKdaPoint=null;
     Map.Entry<String,Integer> maxBattle=null,maxSight=null,maxKill=null,maxAssist=null,maxDeath=null;
     private static final String TAG ="matching_Detail" ;
     RecyclerView recyclerViewForWinner,recyclerViewForLooser;
     MatchingDetailRecycleAdapter adapterForWinner,adapterForLooser;
 
-    String maxDealUser,maxDamagedUser,maxBattleUser,maxSightUser,maxKillUser,maxAssistUser,maxDeathUser,maxKdaUser,losebutdealUser;
+    String maxDealUser,maxDamagedUser,maxBattleUser,maxSightUser,maxKillUser,maxAssistUser,maxDeathUser,maxKdaUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -242,8 +242,6 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                                         tmp+=" #최고의 딜러 ";
                                     if(players.get(j).getNickname().equals(maxKdaUser))
                                         tmp+=" #킬뎃왕 " ;
-                                    if(players.get(j).getNickname().equals(losebutdealUser))
-                                        tmp+="졌잘싸";
                                     data.setMatchingDetailTag(tmp);
                                     /* 메소드 모델 설정을 이렇게 하였기 때문에 일일이 할수밖에없음 */
                                     if(map.containsKey("101"))

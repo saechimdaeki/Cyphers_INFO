@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/toosin_punch"
+        android:enabled="true"
+        android:icon="@drawable/ic_punch"
+        android:title="투신전 격 "/>
+    <item
+        android:id="@+id/toosin_par"
+        android:enabled="true"
+        android:icon="@drawable/ic_target"
+        android:title="투신전 파"/>
+
+</menu>

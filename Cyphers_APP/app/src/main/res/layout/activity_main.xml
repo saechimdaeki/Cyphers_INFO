@@ -26,9 +26,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="10dp"
-            android:fontFamily="@font/binggrae"
+            android:fontFamily="@font/yeonsung"
             android:gravity="center"
-            android:text="사이퍼즈 INFO"
+            android:text="사이퍼즈 정보통신기"
             android:textColor="#26C6DA"
             android:textSize="30sp"
             android:textStyle="bold" />

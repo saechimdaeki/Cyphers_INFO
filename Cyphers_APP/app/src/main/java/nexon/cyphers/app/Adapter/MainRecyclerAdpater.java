@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import nexon.cyphers.app.R;
+import nexon.cyphers.app.Toosin.ToosinActivity;
 import nexon.cyphers.app.WebContentActivity;
 import nexon.cyphers.app.model.RecyclerViewModel.MainRecycleModel;
 
@@ -62,6 +63,10 @@ public class MainRecyclerAdpater extends RecyclerView.Adapter<MainRecyclerAdpate
                 {
                     intent=new Intent(context,WebContentActivity.class);
                     intent.putExtra("url","http://cyphers.nexon.com/cyphers/article/free");
+                    context.startActivity(intent);
+                }else if(position==6)
+                {
+                    intent=new Intent(context, ToosinActivity.class);
                     context.startActivity(intent);
                 }
             }
