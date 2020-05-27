@@ -16,6 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import nexon.cyphers.app.R;
 import nexon.cyphers.app.Toosin.Fragment.Toosin_Melee;
 import nexon.cyphers.app.Toosin.Fragment.Toosin_Par;
+import nexon.cyphers.app.Toosin.Fragment.Toosin_main;
 
 public class ToosinActivity extends AppCompatActivity {
 
@@ -23,7 +24,8 @@ public class ToosinActivity extends AppCompatActivity {
     private FragmentTransaction ft;
     private Toosin_Melee meleeFrag;
     private Toosin_Par parFrag;
-    private BottomNavigationView bottomNavigationView;
+    private Toosin_main mainfrag;
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,23 +33,9 @@ public class ToosinActivity extends AppCompatActivity {
         setContentView(R.layout.activity_toosin);
         meleeFrag=new Toosin_Melee();
         parFrag=new Toosin_Par();
-        bottomNavigationView = findViewById(R.id.bottomNavi);
+        mainfrag=new Toosin_main();
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.toosin_punch:
-                        setFrag(0);
-                        break;
-                    case R.id.toosin_par:
-                        setFrag(1);
-                        break;
-                }
-                return true;
-            }
-        });
-      setFrag(0);
+      setFrag(2);
 
     }
     public void setFrag(int n) {
@@ -66,6 +54,12 @@ public class ToosinActivity extends AppCompatActivity {
                 ft.commit();
                 Toast.makeText(this, "투신전 파(으)로 이동합니다", Toast.LENGTH_SHORT).show();
                 break;
+            case 2:
+                mainfrag=new Toosin_main();
+                ft.replace(R.id.main_frame,mainfrag);
+                ft.commit();
+                break;
+
         }
     }
 }

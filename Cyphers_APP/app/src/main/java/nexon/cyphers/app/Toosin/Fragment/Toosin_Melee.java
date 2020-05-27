@@ -157,11 +157,11 @@ public class Toosin_Melee extends Fragment {
                         Log.d("뀨", "request 요청 성공 URL: "+call.request().url());
                         List<Toosin> model=response.body().getRows();
                         nickname.setText(model.get(0).getNickname());
-                        rankingpoint.append(Integer.toString(model.get(0).getRatingPoint()));
-                        wincnt.append(Integer.toString(model.get(0).getWinCount()));
-                        losecnt.append(Integer.toString(model.get(0).getLoseCount()));
-                        ranking.append(model.get(0).getRank()+"위");
-                        winstreak.append(Integer.toString(model.get(0).getWinningStreak()));
+                        rankingpoint.setText("랭킹 포인트"+Integer.toString(model.get(0).getRatingPoint()));
+                        wincnt.setText("승리 :"+Integer.toString(model.get(0).getWinCount()));
+                        losecnt.setText("패배 :"+Integer.toString(model.get(0).getLoseCount()));
+                        ranking.setText(model.get(0).getRank()+"위");
+                        winstreak.setText("최대 연승:"+Integer.toString(model.get(0).getWinningStreak()));
                         int wincontinue=model.get(0).getWinningStreak();
                         if(wincontinue>=15)
                             Glide.with(getActivity()).load(R.drawable.grandmaster).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
