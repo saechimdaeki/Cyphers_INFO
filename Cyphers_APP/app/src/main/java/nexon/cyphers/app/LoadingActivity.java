@@ -5,26 +5,21 @@ import android.os.Handler;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import nexon.cyphers.app.databinding.ActivityLoadingBinding;
 
 public class LoadingActivity extends AppCompatActivity {
-    CircleImageView imageView;
-    int time;
 
+    int time;
+    ActivityLoadingBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loading);
-        imageView=findViewById(R.id.cyphers_loading_image);
+       binding= DataBindingUtil.setContentView(this,R.layout.activity_loading);
+       binding.setLoadingdata(this);
        time=getIntent().getIntExtra("where",0);
-
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
         StartLoading();
     }
     private void StartLoading(){
@@ -35,5 +30,8 @@ public class LoadingActivity extends AppCompatActivity {
                 finish();
             }
         }, time);
+    }
+    public void onclick(View view){
+        finish();
     }
 }

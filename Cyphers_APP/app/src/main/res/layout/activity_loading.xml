@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="loadingdata"
+            type="nexon.cyphers.app.LoadingActivity" />
+    </data>
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -32,6 +38,7 @@
         android:src="@drawable/bibum2"
         app:civ_border_width="2dp"
         app:civ_border_color="#FF000000"
+        android:onClick="@{loadingdata::onclick}"
         android:layout_weight="6"
         />
 
@@ -48,3 +55,4 @@
         android:textStyle="bold" />
 
 </LinearLayout>
+</layout>

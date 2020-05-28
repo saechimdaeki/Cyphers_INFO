@@ -17,7 +17,7 @@
         <activity android:name=".MatchingDeatilActivity" />
         <activity android:name=".WebContentActivity" />
         <activity android:name=".LoadingActivity" />
-        <activity android:name=".matching_result" />
+        <activity android:name=".Matching_result" />
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="stateAlwaysHidden">

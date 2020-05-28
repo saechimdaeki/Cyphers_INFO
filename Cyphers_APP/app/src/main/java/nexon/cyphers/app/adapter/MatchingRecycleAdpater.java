@@ -1,4 +1,4 @@
-package nexon.cyphers.app.Adapter;
+package nexon.cyphers.app.adapter;
 
 import android.content.Context;
 import android.content.Intent;

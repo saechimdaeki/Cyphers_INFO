@@ -1,4 +1,4 @@
-package nexon.cyphers.app.Adapter;
+package nexon.cyphers.app.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,16 +18,15 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import nexon.cyphers.app.R;
-import nexon.cyphers.app.matching_result;
+import nexon.cyphers.app.Matching_result;
+import nexon.cyphers.app.databinding.MatchingAllResultDetailBinding;
 import nexon.cyphers.app.model.RecyclerViewModel.MatchingResultDetailModel;
 
 public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingDetailRecycleAdapter.MatchItemViewHolder> {
 
 
     private ArrayList<MatchingResultDetailModel> listData = new ArrayList<>();
-
-
-
+    MatchingAllResultDetailBinding binding;
     @NonNull
     @Override
     public MatchItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -43,7 +42,7 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
             @Override
             public void onClick(View view) {
                 final Context context=view.getContext();
-                Intent intent=new Intent(context, matching_result.class);
+                Intent intent=new Intent(context, Matching_result.class);
                 intent.putExtra("nick",holder.nickname.getText());
                 context.startActivity(intent);
             }

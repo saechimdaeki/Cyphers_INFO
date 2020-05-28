@@ -6,14 +6,15 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import nexon.cyphers.app.Adapter.MatchingDetailRecycleAdapter;
+import nexon.cyphers.app.adapter.MatchingDetailRecycleAdapter;
+import nexon.cyphers.app.databinding.ActivityMatchingDeatilBinding;
 import nexon.cyphers.app.model.RecyclerViewModel.MatchingResultDetailModel;
 import nexon.cyphers.app.model.matching_Detail.MatchingDetailModel;
 import nexon.cyphers.app.model.matching_Detail.Player;
@@ -32,10 +33,10 @@ public class MatchingDeatilActivity extends AppCompatActivity {
     Map.Entry<String,Double> maxDeal=null,maxDamaged=null,maxKdaPoint=null;
     Map.Entry<String,Integer> maxBattle=null,maxSight=null,maxKill=null,maxAssist=null,maxDeath=null;
     private static final String TAG ="matching_Detail" ;
-    RecyclerView recyclerViewForWinner,recyclerViewForLooser;
     MatchingDetailRecycleAdapter adapterForWinner,adapterForLooser;
 
     String maxDealUser,maxDamagedUser,maxBattleUser,maxSightUser,maxKillUser,maxAssistUser,maxDeathUser,maxKdaUser;
+    ActivityMatchingDeatilBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,11 +46,8 @@ public class MatchingDeatilActivity extends AppCompatActivity {
             intent.putExtra("where",1000);
             startActivity(intent);
         }
-        setContentView(R.layout.activity_matching_deatil);
+        binding= DataBindingUtil.setContentView(this,R.layout.activity_matching_deatil);
         matchId=getIntent().getStringExtra("matchId");
-        recyclerViewForWinner=findViewById(R.id.matching_Detail_winner_recyclerview);
-        recyclerViewForLooser=findViewById(R.id.matching_Detail_looser_recyclerview);
-
         RetrofitService networkService= RetrofitFactory.create();
         networkService.GetMatchingDetail(matchId,getString(R.string.API_KEY))
                 .enqueue(new Callback<MatchingDetailModel>() {
@@ -323,12 +321,12 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                 });
         LinearLayoutManager linearLayoutManager1=new LinearLayoutManager(this);
         LinearLayoutManager linearLayoutManager2=new LinearLayoutManager(this);
-        recyclerViewForWinner.setLayoutManager(linearLayoutManager1);
-        recyclerViewForLooser.setLayoutManager(linearLayoutManager2);
+        binding.matchingDetailWinnerRecyclerview.setLayoutManager(linearLayoutManager1);
+        binding.matchingDetailLooserRecyclerview.setLayoutManager(linearLayoutManager2);
         adapterForWinner=new MatchingDetailRecycleAdapter();
         adapterForLooser=new MatchingDetailRecycleAdapter();
-        recyclerViewForWinner.setAdapter(adapterForWinner);
-        recyclerViewForLooser.setAdapter(adapterForLooser);
+        binding.matchingDetailWinnerRecyclerview.setAdapter(adapterForWinner);
+        binding.matchingDetailLooserRecyclerview.setAdapter(adapterForLooser);
     }
     public void calculate(){
         for(Map.Entry<String,Double> entry:dealPoint.entrySet())

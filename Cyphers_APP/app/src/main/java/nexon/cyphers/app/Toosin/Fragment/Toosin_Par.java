@@ -35,15 +35,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import nexon.cyphers.app.Adapter.ToosinCrawlerMeleeAdpater;
-import nexon.cyphers.app.Adapter.ToosinCrawlerParAdapter;
+import nexon.cyphers.app.adapter.ToosinCrawlerParAdapter;
 import nexon.cyphers.app.R;
-import nexon.cyphers.app.matching_result;
-import nexon.cyphers.app.model.Player;
 import nexon.cyphers.app.model.PlayerModel;
 import nexon.cyphers.app.model.ToosinModel.Toosin;
 import nexon.cyphers.app.model.ToosinModel.ToosinModel;
-import nexon.cyphers.app.model.ToosinModel.Toosin_melee_Crawling_model;
 import nexon.cyphers.app.model.ToosinModel.Toosin_par_Crawling_model;
 import nexon.cyphers.app.retrofit2.RetrofitFactory;
 import nexon.cyphers.app.retrofit2.RetrofitService;

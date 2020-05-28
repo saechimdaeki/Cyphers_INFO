@@ -5,34 +5,32 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
-import android.widget.ImageView;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.Arrays;
 import java.util.List;
 
-import nexon.cyphers.app.Adapter.MainRecyclerAdpater;
+import nexon.cyphers.app.adapter.MainRecyclerAdpater;
+import nexon.cyphers.app.databinding.ActivityMainBinding;
 import nexon.cyphers.app.model.RecyclerViewModel.MainRecycleModel;
 
 public class MainActivity extends AppCompatActivity {
+    ActivityMainBinding binding;
     private MainRecyclerAdpater adapter;
     private BackButtonPressHandler backButtonPressHandler;
     private static final String TAG ="Main" ;
     private String PlayerNickname;
-    TextView textView;
-    EditText editText;
-    ImageView imageView;
-    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding= DataBindingUtil.setContentView(this,R.layout.activity_main);
+        binding.setMaindata(this);
+
         if(savedInstanceState==null){
             new Thread(new Runnable() {
                 @Override
@@ -48,45 +46,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }).start();
         }
-        editText=findViewById(R.id.player_search);
-        imageView=findViewById(R.id.goSerach);
-        recyclerView=findViewById(R.id.main_recycle);
         backButtonPressHandler=new BackButtonPressHandler(this);
-        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        binding.playerSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if(i== EditorInfo.IME_ACTION_DONE)
-                    imageView.performClick();
+                    onButtonClick(textView);
                 return false;
             }
         });
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                if(editText.getText().toString().length()==0){
-                                    Toast.makeText(MainActivity.this, "검색할 닉네임을 입력해주세용", Toast.LENGTH_SHORT).show();
-                                }else{
-                                    PlayerNickname=editText.getText().toString();
-                                    Intent intent=new Intent(MainActivity.this,matching_result.class);
-                                    intent.putExtra("nick",PlayerNickname);
-                                    startActivity(intent);
-                                }
-                            }
-                        });
-                    }
-                }).start();
-            }
-        });
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        binding.mainRecycle.setLayoutManager(linearLayoutManager);
         adapter=new MainRecyclerAdpater();
-        recyclerView.setAdapter(adapter);
+        binding.mainRecycle.setAdapter(adapter);
         GetRecycle();
     }
     private void GetRecycle(){
@@ -138,12 +110,27 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         }).start();
-
-
-
-
     }
-
+    public void onButtonClick(View view){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(binding.playerSearch.getText().toString().length()==0){
+                            Toast.makeText(MainActivity.this, "검색할 닉네임을 입력해주세용", Toast.LENGTH_SHORT).show();
+                        }else{
+                            PlayerNickname=binding.playerSearch.getText().toString();
+                            Intent intent=new Intent(MainActivity.this, Matching_result.class);
+                            intent.putExtra("nick",PlayerNickname);
+                            startActivity(intent);
+                        }
+                    }
+                });
+            }
+        }).start();
+    }
 
     @Override
     public void onBackPressed() {

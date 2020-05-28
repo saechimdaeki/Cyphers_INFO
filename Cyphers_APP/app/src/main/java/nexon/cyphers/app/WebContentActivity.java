@@ -6,18 +6,21 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
+import nexon.cyphers.app.databinding.ActivityWebContentBinding;
 
 public class WebContentActivity extends AppCompatActivity {
-    private WebView mWebView;
+    ActivityWebContentBinding binding;
+
     private WebSettings mWebSettings;
     private String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web_content);
-        mWebView = findViewById(R.id.webView);
-        mWebView.setWebViewClient(new WebViewClient());
-        mWebSettings = mWebView.getSettings();
+        binding= DataBindingUtil.setContentView(this,R.layout.activity_web_content);
+        binding.webView.setWebViewClient(new WebViewClient());
+        mWebSettings =  binding.webView.getSettings();
         mWebSettings.setJavaScriptEnabled(true);
         mWebSettings.setSupportMultipleWindows(false);
         mWebSettings.setJavaScriptCanOpenWindowsAutomatically(false);
@@ -33,7 +36,7 @@ public class WebContentActivity extends AppCompatActivity {
         mWebSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         mWebSettings.setDomStorageEnabled(true);
         url=getIntent().getStringExtra("url");
-        mWebView.loadUrl(url);
+        binding.webView.loadUrl(url);
     }
 
 
