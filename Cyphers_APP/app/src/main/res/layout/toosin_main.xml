@@ -10,27 +10,23 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
         android:fontFamily="@font/gmarketbold"
         android:gravity="center_horizontal"
         android:text="투신전 많이 사랑해주세요"
         android:textColor="#00B8D4"
-        android:textSize="20dp" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:textSize="15dp" />
 
-        android:layout_weight="1">
     <ImageView
+        android:layout_margin="5dp"
         android:clickable="true"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:src="@drawable/trixie"
         />
-
         <com.lid.lib.LabelButtonView
+            android:layout_margin="5dp"
             android:id="@+id/labelbutton2"
             android:layout_width="200dp"
             android:layout_height="48dp"
@@ -45,21 +41,19 @@
             app:label_orientation="LEFT_TOP"
             app:label_text="격"
             app:label_textSize="12sp" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1">
+
+
 
     <ImageView
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:clickable="true"
         android:src="@drawable/mish"
         />
         <com.lid.lib.LabelButtonView
+            android:layout_margin="5dp"
             android:id="@+id/labelbutton1"
             android:layout_width="200dp"
             android:layout_height="48dp"
@@ -75,7 +69,7 @@
             app:label_text="파"
             app:label_textSize="12sp"
             />
-    </LinearLayout>
+
 
 
 
