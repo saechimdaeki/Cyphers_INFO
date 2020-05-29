@@ -1,77 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="10dp"
-    android:layout_marginTop="30dp"
-    android:layout_marginRight="10dp"
-    android:layout_marginBottom="30dp">
+    android:background="#575757"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/gmarketbold"
+        android:gravity="center_horizontal"
         android:text="투신전 많이 사랑해주세요"
-        android:fontFamily="@font/cookiebold"
-        android:textSize="20dp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.071"
-        tools:layout_editor_absoluteX="0dp"
-        android:gravity="center_horizontal" />
+        android:textColor="#00B8D4"
+        android:textSize="20dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:layout_weight="1">
+    <ImageView
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/trixie"
+        />
+
+        <com.lid.lib.LabelButtonView
+            android:id="@+id/labelbutton2"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/round_rectangle"
+            android:gravity="center"
+            android:text="투신전"
+            android:textColor="#283593"
+            app:label_backgroundColor="#C2185B"
+            app:label_distance="20dp"
+            app:label_height="20dp"
+            app:label_orientation="LEFT_TOP"
+            app:label_text="격"
+            app:label_textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="0dp"
-        android:layout_height="400dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/toosin_main"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.lid.lib.LabelButtonView
-        android:id="@+id/labelbutton2"
-        android:layout_width="100dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginBottom="68dp"
-        android:background="@drawable/round_rectangle"
-        android:gravity="center"
-        android:text="투신전"
-        android:textColor="#ffffff"
-        app:label_backgroundColor="#C2185B"
-        app:label_distance="20dp"
-        app:label_height="20dp"
-        app:label_orientation="LEFT_TOP"
-        app:label_text="격"
-        app:label_textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.lid.lib.LabelButtonView
-        android:id="@+id/labelbutton"
-        android:layout_width="100dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginRight="52dp"
-        android:layout_marginBottom="68dp"
-        android:background="@drawable/round_rectangle"
-        android:gravity="center"
-        android:text="투신전"
-        android:textColor="#ffffff"
-        app:label_backgroundColor="#C2185B"
-        app:label_distance="20dp"
-        app:label_height="20dp"
-        app:label_orientation="RIGHT_TOP"
-        app:label_text="파"
-        app:label_textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:clickable="true"
+        android:src="@drawable/mish"
+        />
+        <com.lid.lib.LabelButtonView
+            android:id="@+id/labelbutton1"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:background="@drawable/round_rectangle"
+            android:gravity="center"
+            android:text="투신전"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#283593"
+            app:label_backgroundColor="#C2185B"
+            app:label_distance="20dp"
+            app:label_height="20dp"
+            app:label_orientation="RIGHT_TOP"
+            app:label_text="파"
+            app:label_textSize="12sp"
+            />
+    </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</LinearLayout>

@@ -17,6 +17,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import nexon.cyphers.app.PositionActivity;
 import nexon.cyphers.app.R;
 import nexon.cyphers.app.Toosin.ToosinActivity;
 import nexon.cyphers.app.WebContentActivity;
@@ -53,6 +54,16 @@ public class MainRecyclerAdpater extends RecyclerView.Adapter<MainRecyclerAdpate
                     intent.putExtra("url","http://cyphers.nexon.com/cyphers/article/art");
                     context.startActivity(intent);
                 }
+                else if(position==5)
+                {
+                    intent=new Intent(context, PositionActivity.class);
+                    context.startActivity(intent);
+                }
+                else if(position==6)
+                {
+                    intent=new Intent(context, ToosinActivity.class);
+                    context.startActivity(intent);
+                }
                 else if(position==8)
                 {
                     intent=new Intent(context,WebContentActivity.class);
@@ -64,9 +75,10 @@ public class MainRecyclerAdpater extends RecyclerView.Adapter<MainRecyclerAdpate
                     intent=new Intent(context,WebContentActivity.class);
                     intent.putExtra("url","http://cyphers.nexon.com/cyphers/article/free");
                     context.startActivity(intent);
-                }else if(position==6)
+                }else if(position==10)
                 {
-                    intent=new Intent(context, ToosinActivity.class);
+                    intent=new Intent(context, WebContentActivity.class);
+                    intent.putExtra("url","http://cyphers.nexon.com/cyphers/game/item/itembox.mobile#2");
                     context.startActivity(intent);
                 }
             }

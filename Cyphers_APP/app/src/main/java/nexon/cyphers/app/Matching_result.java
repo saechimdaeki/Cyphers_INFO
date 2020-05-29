@@ -132,7 +132,7 @@ public class Matching_result extends AppCompatActivity {
                                             binding.playerClanName.append(" 없음 ");
                                         else
                                             binding.playerClanName.append(response.body().getClanName());
-                                        PlayerTierName=(response.body().getTierName());
+                                        binding.rankingTierName.setText(response.body().getTierName());
 
                                         if(response.body().getTierName()==null)
                                             binding.tierImage.setImageResource(R.drawable.newbie);
@@ -163,7 +163,7 @@ public class Matching_result extends AppCompatActivity {
                                             else{
                                                 binding.ilbanWinningNumber.append(Integer.toString(models.get(i).getWinCount()));
                                                 binding.ilbanLoseNumber.append(Integer.toString(models.get(i).getLoseCount()));
-                                                binding.ilbanLoseNumber.append(Integer.toString(models.get(i).getStopCount()));
+                                                binding.ilbanStopNumber.append(Integer.toString(models.get(i).getStopCount()));
                                                 if(models.get(i).getWinCount()>0 && models.get(i).getLoseCount()>0)
                                                     binding.ilbanWinRate.append((models.get(i).getWinCount()*100)/(models.get(i).getWinCount()+models.get(i).getLoseCount())+"%");
                                                 else
@@ -197,11 +197,9 @@ public class Matching_result extends AppCompatActivity {
                                     public void onResponse(Call<TotalRankRow> call, Response<TotalRankRow> response) {
                                         List<TotalRank> model = response.body().getRows();
                                         if(model.size()==0)
-                                            binding.playerTotalRank.append("랭킹내역이 없습니다.");
+                                            binding.playerTotalRank.append("\n랭킹내역이 없습니다.");
                                         else
                                             binding.playerTotalRank.append(model.get(0).getRank()+"위");
-
-                                        Log.d("랭킹",Integer.toString(model.get(0).getRank()));
                                     }
                                     @Override
                                     public void onFailure(Call<TotalRankRow> call, Throwable t) {
@@ -264,7 +262,7 @@ public class Matching_result extends AppCompatActivity {
                                             {
                                                 matchResultRecycleModel data=new matchResultRecycleModel();
                                                 data.setBattlePoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getBattlePoint()));
-                                                data.setKDA(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+"킬 "+response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount()+"데스 "+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount()+"어시");
+                                                data.setKDA(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+"킬 /"+response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount()+"데스 /"+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount()+"어시");
                                                 double killassi= response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount();
                                                 double deathcnt=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount());
                                                 data.setKDAPOINT("KDA:"+String.format("%.2f",killassi/deathcnt));
@@ -358,7 +356,7 @@ public class Matching_result extends AppCompatActivity {
                                             {
                                                 matchResultRecycleModel data=new matchResultRecycleModel();
                                                 data.setBattlePoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getBattlePoint()));
-                                                data.setKDA(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+"킬 "+response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount()+"데스 "+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount()+"어시");
+                                                data.setKDA(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+"킬 /"+response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount()+"데스 /"+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount()+"어시");
                                                 double killassi= response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount();
                                                 double deathcnt=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount());
                                                 data.setKDAPOINT("KDA:"+String.format("%.2f",killassi/deathcnt));

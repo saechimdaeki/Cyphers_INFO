@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         binding.playerSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                if(i== EditorInfo.IME_ACTION_DONE)
+                if(i== EditorInfo.IME_ACTION_SEARCH)
                     onButtonClick(textView);
                 return false;
             }
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         "세계관을 알고 게임을하면 백전백승",
                         "(웹 뷰) 사기케 너프좀",
                         "(웹 뷰) 자게이",
-                        "처음 보는 아이템들도 있단다"
+                        "(웹 뷰) 처음 보는 아이템들도 있단다"
                 );
                 final List<Integer> listID=Arrays.asList(
                         R.drawable.wesly,R.drawable.tien,R.drawable.ranking,R.drawable.louis,R.drawable.clare,R.drawable.position,R.drawable.ton,

@@ -16,8 +16,8 @@
     tools:context=".MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/green_A100"
+        android:layout_height="150dp"
+        android:background="#575757"
         android:orientation="vertical"
         >
 
@@ -40,7 +40,13 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:orientation="horizontal">
-
+            <ImageView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/cyphers_loading_image"
+                android:layout_width="30dp"
+                android:layout_gravity="center"
+                android:layout_height="30dp"
+                android:src="@drawable/c" />
             <EditText
                 android:background="@null"
                 android:id="@+id/player_search"
@@ -48,7 +54,7 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="12dp"
                 android:layout_weight="5"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionSearch"
                 android:fontFamily="@font/cookieblack"
                 android:textSize="20dp"
                 android:hint="@string/serach_hint"

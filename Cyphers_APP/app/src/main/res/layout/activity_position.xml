@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="positiondata"
+            type="nexon.cyphers.app.PositionActivity" />
+
+    </data>
+<androidx.core.widget.NestedScrollView
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PositionActivity">
+    <LinearLayout
+        android:descendantFocusability="blocksDescendants"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="공용"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:background="#ffffff"
+        android:elevation="7dp"
+        android:textSize="20dp"
+        android:fontFamily="@font/hsnoon"
+        />
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/commonRecyclerView"
+            />
+
+        <TextView
+            android:elevation="7dp"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="탱커"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:textSize="20dp"
+            android:fontFamily="@font/hsnoon"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/tankerRecyclerView"
+            />
+        <TextView
+            android:elevation="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="근거리딜러"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:textSize="20dp"
+            android:background="#ffffff"
+            android:fontFamily="@font/hsnoon"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/shortRecyclerView"
+            />
+        <TextView
+            android:elevation="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="원거리딜러"
+            android:background="#ffffff"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:fontFamily="@font/hsnoon"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/longRecyclerView"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="서포터"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:background="#ffffff"
+            android:textSize="20dp"
+            android:fontFamily="@font/hsnoon"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/supportRecyclerView"
+            />
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
+</layout>

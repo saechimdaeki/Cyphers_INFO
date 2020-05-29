@@ -24,7 +24,7 @@ public class Toosin_main extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.toosin_main, container, false);
-            button1=view.findViewById(R.id.labelbutton);
+            button1=view.findViewById(R.id.labelbutton1);
             buutton2=view.findViewById(R.id.labelbutton2);
             button1.setOnClickListener(new View.OnClickListener() {
                 @Override

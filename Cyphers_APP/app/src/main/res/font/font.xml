@@ -45,5 +45,21 @@
         android:fontStyle = "normal"
         android:fontWeight = "400"
         android:font = "@font/yeonsung"/>
+    <font
+        android:fontStyle = "normal"
+        android:fontWeight = "400"
+        android:font = "@font/yeonsung"/>
+    <font
+        android:fontStyle = "normal"
+        android:fontWeight = "400"
+        android:font = "@font/gmarketbold"/>
+    <font
+        android:fontStyle = "normal"
+        android:fontWeight = "400"
+        android:font = "@font/gmarketlight"/>
+    <font
+        android:fontStyle = "normal"
+        android:fontWeight = "400"
+        android:font = "@font/gmatketmedium"/>
 
 </font-family>
