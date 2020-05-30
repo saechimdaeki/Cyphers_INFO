@@ -17,8 +17,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import nexon.cyphers.app.R;
 import nexon.cyphers.app.Matching_result;
+import nexon.cyphers.app.R;
 import nexon.cyphers.app.databinding.MatchingAllResultDetailBinding;
 import nexon.cyphers.app.model.RecyclerViewModel.MatchingResultDetailModel;
 

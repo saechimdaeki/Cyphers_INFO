@@ -22,6 +22,7 @@ import nexon.cyphers.app.R;
 import nexon.cyphers.app.Toosin.ToosinActivity;
 import nexon.cyphers.app.WebContentActivity;
 import nexon.cyphers.app.model.RecyclerViewModel.MainRecycleModel;
+import nexon.cyphers.app.story.StoryActivity;
 
 public class MainRecyclerAdpater extends RecyclerView.Adapter<MainRecyclerAdpater.ItemViewHolder> {
 
@@ -62,6 +63,11 @@ public class MainRecyclerAdpater extends RecyclerView.Adapter<MainRecyclerAdpate
                 else if(position==6)
                 {
                     intent=new Intent(context, ToosinActivity.class);
+                    context.startActivity(intent);
+                }
+                else if(position==7)
+                {
+                    intent=new Intent(context, StoryActivity.class);
                     context.startActivity(intent);
                 }
                 else if(position==8)

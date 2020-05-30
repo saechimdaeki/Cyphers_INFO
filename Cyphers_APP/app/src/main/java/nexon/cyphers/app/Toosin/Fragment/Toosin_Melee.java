@@ -23,7 +23,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
@@ -37,8 +36,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import nexon.cyphers.app.adapter.ToosinCrawlerMeleeAdpater;
 import nexon.cyphers.app.R;
+import nexon.cyphers.app.adapter.ToosinCrawlerMeleeAdpater;
 import nexon.cyphers.app.model.PlayerModel;
 import nexon.cyphers.app.model.ToosinModel.Toosin;
 import nexon.cyphers.app.model.ToosinModel.ToosinModel;

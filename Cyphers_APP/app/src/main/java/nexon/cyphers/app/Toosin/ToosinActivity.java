@@ -1,17 +1,13 @@
 package nexon.cyphers.app.Toosin;
 
-import androidx.annotation.NonNull;
+import android.os.Build;
+import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
-import android.os.Build;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toast;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import nexon.cyphers.app.R;
 import nexon.cyphers.app.Toosin.Fragment.Toosin_Melee;

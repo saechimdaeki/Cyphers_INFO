@@ -8,7 +8,7 @@ android {
     }
     defaultConfig {
         applicationId "nexon.cyphers.app"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -49,4 +49,7 @@ dependencies {
     implementation 'com.shreyaspatil:MaterialDialog:2.1'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.airbnb.android:lottie:3.0.0'
+    implementation 'me.relex:circleindicator:2.1.4'
+    implementation 'com.wajahatkarim3.easyflipviewpager:easyflipviewpager:2.0.0'
+
 }

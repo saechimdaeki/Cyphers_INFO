@@ -1,10 +1,10 @@
 package nexon.cyphers.app;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
-import android.os.Bundle;
 
 import nexon.cyphers.app.adapter.PositionRecyclerAdpater;
 import nexon.cyphers.app.databinding.ActivityPositionBinding;

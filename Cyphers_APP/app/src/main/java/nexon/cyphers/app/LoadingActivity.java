@@ -1,8 +1,5 @@
 package nexon.cyphers.app;
 
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -10,11 +7,6 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.airbnb.lottie.LottieAnimationView;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 import nexon.cyphers.app.databinding.ActivityLoadingBinding;
 
 public class LoadingActivity extends AppCompatActivity {

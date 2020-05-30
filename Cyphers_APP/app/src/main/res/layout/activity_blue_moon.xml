@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="blueData"
+            type="nexon.cyphers.app.story.bluemoon.BlueMoonActivity" />
+
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#575757"
+        tools:context=".story.bluemoon.BlueMoonActivity">
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/blueMoonViewpager"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"/>
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/bluemoon_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            app:ci_width="5dp"/>
+
+    </LinearLayout>
+</layout>
