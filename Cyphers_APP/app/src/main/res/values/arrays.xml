@@ -175,6 +175,30 @@
         <item>모닝콜</item>
         <item>굿나잇</item>
     </string-array>
+    <string-array name="PremiumVoiceLorasUrl">
+    <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_main.mp3</item>
+    <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_social01.mp3</item>
+     <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_social02.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_social03.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_social04.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_social05.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_social06.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_social07.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_social08.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_provoke.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_kill01.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_kill02.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_kill03.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_kill04.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_kill05.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_kill06_01.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_kill06_02.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_kill06_03.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_kill12.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_kill13.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_kill14.mp3</item>
+        <item>http://static.cyphers.co.kr/media/voicebox/loras/v_loras_sp01_kill15.mp3</item>
+    </string-array>
 
 
 </resources>

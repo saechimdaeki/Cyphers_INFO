@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +62,8 @@ public class CharacterFragment extends Fragment {
     private void getdata(){
         crawlingcharacter crawling=new crawlingcharacter();
         crawling.execute();
+        crawlingvoice crawlingvoice=new crawlingvoice();
+        crawlingvoice.execute();
     }
 
     private class crawlingcharacter extends AsyncTask<Void , Void, Void> {
@@ -137,6 +140,34 @@ public class CharacterFragment extends Fragment {
             mediaPlayer.stop();
             mediaPlayer.release();
             mediaPlayer = null;
+        }
+    }
+    private class crawlingvoice extends AsyncTask<Void , Void, Void> {
+        ArrayList<String> voice_action=new ArrayList<>();
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            try {
+                Document doc = Jsoup.connect("http://cyphers.nexon.com/cyphers/contents/voice/loras").get();
+                final Elements actions=doc.select("#defaultVoices");
+                final String action=actions.html();
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        for(Element element:actions)
+                        {
+                            voice_action.add(element.text());
+                        }
+                        Log.d("보이스",action);
+                        for(int i=0; i<voice_action.size(); i++)
+                            Log.d("보이스액숀",voice_action.get(i));
+                    }
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
         }
     }
 }
