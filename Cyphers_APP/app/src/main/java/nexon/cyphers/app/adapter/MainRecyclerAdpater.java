@@ -17,6 +17,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import nexon.cyphers.app.cypher.CyphersInfoActivity;
 import nexon.cyphers.app.PositionActivity;
 import nexon.cyphers.app.R;
 import nexon.cyphers.app.Toosin.ToosinActivity;
@@ -49,7 +50,12 @@ public class MainRecyclerAdpater extends RecyclerView.Adapter<MainRecyclerAdpate
                 final Context context=view.getContext();
                 final Intent intent;
                 Toast.makeText(context, holder.textView1.getText()+"(으)로 이동합니다.", Toast.LENGTH_SHORT).show();
-                if(position==3)
+                if(position==1)
+                {
+                    intent=new Intent(context, CyphersInfoActivity.class);
+                    context.startActivity(intent);
+                }
+                else if(position==3)
                 {
                     intent=new Intent(context,WebContentActivity.class);
                     intent.putExtra("url","http://cyphers.nexon.com/cyphers/article/art");

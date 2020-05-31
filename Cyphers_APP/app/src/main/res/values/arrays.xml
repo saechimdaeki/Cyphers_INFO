@@ -142,7 +142,38 @@
         <item>http://pub.cyphers.co.kr/images2/guide/2019/02/20/1550634408861.png</item>
         <item>http://pub.cyphers.co.kr/images2/guide/2019/06/20/1561013414554.png</item>
         <item>http://pub.cyphers.co.kr/images2/guide/2020/02/13/1581554601137.png</item>
+    </string-array>
 
+    <string-array name="premiumVoiceAction">
+        <item>메인대사</item>
+        <item>^^ (웃음)</item>
+        <item>ㅠㅠ (울음)</item>
+        <item>인사</item>
+        <item>궁금</item>
+        <item>감사</item>
+        <item>춤</item>
+        <item>슬픔</item>
+        <item>기쁨</item>
+        <item>도발</item>
+        <item>첫 킬</item>
+        <item>두 번째 킬</item>
+        <item>세 번째 킬</item>
+        <item>네 번째 킬</item>
+        <item>다섯 번째 킬</item>
+        <item>여섯 번 이상 킬-1</item>
+        <item>여섯 번 이상 킬-2</item>
+        <item>여섯 번 이상 킬-3</item>
+        <item>짧은 시간 내에 2킬</item>
+        <item>짧은 시간 내에 3킬</item>
+        <item>짧은 시간 내에 4킬</item>
+        <item>짧은 시간 내에 5킬</item>
+    </string-array>
+
+    <string-array name="messageAction">
+        <item>카톡 수신음</item>
+        <item>문자 수신음</item>
+        <item>모닝콜</item>
+        <item>굿나잇</item>
     </string-array>
 
 

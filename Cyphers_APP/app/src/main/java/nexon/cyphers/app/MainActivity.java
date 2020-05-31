@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 );
                 final List<String> ListSubTitle=Arrays.asList(
                         "사이퍼즈 이벤트/업데이트/오싸를 살펴봐용",
-                        "사이퍼즈의 사이퍼들에대해 집중탐구",
+                        "사이퍼들에 대한 정보를 분석해봐요",
                         "이 캐릭터는 내가 NO.1",
                         "(웹 뷰) 재미있는 게임캐릭터 아트들",
                         "공략 게시판을 정독하면 티어상승",
