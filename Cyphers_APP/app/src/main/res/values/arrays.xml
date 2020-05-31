@@ -143,7 +143,7 @@
         <item>http://pub.cyphers.co.kr/images2/guide/2019/06/20/1561013414554.png</item>
         <item>http://pub.cyphers.co.kr/images2/guide/2020/02/13/1581554601137.png</item>
     </string-array>
-testtest
+
     <string-array name="premiumVoiceAction">
         <item>메인대사</item>
         <item>^^ (웃음)</item>
