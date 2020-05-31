@@ -12,3 +12,6 @@
 /captures
 .externalNativeBuild
 .cxx
+/app/src/main/res/values/arrays.xml
+/app/src/main/res/values/strings.xml
+

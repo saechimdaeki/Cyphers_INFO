@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".story.supermoon.SuperMoonActivity"></activity>
+        <activity android:name=".cypher.CyphersInfoActivity"></activity>
+        <activity android:name=".story.supermoon.SuperMoonActivity" />
         <activity android:name=".story.bluemoon.BlueMoonActivity" />
         <activity android:name=".story.eclipse.EclipseActivity" />
         <activity android:name=".story.StoryActivity" />

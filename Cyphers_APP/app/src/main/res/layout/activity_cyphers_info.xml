@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="chpyersdata"
+            type="nexon.cyphers.app.cypher.CyphersInfoActivity" />
+
+    </data>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".cypher.CyphersInfoActivity">
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="좌우로 스와이프하여 좋아하는 사이퍼를 클릭해봐용"
+        android:fontFamily="@font/cookiebold"
+        android:textAlignment="center"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cyphers_recycler"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/character_frame"
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
+</LinearLayout>
+</layout>
