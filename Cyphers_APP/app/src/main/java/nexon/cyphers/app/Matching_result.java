@@ -265,7 +265,7 @@ public class Matching_result extends AppCompatActivity {
                                             {
                                                 matchResultRecycleModel data=new matchResultRecycleModel();
                                                 data.setBattlePoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getBattlePoint()));
-                                                data.setKDA(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+"킬 /"+response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount()+"데스 /"+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount()+"어시");
+                                                data.setKDA(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+"킬 / "+response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount()+"데스 / "+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount()+"어시");
                                                 double killassi= response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount();
                                                 double deathcnt=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount());
                                                 data.setKDAPOINT("KDA:"+String.format("%.2f",killassi/deathcnt));
@@ -359,7 +359,7 @@ public class Matching_result extends AppCompatActivity {
                                             {
                                                 matchResultRecycleModel data=new matchResultRecycleModel();
                                                 data.setBattlePoint(Integer.toString(response.body().getMatches().getRows().get(i).getPlayInfo().getBattlePoint()));
-                                                data.setKDA(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+"킬 /"+response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount()+"데스 /"+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount()+"어시");
+                                                data.setKDA(response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+"킬 / "+response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount()+"데스 / "+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount()+"어시");
                                                 double killassi= response.body().getMatches().getRows().get(i).getPlayInfo().getKillCount()+response.body().getMatches().getRows().get(i).getPlayInfo().getAssistCount();
                                                 double deathcnt=(double)(response.body().getMatches().getRows().get(i).getPlayInfo().getDeathCount());
                                                 data.setKDAPOINT("KDA:"+String.format("%.2f",killassi/deathcnt));

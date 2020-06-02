@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="characterFragment"
@@ -11,12 +12,14 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:background="@color/white">
 
         <LinearLayout
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -468,6 +471,63 @@
                     android:textColor="#444"
                     />
             </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="2dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/character_tag"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:fontFamily="@font/ebsl"
+                android:textColor="#575757"
+                android:text="보이스 박스"
+                />
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:id="@+id/premiumvoice"
+                    android:onClick="@{characterFragment::onClickPremium}"
+                    android:src="@drawable/premium"/>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:onClick="@{characterFragment::onClickDefalut}"
+                    android:src="@drawable/default_voice"/>
+              <de.hdodenhof.circleimageview.CircleImageView
+                  android:layout_width="0dp"
+                  android:layout_height="80dp"
+                  android:layout_weight="1"
+                  android:onClick="@{characterFragment::onclickMessage}"
+                  android:src="@drawable/message"/>
+
+
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/voiceRecycle"
+                android:visibility="gone"
+                />
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
