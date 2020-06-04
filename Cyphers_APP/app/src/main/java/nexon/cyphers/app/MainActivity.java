@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import java.util.Arrays;
 import java.util.List;
 
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 import nexon.cyphers.app.adapter.MainRecyclerAdpater;
 import nexon.cyphers.app.databinding.ActivityMainBinding;
 import nexon.cyphers.app.model.RecyclerViewModel.MainRecycleModel;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         binding.mainRecycle.setLayoutManager(linearLayoutManager);
         adapter=new MainRecyclerAdpater();
         binding.mainRecycle.setAdapter(adapter);
+        OverScrollDecoratorHelper.setUpOverScroll(binding.mainRecycle, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
         GetRecycle();
     }
     private void GetRecycle(){

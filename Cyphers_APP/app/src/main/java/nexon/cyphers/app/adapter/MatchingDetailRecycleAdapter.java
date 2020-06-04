@@ -1,7 +1,10 @@
 package nexon.cyphers.app.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +24,12 @@ import nexon.cyphers.app.Matching_result;
 import nexon.cyphers.app.R;
 import nexon.cyphers.app.databinding.MatchingAllResultDetailBinding;
 import nexon.cyphers.app.model.RecyclerViewModel.MatchingResultDetailModel;
+import nexon.cyphers.app.model.item.itemModel;
+import nexon.cyphers.app.retrofit2.RetrofitFactory;
+import nexon.cyphers.app.retrofit2.RetrofitService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingDetailRecycleAdapter.MatchItemViewHolder> {
 
@@ -47,7 +56,420 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                 context.startActivity(intent);
             }
         });
+        /* 노가다 */
+        holder.item1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid1.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle(response.body().getItemName());
+                                alertDialog.setMessage(response.body().getExplainDetail());
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
+            }
+        });
+        holder.item2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid2.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle(response.body().getItemName());
+                                alertDialog.setMessage(response.body().getExplainDetail());
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
+            }
+        });
+        holder.item3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid3.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle(response.body().getItemName());
+                                alertDialog.setMessage(response.body().getExplainDetail());
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
+            }
+        });
+        holder.item4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid4.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle(response.body().getItemName());
+                                alertDialog.setMessage(response.body().getExplainDetail());
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
+            }
+        });
+        holder.item5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid5.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle(response.body().getItemName());
+                                alertDialog.setMessage(response.body().getExplainDetail());
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
+            }
+        });
+        holder.item6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid6.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle(response.body().getItemName());
+                                alertDialog.setMessage(response.body().getExplainDetail());
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
+            }
+        });
+        holder.item7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid7.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle(response.body().getItemName());
+                                alertDialog.setMessage(response.body().getExplainDetail());
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
+            }
+        });
+        holder.item8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid8.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle(response.body().getItemName());
+                                alertDialog.setMessage(response.body().getExplainDetail());
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
+            }
+        });
+        holder.item9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid9.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle(response.body().getItemName());
+                                alertDialog.setMessage(response.body().getExplainDetail());
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
+            }
+        });
+        holder.item10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid10.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle(response.body().getItemName());
+                                alertDialog.setMessage(response.body().getExplainDetail());
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
+            }
+        });
+        holder.item11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid11.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle(response.body().getItemName());
+                                alertDialog.setMessage(response.body().getExplainDetail());
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
+            }
+        });
+        holder.item12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+            }
+        });
+        holder.item13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid13.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle(response.body().getItemName());
+                                alertDialog.setMessage(response.body().getExplainDetail());
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
+            }
+        });
+        holder.item14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid14.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle(response.body().getItemName());
+                                alertDialog.setMessage(response.body().getExplainDetail());
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
+            }
+        });
+        holder.item15.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid15.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle(response.body().getItemName());
+                                alertDialog.setMessage(response.body().getExplainDetail());
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
+            }
+        });
+        holder.item16.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid16.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle(response.body().getItemName());
+                                alertDialog.setMessage(response.body().getExplainDetail());
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
+            }
+        });
     }
+
     @Override
     public int getItemCount() {
         return listData.size();
@@ -89,6 +511,7 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
         private CircleImageView item16;
         private TextView nickname;
         private TextView eachPlayerID;
+        private TextView itemid1,itemid2,itemid3,itemid4,itemid5,itemid6,itemid7,itemid8,itemid9,itemid10,itemid11,itemid12,itemid13,itemid14,itemid15,itemid16;
         private View mView;
         MatchItemViewHolder(View itemView) {
             super(itemView);
@@ -123,8 +546,23 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
             item15=itemView.findViewById(R.id.matcing_detail_item15);
             item16=itemView.findViewById(R.id.matcing_detail_item16);
             nickname=itemView.findViewById(R.id.player_detail_nickname);
+            itemid1=itemView.findViewById(R.id.itemid1);
+            itemid2=itemView.findViewById(R.id.itemid2);
+            itemid3=itemView.findViewById(R.id.itemid3);
+            itemid4=itemView.findViewById(R.id.itemid4);
+            itemid5=itemView.findViewById(R.id.itemid5);
+            itemid6=itemView.findViewById(R.id.itemid6);
+            itemid7=itemView.findViewById(R.id.itemid7);
+            itemid8=itemView.findViewById(R.id.itemid8);
+            itemid9=itemView.findViewById(R.id.itemid9);
+            itemid10=itemView.findViewById(R.id.itemid10);
+            itemid11=itemView.findViewById(R.id.itemid11);
+            itemid12=itemView.findViewById(R.id.itemid12);
+            itemid13=itemView.findViewById(R.id.itemid13);
+            itemid14=itemView.findViewById(R.id.itemid14);
+            itemid15=itemView.findViewById(R.id.itemid15);
+            itemid16=itemView.findViewById(R.id.itemid16);
             mView=itemView;
-
         }
         void onBind(MatchingResultDetailModel data) {
             TAG.setText(data.getMatchingDetailTag());
@@ -173,6 +611,24 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
             Glide.with(itemView.getContext()).load(data.getDetailItem14()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item14);
             Glide.with(itemView.getContext()).load(data.getDetailItem15()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item15);
             Glide.with(itemView.getContext()).load(data.getDetailItem16()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item16);
+            itemid1.setText(data.getItemid1());
+            itemid2.setText(data.getItemid2());
+            itemid3.setText(data.getItemid3());
+            itemid4.setText(data.getItemid4());
+            itemid5.setText(data.getItemid5());
+            itemid6.setText(data.getItemid6());
+            itemid7.setText(data.getItemid7());
+            itemid8.setText(data.getItemid8());
+            itemid9.setText(data.getItemid9());
+            itemid10.setText(data.getItemid10());
+            itemid11.setText(data.getItemid11());
+            itemid12.setText(data.getItemid12());
+            itemid13.setText(data.getItemid13());
+            itemid14.setText(data.getItemid14());
+            itemid15.setText(data.getItemid15());
+            itemid16.setText(data.getItemid16());
+
+
         }
     }
 }

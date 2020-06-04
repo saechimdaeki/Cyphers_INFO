@@ -5,6 +5,7 @@ import nexon.cyphers.app.model.PlayerInfo;
 import nexon.cyphers.app.model.PlayerModel;
 import nexon.cyphers.app.model.ToosinModel.ToosinModel;
 import nexon.cyphers.app.model.TotalRankRow;
+import nexon.cyphers.app.model.item.itemModel;
 import nexon.cyphers.app.model.matching_Detail.MatchingDetailModel;
 import nexon.cyphers.app.model.matching_record.matchingRecordModel;
 import retrofit2.Call;
@@ -45,7 +46,11 @@ public interface RetrofitService {
             @Path("matchId") String matchId,
             @Query("apikey") String apikey
     );
-
+    @GET("cy/battleitems/{itemId}")
+    Call<itemModel> GetItemDetail(
+            @Path("itemId") String itemId,
+            @Query("apikey")String apikey
+    );
 
 
     @GET("cy/ranking/tsj/{tsjType}")
