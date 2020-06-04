@@ -14,4 +14,4 @@
 .cxx
 /app/src/main/res/values/arrays.xml
 /app/src/main/res/values/strings.xml
-
+/app/src/main/java/nexton.cyphers.app/adapter/MatchingDetailRecycleAdpater
