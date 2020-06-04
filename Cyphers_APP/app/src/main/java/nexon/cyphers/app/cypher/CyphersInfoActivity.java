@@ -11,6 +11,7 @@ import android.util.Log;
 import java.util.LinkedList;
 import java.util.List;
 
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 import nexon.cyphers.app.INTERFACE.OnItemClick;
 import nexon.cyphers.app.R;
 import nexon.cyphers.app.adapter.CharacterAdpater;
@@ -70,6 +71,7 @@ public class CyphersInfoActivity extends AppCompatActivity implements OnItemClic
         binding.cyphersRecycler.setLayoutManager(linearLayoutManager);
         adapter=new CharacterAdpater();
         binding.cyphersRecycler.setAdapter(adapter);
+        OverScrollDecoratorHelper.setUpOverScroll(binding.cyphersRecycler,OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL);
         setFrag(0);
     }
     public void setFrag(int n){

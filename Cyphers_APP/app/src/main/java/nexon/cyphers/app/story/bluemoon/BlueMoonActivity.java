@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer;
 
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 import nexon.cyphers.app.R;
 import nexon.cyphers.app.databinding.ActivityBlueMoonBinding;
 
@@ -31,6 +32,7 @@ public class BlueMoonActivity extends AppCompatActivity {
         bookFlipPageTransformer.setEnableScale(true);
         bookFlipPageTransformer.setScaleAmountPercent(10f);
         binding.blueMoonViewpager.setPageTransformer(true,bookFlipPageTransformer);
+        OverScrollDecoratorHelper.setUpOverScroll(binding.blueMoonViewpager);
     }
     private class PagerAdapter extends FragmentPagerAdapter {
         public PagerAdapter(FragmentManager fm){
