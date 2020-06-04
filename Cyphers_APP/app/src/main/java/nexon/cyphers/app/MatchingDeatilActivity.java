@@ -85,41 +85,12 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                                 {
                                     String tmp="";
                                     Map<String,String> map=new HashMap<>();
-                                    for(int k=0; k<players.get(j).getItems().size();  k++)
-                                        map.put(players.get(j).getItems().get(k).getSlotCode(),"https://img-api.neople.co.kr/cy/items/"+players.get(j).getItems().get(k).getItemId());
+                                    for(int k=0; k<players.get(j).getItems().size();  k++) {
+                                        map.put(players.get(j).getItems().get(k).getSlotCode(), players.get(j).getItems().get(k).getItemId());
+                                    }
                                     data.setMatchingResult("win");
-                                    data.setItemid1(players.get(j).getItems().get(0).getItemId());
-                                    data.setItemid2(players.get(j).getItems().get(1).getItemId());
-                                    data.setItemid3(players.get(j).getItems().get(2).getItemId());
-                                    data.setItemid4(players.get(j).getItems().get(3).getItemId());
-                                    data.setItemid5(players.get(j).getItems().get(4).getItemId());
-                                    data.setItemid6(players.get(j).getItems().get(5).getItemId());
-                                    data.setItemid7(players.get(j).getItems().get(6).getItemId());
-                                    data.setItemid8(players.get(j).getItems().get(7).getItemId());
-                                    data.setItemid9(players.get(j).getItems().get(8).getItemId());
-                                    data.setItemid10(players.get(j).getItems().get(9).getItemId());
-                                    data.setItemid11(players.get(j).getItems().get(10).getItemId());
-                                    data.setItemid12(players.get(j).getItems().get(11).getItemId());
-                                    data.setItemid13(players.get(j).getItems().get(12).getItemId());
-                                    data.setItemid14(players.get(j).getItems().get(13).getItemId());
-                                    data.setItemid15(players.get(j).getItems().get(14).getItemId());
-                                    data.setItemid16(players.get(j).getItems().get(15).getItemId());
-                                    data.setItemrair1(players.get(j).getItems().get(0).getRarityCode());
-                                    data.setItemrair2(players.get(j).getItems().get(1).getRarityCode());
-                                    data.setItemrair3(players.get(j).getItems().get(2).getRarityCode());
-                                    data.setItemrair4(players.get(j).getItems().get(3).getRarityCode());
-                                    data.setItemrair5(players.get(j).getItems().get(4).getRarityCode());
-                                    data.setItemrair6(players.get(j).getItems().get(5).getRarityCode());
-                                    data.setItemrair7(players.get(j).getItems().get(6).getRarityCode());
-                                    data.setItemrair8(players.get(j).getItems().get(7).getRarityCode());
-                                    data.setItemrair9(players.get(j).getItems().get(8).getRarityCode());
-                                    data.setItemrair10(players.get(j).getItems().get(9).getRarityCode());
-                                    data.setItemrair11(players.get(j).getItems().get(10).getRarityCode());
-                                    data.setItemrair12(players.get(j).getItems().get(11).getRarityCode());
-                                    data.setItemrair13(players.get(j).getItems().get(12).getRarityCode());
-                                    data.setItemrair14(players.get(j).getItems().get(13).getRarityCode());
-                                    data.setItemrair15(players.get(j).getItems().get(14).getRarityCode());
-                                    data.setItemrair16(players.get(j).getItems().get(15).getRarityCode());
+
+
                                     data.setBattlePointDetail(Integer.toString(players.get(j).getPlayInfo().getBattlePoint()));
                                     data.setSightPointDetail(Integer.toString(players.get(j).getPlayInfo().getSightPoint()));
                                     data.setNickname(players.get(j).getNickname());
@@ -158,68 +129,100 @@ public class MatchingDeatilActivity extends AppCompatActivity {
 
                                     data.setMatchingDetailTag(tmp);
                                     /* 메소드 모델 설정을 이렇게 하였기 때문에 일일이 할수밖에없음 */
-                                    if(map.containsKey("101"))
+                                    if(map.containsKey("101")) {
                                         data.setDetailItem1(map.get("101"));
+                                        data.setItemid1(map.get("101"));
+                                    }
                                     else
                                         data.setDetailItem1(getString(R.string.noitem));
-                                    if(map.containsKey("102"))
+                                    if(map.containsKey("102")) {
                                         data.setDetailItem2(map.get("102"));
+                                        data.setItemid2(map.get("102"));
+                                    }
                                     else
                                         data.setDetailItem2(getString(R.string.noitem));
-                                    if(map.containsKey("103"))
+                                    if(map.containsKey("103")) {
                                         data.setDetailItem3(map.get("103"));
+                                        data.setItemid3(map.get("103"));
+                                    }
                                     else
                                         data.setDetailItem3(getString(R.string.noitem));
-                                    if(map.containsKey("104"))
+                                    if(map.containsKey("104")) {
                                         data.setDetailItem4(map.get("104"));
+                                        data.setItemid4(map.get("104"));
+                                    }
                                     else
                                         data.setDetailItem4(getString(R.string.noitem));
-                                    if(map.containsKey("105"))
+                                    if(map.containsKey("105")) {
                                         data.setDetailItem5(map.get("105"));
+                                        data.setItemid5(map.get("105"));
+                                    }
                                     else
                                         data.setDetailItem5(getString(R.string.noitem));
-                                    if(map.containsKey("106"))
+                                    if(map.containsKey("106")) {
                                         data.setDetailItem6(map.get("106"));
+                                        data.setItemid6(map.get("106"));
+                                    }
                                     else
                                         data.setDetailItem6(getString(R.string.noitem));
-                                    if(map.containsKey("202"))
+                                    if(map.containsKey("202")) {
                                         data.setDetailItem7(map.get("202"));
+                                        data.setItemid7(map.get("202"));
+                                    }
                                     else
                                         data.setDetailItem7(getString(R.string.noitem));
-                                    if(map.containsKey("203"))
+                                    if(map.containsKey("203")) {
                                         data.setDetailItem8(map.get("203"));
+                                        data.setItemid8(map.get("203"));
+                                    }
                                     else
                                         data.setDetailItem8(getString(R.string.noitem));
-                                    if(map.containsKey("301"))
+                                    if(map.containsKey("301")) {
                                         data.setDetailItem9(map.get("301"));
+                                        data.setItemid9(map.get("301"));
+                                    }
                                     else
                                         data.setDetailItem9(getString(R.string.noitem));
-                                    if(map.containsKey("302"))
+                                    if(map.containsKey("302")) {
                                         data.setDetailItem10(map.get("302"));
+                                        data.setItemid10(map.get("302"));
+                                    }
                                     else
                                         data.setDetailItem10(getString(R.string.noitem));
-                                    if(map.containsKey("303"))
+                                    if(map.containsKey("303")) {
                                         data.setDetailItem11(map.get("303"));
+                                        data.setItemid11(map.get("303"));
+                                    }
                                     else
                                         data.setDetailItem11(getString(R.string.noitem));
-                                    if(map.containsKey("304"))
+                                    if(map.containsKey("304")) {
                                         data.setDetailItem12(map.get("304"));
+                                        data.setItemid12(map.get("304"));
+                                    }
                                     else
                                         data.setDetailItem12(getString(R.string.noitem));
-                                    if(map.containsKey("305"))
+                                    if(map.containsKey("305")) {
                                         data.setDetailItem13(map.get("305"));
+                                        data.setItemid13(map.get("305"));
+                                    }
                                     else
                                         data.setDetailItem13(getString(R.string.noitem));
-                                    if(map.containsKey("107"))
+                                    if(map.containsKey("107")) {
                                         data.setDetailItem14(map.get("107"));
+                                        data.setItemid14(map.get("107"));
+                                    }
                                     else
                                         data.setDetailItem14(getString(R.string.noitem));
-                                    if(map.containsKey("204"))
+                                    if(map.containsKey("204")) {
                                         data.setDetailItem15(map.get("204"));
+                                        data.setItemid15(map.get("204"));
+                                    }
                                     else
                                         data.setDetailItem15(getString(R.string.noitem));
-                                    if(map.containsKey("205"))
+                                    if(map.containsKey("205")) {
                                         data.setDetailItem16(map.get("205"));
+                                        data.setItemid16(map.get("205"));
+                                    }
                                     else
                                         data.setDetailItem16(getString(R.string.noitem));
                                     adapterForWinner.addItem(data);
@@ -237,7 +240,7 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                                     String tmp="";
                                     Map<String,String> map=new HashMap<>();
                                     for(int k=0; k<players.get(j).getItems().size();  k++)
-                                        map.put(players.get(j).getItems().get(k).getSlotCode(),"https://img-api.neople.co.kr/cy/items/"+players.get(j).getItems().get(k).getItemId());
+                                        map.put(players.get(j).getItems().get(k).getSlotCode(),players.get(j).getItems().get(k).getItemId());
                                     data.setMatchingResult("lose");
                                     data.setItemid1(players.get(j).getItems().get(0).getItemId());
                                     data.setItemid2(players.get(j).getItems().get(1).getItemId());
@@ -255,22 +258,7 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                                     data.setItemid14(players.get(j).getItems().get(13).getItemId());
                                     data.setItemid15(players.get(j).getItems().get(14).getItemId());
                                     data.setItemid16(players.get(j).getItems().get(15).getItemId());
-                                    data.setItemrair1(players.get(j).getItems().get(0).getRarityCode());
-                                    data.setItemrair2(players.get(j).getItems().get(1).getRarityCode());
-                                    data.setItemrair3(players.get(j).getItems().get(2).getRarityCode());
-                                    data.setItemrair4(players.get(j).getItems().get(3).getRarityCode());
-                                    data.setItemrair5(players.get(j).getItems().get(4).getRarityCode());
-                                    data.setItemrair6(players.get(j).getItems().get(5).getRarityCode());
-                                    data.setItemrair7(players.get(j).getItems().get(6).getRarityCode());
-                                    data.setItemrair8(players.get(j).getItems().get(7).getRarityCode());
-                                    data.setItemrair9(players.get(j).getItems().get(8).getRarityCode());
-                                    data.setItemrair10(players.get(j).getItems().get(9).getRarityCode());
-                                    data.setItemrair11(players.get(j).getItems().get(10).getRarityCode());
-                                    data.setItemrair12(players.get(j).getItems().get(11).getRarityCode());
-                                    data.setItemrair13(players.get(j).getItems().get(12).getRarityCode());
-                                    data.setItemrair14(players.get(j).getItems().get(13).getRarityCode());
-                                    data.setItemrair15(players.get(j).getItems().get(14).getRarityCode());
-                                    data.setItemrair16(players.get(j).getItems().get(15).getRarityCode());
+
                                     data.setBattlePointDetail(Integer.toString(players.get(j).getPlayInfo().getBattlePoint()));
                                     data.setSightPointDetail(Integer.toString(players.get(j).getPlayInfo().getSightPoint()));
                                     data.setNickname(players.get(j).getNickname());
@@ -306,68 +294,100 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                                         tmp+=" #킬뎃왕 " ;
                                     data.setMatchingDetailTag(tmp);
                                     /* 메소드 모델 설정을 이렇게 하였기 때문에 일일이 할수밖에없음 */
-                                    if(map.containsKey("101"))
+                                    if(map.containsKey("101")) {
                                         data.setDetailItem1(map.get("101"));
+                                        data.setItemid1(map.get("101"));
+                                    }
                                     else
                                         data.setDetailItem1(getString(R.string.noitem));
-                                    if(map.containsKey("102"))
+                                    if(map.containsKey("102")) {
                                         data.setDetailItem2(map.get("102"));
+                                        data.setItemid2(map.get("102"));
+                                    }
                                     else
                                         data.setDetailItem2(getString(R.string.noitem));
-                                    if(map.containsKey("103"))
+                                    if(map.containsKey("103")) {
                                         data.setDetailItem3(map.get("103"));
+                                        data.setItemid3(map.get("103"));
+                                    }
                                     else
                                         data.setDetailItem3(getString(R.string.noitem));
-                                    if(map.containsKey("104"))
+                                    if(map.containsKey("104")) {
                                         data.setDetailItem4(map.get("104"));
+                                        data.setItemid4(map.get("104"));
+                                    }
                                     else
                                         data.setDetailItem4(getString(R.string.noitem));
-                                    if(map.containsKey("105"))
+                                    if(map.containsKey("105")) {
                                         data.setDetailItem5(map.get("105"));
+                                        data.setItemid5(map.get("105"));
+                                    }
                                     else
                                         data.setDetailItem5(getString(R.string.noitem));
-                                    if(map.containsKey("106"))
+                                    if(map.containsKey("106")) {
                                         data.setDetailItem6(map.get("106"));
+                                        data.setItemid6(map.get("106"));
+                                    }
                                     else
                                         data.setDetailItem6(getString(R.string.noitem));
-                                    if(map.containsKey("202"))
+                                    if(map.containsKey("202")) {
                                         data.setDetailItem7(map.get("202"));
+                                        data.setItemid7(map.get("202"));
+                                    }
                                     else
                                         data.setDetailItem7(getString(R.string.noitem));
-                                    if(map.containsKey("203"))
+                                    if(map.containsKey("203")) {
                                         data.setDetailItem8(map.get("203"));
+                                        data.setItemid8(map.get("203"));
+                                    }
                                     else
                                         data.setDetailItem8(getString(R.string.noitem));
-                                    if(map.containsKey("301"))
+                                    if(map.containsKey("301")) {
                                         data.setDetailItem9(map.get("301"));
+                                        data.setItemid9(map.get("301"));
+                                    }
                                     else
                                         data.setDetailItem9(getString(R.string.noitem));
-                                    if(map.containsKey("302"))
+                                    if(map.containsKey("302")) {
                                         data.setDetailItem10(map.get("302"));
+                                        data.setItemid10(map.get("302"));
+                                    }
                                     else
                                         data.setDetailItem10(getString(R.string.noitem));
-                                    if(map.containsKey("303"))
+                                    if(map.containsKey("303")) {
                                         data.setDetailItem11(map.get("303"));
+                                        data.setItemid11(map.get("303"));
+                                    }
                                     else
                                         data.setDetailItem11(getString(R.string.noitem));
-                                    if(map.containsKey("304"))
+                                    if(map.containsKey("304")) {
                                         data.setDetailItem12(map.get("304"));
+                                        data.setItemid12(map.get("304"));
+                                    }
                                     else
                                         data.setDetailItem12(getString(R.string.noitem));
-                                    if(map.containsKey("305"))
+                                    if(map.containsKey("305")) {
                                         data.setDetailItem13(map.get("305"));
+                                        data.setItemid13(map.get("305"));
+                                    }
                                     else
                                         data.setDetailItem13(getString(R.string.noitem));
-                                    if(map.containsKey("107"))
+                                    if(map.containsKey("107")) {
                                         data.setDetailItem14(map.get("107"));
+                                        data.setItemid14(map.get("107"));
+                                    }
                                     else
                                         data.setDetailItem14(getString(R.string.noitem));
-                                    if(map.containsKey("204"))
+                                    if(map.containsKey("204")) {
                                         data.setDetailItem15(map.get("204"));
+                                        data.setItemid15(map.get("204"));
+                                    }
                                     else
                                         data.setDetailItem15(getString(R.string.noitem));
-                                    if(map.containsKey("205"))
+                                    if(map.containsKey("205")) {
                                         data.setDetailItem16(map.get("205"));
+                                        data.setItemid16(map.get("205"));
+                                    }
                                     else
                                         data.setDetailItem16(getString(R.string.noitem));
                                     adapterForLooser.addItem(data);

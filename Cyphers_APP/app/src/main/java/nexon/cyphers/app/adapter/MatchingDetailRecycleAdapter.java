@@ -67,8 +67,10 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                             @Override
                             public void onResponse(Call<itemModel> call, Response<itemModel> response) {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                                alertDialog.setTitle(response.body().getItemName());
-                                alertDialog.setMessage(response.body().getExplainDetail());
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -94,8 +96,11 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                             @Override
                             public void onResponse(Call<itemModel> call, Response<itemModel> response) {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                                alertDialog.setTitle(response.body().getItemName());
-                                alertDialog.setMessage(response.body().getExplainDetail());
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
+
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -121,8 +126,11 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                             @Override
                             public void onResponse(Call<itemModel> call, Response<itemModel> response) {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                                alertDialog.setTitle(response.body().getItemName());
-                                alertDialog.setMessage(response.body().getExplainDetail());
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
+
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -148,8 +156,11 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                             @Override
                             public void onResponse(Call<itemModel> call, Response<itemModel> response) {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                                alertDialog.setTitle(response.body().getItemName());
-                                alertDialog.setMessage(response.body().getExplainDetail());
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
+
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -175,8 +186,11 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                             @Override
                             public void onResponse(Call<itemModel> call, Response<itemModel> response) {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                                alertDialog.setTitle(response.body().getItemName());
-                                alertDialog.setMessage(response.body().getExplainDetail());
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
+
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -202,8 +216,11 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                             @Override
                             public void onResponse(Call<itemModel> call, Response<itemModel> response) {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                                alertDialog.setTitle(response.body().getItemName());
-                                alertDialog.setMessage(response.body().getExplainDetail());
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
+
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -229,8 +246,11 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                             @Override
                             public void onResponse(Call<itemModel> call, Response<itemModel> response) {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                                alertDialog.setTitle(response.body().getItemName());
-                                alertDialog.setMessage(response.body().getExplainDetail());
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
+
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -256,8 +276,11 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                             @Override
                             public void onResponse(Call<itemModel> call, Response<itemModel> response) {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                                alertDialog.setTitle(response.body().getItemName());
-                                alertDialog.setMessage(response.body().getExplainDetail());
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
+
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -283,8 +306,11 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                             @Override
                             public void onResponse(Call<itemModel> call, Response<itemModel> response) {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                                alertDialog.setTitle(response.body().getItemName());
-                                alertDialog.setMessage(response.body().getExplainDetail());
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
+
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -310,8 +336,11 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                             @Override
                             public void onResponse(Call<itemModel> call, Response<itemModel> response) {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                                alertDialog.setTitle(response.body().getItemName());
-                                alertDialog.setMessage(response.body().getExplainDetail());
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
+
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -337,8 +366,11 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                             @Override
                             public void onResponse(Call<itemModel> call, Response<itemModel> response) {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                                alertDialog.setTitle(response.body().getItemName());
-                                alertDialog.setMessage(response.body().getExplainDetail());
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
+
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -370,8 +402,11 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                             @Override
                             public void onResponse(Call<itemModel> call, Response<itemModel> response) {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                                alertDialog.setTitle(response.body().getItemName());
-                                alertDialog.setMessage(response.body().getExplainDetail());
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
+
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -397,8 +432,11 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                             @Override
                             public void onResponse(Call<itemModel> call, Response<itemModel> response) {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                                alertDialog.setTitle(response.body().getItemName());
-                                alertDialog.setMessage(response.body().getExplainDetail());
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
+
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -424,8 +462,11 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                             @Override
                             public void onResponse(Call<itemModel> call, Response<itemModel> response) {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                                alertDialog.setTitle(response.body().getItemName());
-                                alertDialog.setMessage(response.body().getExplainDetail());
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
+
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -451,8 +492,11 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                             @Override
                             public void onResponse(Call<itemModel> call, Response<itemModel> response) {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                                alertDialog.setTitle(response.body().getItemName());
-                                alertDialog.setMessage(response.body().getExplainDetail());
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
+
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -595,22 +639,22 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
             Glide.with(itemView.getContext()).load(data.getMatchingDetailCharacterPositionAttribute2()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(Attribute2);
             Glide.with(itemView.getContext()).load(data.getMatchingDetailCharacterPositionAttribute3()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(Attribute3);
             /* 아이템 */
-            Glide.with(itemView.getContext()).load(data.getDetailItem1()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item1);
-            Glide.with(itemView.getContext()).load(data.getDetailItem2()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item2);
-            Glide.with(itemView.getContext()).load(data.getDetailItem3()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item3);
-            Glide.with(itemView.getContext()).load(data.getDetailItem4()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item4);
-            Glide.with(itemView.getContext()).load(data.getDetailItem5()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item5);
-            Glide.with(itemView.getContext()).load(data.getDetailItem6()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item6);
-            Glide.with(itemView.getContext()).load(data.getDetailItem7()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item7);
-            Glide.with(itemView.getContext()).load(data.getDetailItem8()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item8);
-            Glide.with(itemView.getContext()).load(data.getDetailItem9()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item9);
-            Glide.with(itemView.getContext()).load(data.getDetailItem10()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item10);
-            Glide.with(itemView.getContext()).load(data.getDetailItem11()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item11);
-            Glide.with(itemView.getContext()).load(data.getDetailItem12()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item12);
-            Glide.with(itemView.getContext()).load(data.getDetailItem13()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item13);
-            Glide.with(itemView.getContext()).load(data.getDetailItem14()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item14);
-            Glide.with(itemView.getContext()).load(data.getDetailItem15()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item15);
-            Glide.with(itemView.getContext()).load(data.getDetailItem16()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item16);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem1()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item1);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem2()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item2);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem3()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item3);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem4()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item4);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem5()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item5);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem6()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item6);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem7()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item7);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem8()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item8);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem9()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item9);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem10()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item10);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem11()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item11);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem12()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item12);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem13()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item13);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem14()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item14);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem15()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item15);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/items/"+data.getDetailItem16()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.noitem).into(item16);
             itemid1.setText(data.getItemid1());
             itemid2.setText(data.getItemid2());
             itemid3.setText(data.getItemid3());
