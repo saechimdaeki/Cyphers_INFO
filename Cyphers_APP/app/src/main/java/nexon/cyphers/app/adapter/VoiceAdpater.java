@@ -17,9 +17,7 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import nexon.cyphers.app.R;
-import nexon.cyphers.app.cypher.CyphersInfoActivity;
 import nexon.cyphers.app.model.Character.Voice;
-import nexon.cyphers.app.model.CharacterInfo.CharacterModel;
 
 public class VoiceAdpater extends RecyclerView.Adapter<VoiceAdpater.ItemViewHolder>{
     private ArrayList<Voice> listData = new ArrayList<>();

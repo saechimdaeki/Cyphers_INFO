@@ -216,64 +216,64 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item1"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item2"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item3"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item4"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item5"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item6"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item7"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item8"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
@@ -297,64 +297,64 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item9"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item10"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item11"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item12"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item13"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item14"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item15"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/matcing_detail_item16"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
                 android:layout_margin="3dp"
                 android:layout_gravity="center"
                 android:src="@drawable/bibum2" />

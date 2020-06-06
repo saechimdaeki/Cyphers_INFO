@@ -93,7 +93,6 @@ public class CharacterFragment extends Fragment {
                             ListSkillName.add(element.text());
                         for (Element element : tip)
                             ListCharacter.add(element.text());
-
                             binding.skillname1.setText(ListSkillName.get(0));
                             binding.skillname2.setText(ListSkillName.get(1));
                             binding.skillname3.setText(ListSkillName.get(2));

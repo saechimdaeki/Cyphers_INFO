@@ -390,6 +390,30 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
             @Override
             public void onClick(View view) {
                 final Context context=view.getContext();
+                RetrofitService networkService= RetrofitFactory.create();
+                networkService.GetItemDetail(String.valueOf(holder.itemid12.getText()),holder.itemView.getContext().getString(R.string.API_KEY))
+                        .enqueue(new Callback<itemModel>() {
+                            @Override
+                            public void onResponse(Call<itemModel> call, Response<itemModel> response) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                if (response.body() != null) {
+                                    alertDialog.setTitle(response.body().getItemName());
+                                    alertDialog.setMessage(response.body().getExplainDetail());
+                                }
+
+                                alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                AlertDialog dialog = alertDialog.create();
+                                dialog.show();
+                            }
+                            @Override
+                            public void onFailure(Call<itemModel> call, Throwable t) {
+                            }
+                        });
             }
         });
         holder.item13.setOnClickListener(new View.OnClickListener() {
@@ -406,7 +430,6 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
                                     alertDialog.setTitle(response.body().getItemName());
                                     alertDialog.setMessage(response.body().getExplainDetail());
                                 }
-
                                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {

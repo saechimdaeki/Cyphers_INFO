@@ -24,6 +24,7 @@ import nexon.cyphers.app.Toosin.ToosinActivity;
 import nexon.cyphers.app.WebContentActivity;
 import nexon.cyphers.app.model.RecyclerViewModel.MainRecycleModel;
 import nexon.cyphers.app.story.StoryActivity;
+import nexon.cyphers.app.todayCyphers.TodayCyphersActivity;
 
 public class MainRecyclerAdpater extends RecyclerView.Adapter<MainRecyclerAdpater.ItemViewHolder> {
 
@@ -50,47 +51,68 @@ public class MainRecyclerAdpater extends RecyclerView.Adapter<MainRecyclerAdpate
                 final Context context=view.getContext();
                 final Intent intent;
                 Toast.makeText(context, holder.textView1.getText()+"(으)로 이동합니다.", Toast.LENGTH_SHORT).show();
-                if(position==1)
+                if (position==0)
+                {
+                    intent=new Intent(context, TodayCyphersActivity.class);
+                    context.startActivity(intent);
+                }
+                else if(position==1)
                 {
                     intent=new Intent(context, CyphersInfoActivity.class);
                     context.startActivity(intent);
                 }
-                else if(position==3)
-                {
-                    intent=new Intent(context,WebContentActivity.class);
-                    intent.putExtra("url","http://cyphers.nexon.com/cyphers/article/art");
-                    context.startActivity(intent);
-                }
-                else if(position==5)
+                else if(position==2)
                 {
                     intent=new Intent(context, PositionActivity.class);
                     context.startActivity(intent);
                 }
-                else if(position==6)
+                else if(position==3)
                 {
                     intent=new Intent(context, ToosinActivity.class);
                     context.startActivity(intent);
                 }
-                else if(position==7)
+                else if(position==4)
                 {
                     intent=new Intent(context, StoryActivity.class);
                     context.startActivity(intent);
-                }
-                else if(position==8)
+                }else if(position==5)
                 {
                     intent=new Intent(context,WebContentActivity.class);
-                    intent.putExtra("url","http://cyphers.nexon.com/cyphers/article/balance");
+                    intent.putExtra("url","http://cyphers.nexon.com/cyphers/article/guide/main");
+                    context.startActivity(intent);
+                }
+                else if(position==7)
+                {
+                    intent=new Intent(context,WebContentActivity.class);
+                    intent.putExtra("url","http://cyphers.nexon.com/cyphers/article/art");
+                    context.startActivity(intent);
+                }else if(position==8)
+                {
+                    intent=new Intent(context,WebContentActivity.class);
+                    intent.putExtra("url","http://cyphers.nexon.com/cyphers/article/tip");
+                    context.startActivity(intent);
+                }
+                else if(position==6)
+                {
+                    intent=new Intent(context,WebContentActivity.class);
+                    intent.putExtra("url","http://cyphers.nexon.com/cyphers/contents/video");
                     context.startActivity(intent);
                 }
                 else if(position==9)
                 {
                     intent=new Intent(context,WebContentActivity.class);
+                    intent.putExtra("url","http://cyphers.nexon.com/cyphers/article/balance");
+                    context.startActivity(intent);
+                }
+                else if(position==10)
+                {
+                    intent=new Intent(context,WebContentActivity.class);
                     intent.putExtra("url","http://cyphers.nexon.com/cyphers/article/free");
                     context.startActivity(intent);
-                }else if(position==10)
+                }else if(position==11)
                 {
                     intent=new Intent(context, WebContentActivity.class);
-                    intent.putExtra("url","http://cyphers.nexon.com/cyphers/game/item/itembox.mobile#2");
+                    intent.putExtra("url","http://cyphers.nexon.com/cyphers/game/item/itembox");
                     context.startActivity(intent);
                 }
             }

@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         binding.mainRecycle.setLayoutManager(linearLayoutManager);
         adapter=new MainRecyclerAdpater();
         binding.mainRecycle.setAdapter(adapter);
-        OverScrollDecoratorHelper.setUpOverScroll(binding.mainRecycle, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
+       // OverScrollDecoratorHelper.setUpOverScroll(binding.mainRecycle, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
         GetRecycle();
     }
     private void GetRecycle(){
@@ -70,12 +70,13 @@ public class MainActivity extends AppCompatActivity {
                 final List<String> ListTitle= Arrays.asList(
                         "사이퍼즈 공식페이지 소식통",
                         "캐릭터 정보/보이스 박스",
-                        "캐릭터 랭킹 조회",
-                        "팬아트 게시판",
-                        "공략게시판",
                         "포지션 특성 조회",
                         "투신전 랭킹 조회",
                         "사이퍼즈 세계관",
+                        "게임 가이드",
+                        "동영상 갤러리",
+                        "팬아트 게시판",
+                        "공략게시판",
                         "밸런스 토론장",
                         "자유 게시판",
                         "아이템 검색"
@@ -83,19 +84,20 @@ public class MainActivity extends AppCompatActivity {
                 final List<String> ListSubTitle=Arrays.asList(
                         "사이퍼즈 이벤트/업데이트/오싸를 살펴봐용",
                         "사이퍼들에 대한 정보,보이스박스 제공",
-                        "이 캐릭터는 내가 NO.1",
-                        "(웹 뷰) 재미있는 게임캐릭터 아트들",
-                        "공략 게시판을 정독하면 티어상승",
                         "각 포지션 특성에 대해 알아봅시다",
                         "외침: 투신전 극 할사람 구해요 ",
-                        "세계관을 알고 게임을하면 백전백승",
+                        "세계관을 알고 게임을하면 재미가 두배",
+                        "(웹 뷰) 사이퍼즈의 게임가이드를 살펴봐요",
+                        "(웹 뷰) 사이퍼즈의 공식영상들을 볼 수 있습니다.",
+                        "(웹 뷰) 재미있는 게임캐릭터 아트들",
+                        "(웹 뷰) 공략 게시판을 정독하면 티어상승",
                         "(웹 뷰) 사기케 너프좀",
                         "(웹 뷰) 자게이",
                         "(웹 뷰) 처음 보는 아이템들도 있단다"
                 );
                 final List<Integer> listID=Arrays.asList(
-                        R.drawable.wesly,R.drawable.tien,R.drawable.ranking,R.drawable.louis,R.drawable.clare,R.drawable.position,R.drawable.ton,
-                        R.drawable.diemoos,R.drawable.alieshu,R.drawable.jagay,R.drawable.tara
+                        R.drawable.wesly,R.drawable.tien,R.drawable.position,R.drawable.ton,
+                        R.drawable.diemoos,R.drawable.ranking,R.drawable.caro,R.drawable.louis,R.drawable.clare,R.drawable.alieshu,R.drawable.jagay,R.drawable.tara
                 );
                 runOnUiThread(new Runnable() {
                     @Override

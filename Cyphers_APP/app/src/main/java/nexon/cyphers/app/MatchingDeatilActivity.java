@@ -86,7 +86,7 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                                     String tmp="";
                                     Map<String,String> map=new HashMap<>();
                                     for(int k=0; k<players.get(j).getItems().size();  k++) {
-                                        map.put(players.get(j).getItems().get(k).getSlotCode(), players.get(j).getItems().get(k).getItemId());
+                                        map.put(players.get(j).getItems().get(k).getEquipSlotCode(), players.get(j).getItems().get(k).getItemId());
                                     }
                                     data.setMatchingResult("win");
 
@@ -238,27 +238,11 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                                 if(players.get(j).getPlayerId().contains(loseTeam.get(i)))
                                 {
                                     String tmp="";
+                                    boolean[] itemslot=new boolean[4];
                                     Map<String,String> map=new HashMap<>();
                                     for(int k=0; k<players.get(j).getItems().size();  k++)
-                                        map.put(players.get(j).getItems().get(k).getSlotCode(),players.get(j).getItems().get(k).getItemId());
+                                        map.put(players.get(j).getItems().get(k).getEquipSlotCode(),players.get(j).getItems().get(k).getItemId());
                                     data.setMatchingResult("lose");
-                                    data.setItemid1(players.get(j).getItems().get(0).getItemId());
-                                    data.setItemid2(players.get(j).getItems().get(1).getItemId());
-                                    data.setItemid3(players.get(j).getItems().get(2).getItemId());
-                                    data.setItemid4(players.get(j).getItems().get(3).getItemId());
-                                    data.setItemid5(players.get(j).getItems().get(4).getItemId());
-                                    data.setItemid6(players.get(j).getItems().get(5).getItemId());
-                                    data.setItemid7(players.get(j).getItems().get(6).getItemId());
-                                    data.setItemid8(players.get(j).getItems().get(7).getItemId());
-                                    data.setItemid9(players.get(j).getItems().get(8).getItemId());
-                                    data.setItemid10(players.get(j).getItems().get(9).getItemId());
-                                    data.setItemid11(players.get(j).getItems().get(10).getItemId());
-                                    data.setItemid12(players.get(j).getItems().get(11).getItemId());
-                                    data.setItemid13(players.get(j).getItems().get(12).getItemId());
-                                    data.setItemid14(players.get(j).getItems().get(13).getItemId());
-                                    data.setItemid15(players.get(j).getItems().get(14).getItemId());
-                                    data.setItemid16(players.get(j).getItems().get(15).getItemId());
-
                                     data.setBattlePointDetail(Integer.toString(players.get(j).getPlayInfo().getBattlePoint()));
                                     data.setSightPointDetail(Integer.toString(players.get(j).getPlayInfo().getSightPoint()));
                                     data.setNickname(players.get(j).getNickname());
