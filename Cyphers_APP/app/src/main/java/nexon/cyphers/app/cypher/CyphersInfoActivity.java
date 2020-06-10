@@ -358,12 +358,12 @@ public class CyphersInfoActivity extends AppCompatActivity implements OnItemClic
                 ft.commit();
                 break;
             case 54:
-                frag54=new CharacterFragment("http://cyphers.nexon.com/cyphers/pages/character/diana/1","http://static.cyphers.co.kr/img/ginfo/char_diana.jpg?1944","http://static.cyphers.co.kr/media/voicebox/diana/v_diana_enter_01.mp3",55);
+                frag54=new CharacterFragment("http://cyphers.nexon.com/cyphers/pages/character/diana/1","http://static.cyphers.co.kr/img/ginfo/char_diana.jpg?1944","http://static.cyphers.co.kr/media/voicebox/diana/v_diana_enter_01.mp3",54);
                 ft.replace(R.id.character_frame,frag54);
                 ft.commit();
                 break;
             case 55:
-                frag55=new CharacterFragment("http://cyphers.nexon.com/cyphers/pages/character/clive/1","http://static.cyphers.co.kr/img/ginfo/char_clive.jpg?1944","http://static.cyphers.co.kr/media/voicebox/clive/v_clive_enter_01.mp3",54);
+                frag55=new CharacterFragment("http://cyphers.nexon.com/cyphers/pages/character/clive/1","http://static.cyphers.co.kr/img/ginfo/char_clive.jpg?1944","http://static.cyphers.co.kr/media/voicebox/clive/v_clive_enter_01.mp3",55);
                 ft.replace(R.id.character_frame,frag55);
                 ft.commit();
                 break;

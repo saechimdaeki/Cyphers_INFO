@@ -271,7 +271,7 @@ public class TodayCyphersActivity extends AppCompatActivity {
         ArrayList<String> imgsrc=new ArrayList<>();
         ArrayList<String> datelist=new ArrayList<>();
         ArrayList<String> contentlist=new ArrayList<>();
-
+        int cnt=1;
         @Override
         protected Void doInBackground(Void... voids) {
             try {
@@ -287,7 +287,13 @@ public class TodayCyphersActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         for(Element element: title) {
-                            listTitle.add(element.text());
+                            if(cnt%2!=0)
+                            {
+                                listTitle.add(element.text());
+                                cnt++;
+                            }else
+                                cnt++;
+
                         }
                         for(Element element:click){
                             clickUrl.add(element.attr("href"));
