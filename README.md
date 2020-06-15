@@ -46,6 +46,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+```
+
 
 ## 📃 Libraries used
 *   [AndroidX](https://developer.android.com/jetpack/androidx/) - Previously known as 'Android support Library'
@@ -60,3 +62,4 @@ SOFTWARE.
 *   [OverScroll](https://github.com/EverythingMe/overscroll-decor)
 *   [FlipViewpager](https://github.com/Yalantis/FlipViewPager.Draco)
 *   [Lottie](https://github.com/airbnb/lottie-android)
+* Etc...
