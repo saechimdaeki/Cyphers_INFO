@@ -386,7 +386,54 @@ public class CharacterFragment extends Fragment {
                 premiumVoiceUrl=getResources().getStringArray(R.array.premiumVoicehelenaUrl);
                 premiumExplain=getResources().getStringArray(R.array.premiumVoicehelenaExplain);
                 break;
-                //todo 에바
+                //
+            case 57:
+                premiumVoiceUrl=getResources().getStringArray(R.array.premiumVoiceevaUrl);
+                premiumExplain=getResources().getStringArray(R.array.premiumVoiceevaExplain);
+                break;
+            case 58:
+                premiumVoiceUrl=getResources().getStringArray(R.array.premiumVoiceronUrl);
+                premiumExplain=getResources().getStringArray(R.array.premiumVoiceronExplain);
+                break;
+            case 59:
+                premiumVoiceUrl=getResources().getStringArray(R.array.premiumVoiceleonorUrl);
+                premiumExplain=getResources().getStringArray(R.array.premiumVoiceleonorExplain);
+                break;
+            case 60:
+                premiumVoiceUrl=getResources().getStringArray(R.array.premiumVoicesidneyUrl);
+                premiumExplain=getResources().getStringArray(R.array.premiumVoicesidneyExplain);
+                break;
+            case 61:
+                premiumVoiceUrl=getResources().getStringArray(R.array.premiumVoiceteiUrl);
+                premiumExplain=getResources().getStringArray(R.array.premiumVoiceteiExplain);
+                break;
+                //
+            case 62:
+                premiumAction=getResources().getStringArray(R.array.premiumVoicetimothyAction);
+                premiumVoiceUrl=getResources().getStringArray(R.array.premiumVoicetimothyUrl);
+                premiumExplain=getResources().getStringArray(R.array.premiumVoicetimothyExplain);
+                break;
+            case 63:
+                premiumAction=getResources().getStringArray(R.array.premiumVoiceelfAction);
+                premiumVoiceUrl=getResources().getStringArray(R.array.premiumVoiceelfUrl);
+                premiumExplain=getResources().getStringArray(R.array.premiumVoiceelfExplain);
+                break;
+                //todo 티샤
+            case 64:
+                premiumVoiceUrl=getResources().getStringArray(R.array.premiumVoicetishaUrl);
+                premiumExplain=getResources().getStringArray(R.array.premiumVoicetishaExplain);
+                break;
+            case 65:
+                premiumAction=getResources().getStringArray(R.array.premiumVoicecarochoAction);
+                premiumVoiceUrl=getResources().getStringArray(R.array.premiumVoicecarochoUrl);
+                premiumExplain=getResources().getStringArray(R.array.premiumVoicecarochoExplain);
+                break;
+            case 66:
+                premiumAction=getResources().getStringArray(R.array.premiumVoiceryanAction);
+                premiumVoiceUrl=getResources().getStringArray(R.array.premiumVoiceryanUrl);
+                premiumExplain=getResources().getStringArray(R.array.premiumVoiceryanExplain);
+                break;
+
 
 
 
@@ -706,6 +753,57 @@ public class CharacterFragment extends Fragment {
                 defaultVoiceUrl=getResources().getStringArray(R.array.defaulthelenaUrl);
                 defaultExplain=getResources().getStringArray(R.array.defaulthelenaExplain);
                 break;
+                //
+            case 57:
+                defaultAction=getResources().getStringArray(R.array.defaultevaAction);
+                defaultVoiceUrl=getResources().getStringArray(R.array.defaultevaUrl);
+                defaultExplain=getResources().getStringArray(R.array.defaultevaExplain);
+                break;
+            case 58:
+                defaultAction=getResources().getStringArray(R.array.defaultronAction);
+                defaultVoiceUrl=getResources().getStringArray(R.array.defaultronUrl);
+                defaultExplain=getResources().getStringArray(R.array.defaultronExplain);
+                break;
+            case 59:
+                defaultAction=getResources().getStringArray(R.array.defaultleonorAction);
+                defaultVoiceUrl=getResources().getStringArray(R.array.defaultleonorUrl);
+                defaultExplain=getResources().getStringArray(R.array.defaultleonorExplain);
+                break;
+            case 60:
+                defaultAction=getResources().getStringArray(R.array.defaultsidenyAction);
+                defaultVoiceUrl=getResources().getStringArray(R.array.defaultsidneyUrl);
+                defaultExplain=getResources().getStringArray(R.array.defaultsidneyExplain);
+                break;
+            case 61:
+                defaultAction=getResources().getStringArray(R.array.defaultteiAction);
+                defaultVoiceUrl=getResources().getStringArray(R.array.defaultteiUrl);
+                defaultExplain=getResources().getStringArray(R.array.defaultteiExplain);
+                break;
+            case 62:
+                defaultAction=getResources().getStringArray(R.array.defaulttimothyAction);
+                defaultVoiceUrl=getResources().getStringArray(R.array.defaulttimothyUrl);
+                defaultExplain=getResources().getStringArray(R.array.defaulttimothyExplain);
+                break;
+            case 63:
+                defaultAction=getResources().getStringArray(R.array.defaultelfAction);
+                defaultVoiceUrl=getResources().getStringArray(R.array.defaultelfUrl);
+                defaultExplain=getResources().getStringArray(R.array.defaultelfExplain);
+                break;
+            case 64:
+                defaultAction=getResources().getStringArray(R.array.defaulttishaAction);
+                defaultVoiceUrl=getResources().getStringArray(R.array.defaulttishaUrl);
+                defaultExplain=getResources().getStringArray(R.array.defaulttishaExplain);
+                break;
+            case 65:
+                defaultAction=getResources().getStringArray(R.array.defaultcarochoAction);
+                defaultVoiceUrl=getResources().getStringArray(R.array.defaultcarochoUrl);
+                defaultExplain=getResources().getStringArray(R.array.defaultcarochoExplain);
+                break;
+            case 66:
+                defaultAction=getResources().getStringArray(R.array.defaultryanAction);
+                defaultVoiceUrl=getResources().getStringArray(R.array.defaultryanUrl);
+                defaultExplain=getResources().getStringArray(R.array.defaultryanExplain);
+                break;
 
         }
         for(int i=0; i<defaultAction.length; i++)
@@ -968,6 +1066,49 @@ public class CharacterFragment extends Fragment {
             case 56:
                 MessageVoiceUrl=getResources().getStringArray(R.array.messagehelenaUrl);
                 MessageExplain=getResources().getStringArray(R.array.messagehelenaExplain);
+                break;
+                //
+            case 57:
+                MessageVoiceUrl=getResources().getStringArray(R.array.messageevaUrl);
+                MessageExplain=getResources().getStringArray(R.array.messageevaExplain);
+                break;
+            case 58:
+                MessageVoiceUrl=getResources().getStringArray(R.array.messageronUrl);
+                MessageExplain=getResources().getStringArray(R.array.messageronExplain);
+                break;
+            case 59:
+                MessageVoiceUrl=getResources().getStringArray(R.array.messageleonorUrl);
+                MessageExplain=getResources().getStringArray(R.array.messageleonorExplain);
+                break;
+
+            case 60:
+
+                MessageVoiceUrl=getResources().getStringArray(R.array.messagesidneyUrl);
+                MessageExplain=getResources().getStringArray(R.array.messagesidneyExplain);
+                break;
+            case 61:
+                MessageVoiceUrl=getResources().getStringArray(R.array.messageteiUrl);
+                MessageExplain=getResources().getStringArray(R.array.messageteiExplain);
+                break;
+            case 62:
+                MessageVoiceUrl=getResources().getStringArray(R.array.messagetimothyUrl);
+                MessageExplain=getResources().getStringArray(R.array.messagetimothyExplain);
+                break;
+            case 63:
+                MessageVoiceUrl=getResources().getStringArray(R.array.messageelfUrl);
+                MessageExplain=getResources().getStringArray(R.array.messageelfExplain);
+                break;
+            case 64:
+                MessageVoiceUrl=getResources().getStringArray(R.array.messagetishaUrl);
+                MessageExplain=getResources().getStringArray(R.array.messagetishaExplain);
+                break;
+            case 65:
+                MessageVoiceUrl=getResources().getStringArray(R.array.messagecarochoUrl);
+                MessageExplain=getResources().getStringArray(R.array.messagecarochoExplain);
+                break;
+            case 66:
+                MessageVoiceUrl=getResources().getStringArray(R.array.messageryanUrl);
+                MessageExplain=getResources().getStringArray(R.array.messageryanExplain);
                 break;
 
 
