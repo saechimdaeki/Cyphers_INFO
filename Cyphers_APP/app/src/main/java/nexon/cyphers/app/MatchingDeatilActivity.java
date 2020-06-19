@@ -60,9 +60,10 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                         List<String> winnerTeam = resultMap.get("win");
                         List<String> loseTeam = resultMap.get("lose");
                         List<Player> players = response.body().getPlayers();
-                        for (int i = 0; i < 10; i++) {
+                        for (int i = 0; i < players.size(); i++) {
                             String playerName = players.get(i).getNickname();
-
+                            if(playerName==null)
+                                playerName="?";
                             dealPoint.put(playerName, response.body().getPlayers().get(i).getPlayInfo().getAttackPoint());
                             damagedPoint.put(playerName, response.body().getPlayers().get(i).getPlayInfo().getDamagePoint());
                             battlePoint.put(playerName, response.body().getPlayers().get(i).getPlayInfo().getBattlePoint());
@@ -79,7 +80,7 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                         for(int i=0; i<winnerTeam.size(); i++)
                         {
                             MatchingResultDetailModel data=new MatchingResultDetailModel();
-                            for(int j=0; j<10; j++)
+                            for(int j=0; j<players.size(); j++)
                             {
                                 if(players.get(j).getPlayerId().contains(winnerTeam.get(i)))
                                 {
@@ -233,7 +234,7 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                         for(int i=0; i<loseTeam.size(); i++)
                         {
                             MatchingResultDetailModel data=new MatchingResultDetailModel();
-                            for(int j=0; j<10; j++)
+                            for(int j=0; j<players.size(); j++)
                             {
                                 if(players.get(j).getPlayerId().contains(loseTeam.get(i)))
                                 {
