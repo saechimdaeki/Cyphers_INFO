@@ -10,6 +10,8 @@
 
     (오직 사이퍼즈를 즐겨하거나 관심있는 유저를 위한 특정타겟팅 어플리케이션입니다.) 
 
+[다운받으러가기](https://play.google.com/store/apps/details?id=nexon.cyphers.app)
+
 ![플레이스토어1](https://user-images.githubusercontent.com/40031858/84632569-0e340980-af2a-11ea-89f9-74f289ebeec0.jpg)
 
 
