@@ -152,30 +152,35 @@ public class Toosin_Par extends Fragment {
                     public void onResponse(Call<ToosinModel> call, Response<ToosinModel> response) {
                         if (response.code() == 200) {
                             if (response.body().getRows().size() == 0) {
-                                Toast.makeText(getActivity(), "등록되지 않은 닉네임입니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "현재 시즌 랭킹에 등록되지 않은 닉네임입니다.", Toast.LENGTH_SHORT).show();
                                 getActivity().finish();
                             } else {
                                 Log.d("뀨", "request 요청 성공 URL: " + call.request().url());
                                 List<Toosin> model = response.body().getRows();
-                                nickname.setText(model.get(0).getNickname());
-                                rankingpoint.setText("랭킹 포인트" + Integer.toString(model.get(0).getRatingPoint()));
-                                wincnt.setText("승리 :" + Integer.toString(model.get(0).getWinCount()));
-                                losecnt.setText("패배 :" + Integer.toString(model.get(0).getLoseCount()));
-                                ranking.setText(model.get(0).getRank() + "위");
-                                winstreak.setText("최대 연승:" + Integer.toString(model.get(0).getWinningStreak()));
-                                int wincontinue = model.get(0).getWinningStreak();
-                                if (wincontinue >= 15)
-                                    Glide.with(getActivity()).load(R.drawable.grandmaster).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
-                                else if (wincontinue >= 10)
-                                    Glide.with(getActivity()).load(R.drawable.master).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
-                                else if (wincontinue >= 5)
-                                    Glide.with(getActivity()).load(R.drawable.dia).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
-                                else if (wincontinue >= 3)
-                                    Glide.with(getActivity()).load(R.drawable.gold).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
-                                else
-                                    Glide.with(getActivity()).load(R.drawable.nowinstreak).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
+                                if(model.size()==0)
+                                {
+                                    Toast.makeText(getActivity(), "현재 시즌 랭킹내역에 없습니다", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    nickname.setText(model.get(0).getNickname());
+                                    rankingpoint.setText("랭킹 포인트" + Integer.toString(model.get(0).getRatingPoint()));
+                                    wincnt.setText("승리 :" + Integer.toString(model.get(0).getWinCount()));
+                                    losecnt.setText("패배 :" + Integer.toString(model.get(0).getLoseCount()));
+                                    ranking.setText(model.get(0).getRank() + "위");
+                                    winstreak.setText("최대 연승:" + Integer.toString(model.get(0).getWinningStreak()));
+                                    int wincontinue = model.get(0).getWinningStreak();
+                                    if (wincontinue >= 15)
+                                        Glide.with(getActivity()).load(R.drawable.grandmaster).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
+                                    else if (wincontinue >= 10)
+                                        Glide.with(getActivity()).load(R.drawable.master).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
+                                    else if (wincontinue >= 5)
+                                        Glide.with(getActivity()).load(R.drawable.dia).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
+                                    else if (wincontinue >= 3)
+                                        Glide.with(getActivity()).load(R.drawable.gold).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
+                                    else
+                                        Glide.with(getActivity()).load(R.drawable.nowinstreak).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
 
-                                linearLayout.setVisibility(View.VISIBLE);
+                                    linearLayout.setVisibility(View.VISIBLE);
+                                }
                             }
                         } else if (response.code() == 400) {
                             Toast.makeText(getActivity(), "요청에 대한 유효성 검증 실패 또는 파라미터 에러입니다.", Toast.LENGTH_SHORT).show();
