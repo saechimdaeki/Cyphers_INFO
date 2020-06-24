@@ -178,7 +178,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:fontFamily="@font/ssyoung"
+                                android:fontFamily="@font/bm"
                                 android:gravity="center_horizontal"
                                 android:text="현재 점수: "
                                 android:textStyle="bold"
@@ -190,7 +190,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:fontFamily="@font/ssyoung"
+                                android:fontFamily="@font/bm"
                                 android:text="최대 점수: "
                                 android:textStyle="bold"
                                 android:textColor="#DD2C00"
@@ -205,7 +205,7 @@
                             android:gravity="left"
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/ebsm"
-                            android:text="승률 : " />
+                            android:text="승률 :  " />
                         <TextView
                             android:layout_marginLeft="5dp"
                             android:id="@+id/ranking_winning_number"
@@ -215,7 +215,7 @@
                             android:layout_marginRight="65dp"
                             android:fontFamily="@font/ssyoung"
 
-                            android:text="승리 : " />
+                            android:text="승리 :  " />
 
                         <TextView
                             android:layout_marginLeft="5dp"
@@ -227,7 +227,7 @@
                             android:fontFamily="@font/ssyoung"
 
 
-                            android:text="패배 : " />
+                            android:text="패배 :  " />
 
                         <TextView
                             android:layout_marginLeft="5dp"
@@ -237,7 +237,7 @@
                             android:layout_marginRight="65dp"
                             android:fontFamily="@font/ssyoung"
 
-                            android:text="중단 : " />
+                            android:text="중단 :  " />
 
 
 
@@ -294,7 +294,7 @@
                            android:layout_marginTop="20dp"
                            android:fontFamily="@font/ebsm"
                            android:gravity="left"
-                           android:text="승률 : " />
+                           android:text="승률 :  " />
                        <TextView
                            android:id="@+id/ilban_winning_number"
                            android:layout_width="match_parent"
@@ -305,7 +305,7 @@
                            android:fontFamily="@font/ssyoung"
 
 
-                           android:text="승리 : " />
+                           android:text="승리 :  " />
 
                        <TextView
                            android:id="@+id/ilban_lose_number"
@@ -315,7 +315,7 @@
                            android:layout_marginRight="65dp"
                            android:fontFamily="@font/ssyoung"
 
-                           android:text="패배 : " />
+                           android:text="패배 :  " />
 
                        <TextView
                            android:id="@+id/ilban_stop_number"
@@ -326,7 +326,7 @@
                            android:fontFamily="@font/ssyoung"
 
 
-                           android:text="중단 : " />
+                           android:text="중단 :  " />
 
 
 
@@ -365,9 +365,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10sp"
+                    android:textSize="13dp"
                     android:textStyle="bold"
-                    android:fontFamily="@font/hsnoon"
+                    android:fontFamily="@font/cookiebold"
                     android:layout_marginTop="6dp"
                     android:layout_gravity="center_horizontal"
                     android:text="최근 많이한 캐릭터 "
