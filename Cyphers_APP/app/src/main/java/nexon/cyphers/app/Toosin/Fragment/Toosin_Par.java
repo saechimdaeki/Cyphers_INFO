@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import nexon.cyphers.app.Matching_result;
 import nexon.cyphers.app.R;
 import nexon.cyphers.app.adapter.ToosinCrawlerParAdapter;
 import nexon.cyphers.app.model.PlayerModel;
@@ -149,32 +150,55 @@ public class Toosin_Par extends Fragment {
                 .enqueue(new Callback<ToosinModel>() {
                     @Override
                     public void onResponse(Call<ToosinModel> call, Response<ToosinModel> response) {
-                        Log.d("뀨", "request 요청 성공 URL: "+call.request().url());
-                        List<Toosin> model=response.body().getRows();
-                        nickname.setText(model.get(0).getNickname());
-                        rankingpoint.setText("랭킹 포인트"+Integer.toString(model.get(0).getRatingPoint()));
-                        wincnt.setText("승리 :"+Integer.toString(model.get(0).getWinCount()));
-                        losecnt.setText("패배 :"+Integer.toString(model.get(0).getLoseCount()));
-                        ranking.setText(model.get(0).getRank()+"위");
-                        winstreak.setText("최대 연승:"+Integer.toString(model.get(0).getWinningStreak()));
-                        int wincontinue=model.get(0).getWinningStreak();
-                        if(wincontinue>=15)
-                            Glide.with(getActivity()).load(R.drawable.grandmaster).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
-                        else if(wincontinue>=10)
-                            Glide.with(getActivity()).load(R.drawable.master).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
-                        else if(wincontinue>=5)
-                            Glide.with(getActivity()).load(R.drawable.dia).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
-                        else if(wincontinue>=3)
-                            Glide.with(getActivity()).load(R.drawable.gold).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
-                        else
-                            Glide.with(getActivity()).load(R.drawable.nowinstreak).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
+                        if (response.code() == 200) {
+                            if (response.body().getRows().size() == 0) {
+                                Toast.makeText(getActivity(), "등록되지 않은 닉네임입니다.", Toast.LENGTH_SHORT).show();
+                                getActivity().finish();
+                            } else {
+                                Log.d("뀨", "request 요청 성공 URL: " + call.request().url());
+                                List<Toosin> model = response.body().getRows();
+                                nickname.setText(model.get(0).getNickname());
+                                rankingpoint.setText("랭킹 포인트" + Integer.toString(model.get(0).getRatingPoint()));
+                                wincnt.setText("승리 :" + Integer.toString(model.get(0).getWinCount()));
+                                losecnt.setText("패배 :" + Integer.toString(model.get(0).getLoseCount()));
+                                ranking.setText(model.get(0).getRank() + "위");
+                                winstreak.setText("최대 연승:" + Integer.toString(model.get(0).getWinningStreak()));
+                                int wincontinue = model.get(0).getWinningStreak();
+                                if (wincontinue >= 15)
+                                    Glide.with(getActivity()).load(R.drawable.grandmaster).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
+                                else if (wincontinue >= 10)
+                                    Glide.with(getActivity()).load(R.drawable.master).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
+                                else if (wincontinue >= 5)
+                                    Glide.with(getActivity()).load(R.drawable.dia).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
+                                else if (wincontinue >= 3)
+                                    Glide.with(getActivity()).load(R.drawable.gold).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
+                                else
+                                    Glide.with(getActivity()).load(R.drawable.nowinstreak).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(circleImageView);
 
-                        linearLayout.setVisibility(View.VISIBLE);
+                                linearLayout.setVisibility(View.VISIBLE);
+                            }
+                        } else if (response.code() == 400) {
+                            Toast.makeText(getActivity(), "요청에 대한 유효성 검증 실패 또는 파라미터 에러입니다.", Toast.LENGTH_SHORT).show();
+                            getActivity().finish();
+                        } else if (response.code() == 401) {
+                            Toast.makeText(getActivity(), "인증 오류입니다", Toast.LENGTH_SHORT).show();
+                            getActivity().finish();
+                        } else if (response.code() == 404) {
+                            Toast.makeText(getActivity(), "존재하지 않는 리소스 또는 페이지 입니다", Toast.LENGTH_SHORT).show();
+                            getActivity().finish();
+                        } else if (response.code() == 500) {
+                            Toast.makeText(getActivity(), "시스템 오류입니다", Toast.LENGTH_SHORT).show();
+                            getActivity().finish();
+                        } else if (response.code() == 503) {
+                            Toast.makeText(getActivity(), "시스템 점검중입니다", Toast.LENGTH_SHORT).show();
+                            getActivity().finish();
+                        }
                     }
 
                     @Override
                     public void onFailure(Call<ToosinModel> call, Throwable t) {
                         Log.d("뀨", "request 요청 실패 URL: "+call.request().url());
+                        Toast.makeText(getActivity(), "존재하지않는 닉네임입니다.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

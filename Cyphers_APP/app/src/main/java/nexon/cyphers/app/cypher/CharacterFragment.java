@@ -34,9 +34,9 @@ import nexon.cyphers.app.model.Character.Voice;
 public class CharacterFragment extends Fragment {
     VoiceAdpater premiumadpater,defaultadpater,mesageadpater;
     CharacterFragmentBinding binding;
-    public  String targetsite;
-    public String targetProfileUrl;
-    public String voiceurl;
+      String targetsite;
+     String targetProfileUrl;
+     String voiceurl;
     //String charactername;
     int charactername;
     MediaPlayer mediaPlayer;

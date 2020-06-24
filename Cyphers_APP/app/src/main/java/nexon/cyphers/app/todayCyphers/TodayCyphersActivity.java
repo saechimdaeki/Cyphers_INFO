@@ -92,6 +92,9 @@ public class TodayCyphersActivity extends AppCompatActivity {
                         }
                         for (int i = 0; i < 5 ; i++) {
                             TodaytextModel data=new TodaytextModel();
+                            if(listTitle.get(i)==null)
+                                data.setTitle("현재 인터넷이 원활하지않습니다");
+                            else
                             data.setTitle(listTitle.get(i));
                             data.setUrl(clickUrl.get(i));
                             newsadpater.addItem(data);
