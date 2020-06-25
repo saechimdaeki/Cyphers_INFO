@@ -1,7 +1,12 @@
 package nexon.cyphers.app;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -12,10 +17,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
+import nexon.cyphers.app.DB.DBHelper;
 import nexon.cyphers.app.adapter.MainRecyclerAdpater;
 import nexon.cyphers.app.databinding.ActivityMainBinding;
 import nexon.cyphers.app.model.RecyclerViewModel.MainRecycleModel;
@@ -29,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding= DataBindingUtil.setContentView(this,R.layout.activity_main);
         binding.setMaindata(this);
-
         if(savedInstanceState==null){
             new Thread(new Runnable() {
                 @Override
@@ -47,6 +60,33 @@ public class MainActivity extends AppCompatActivity {
                 }
             }).start();
         }
+        DBHelper helper=new DBHelper(this);
+        SQLiteDatabase db=helper.getWritableDatabase();
+        Cursor cursor=db.rawQuery("select nickname from recent order by _id desc limit 5",null);
+        int cnt=0;
+        while(cursor.moveToNext())
+        {
+            if(cnt==4)
+                break;
+            if(cnt==0) {
+                binding.recent1.setText(cursor.getString(0));
+                binding.recent1.setVisibility(View.VISIBLE);
+            }else if(cnt==1){
+                binding.recent2.setText(cursor.getString(0));
+                binding.recent2.setVisibility(View.VISIBLE);
+            }else if(cnt==2){
+                binding.recent3.setText(cursor.getString(0));
+                binding.recent3.setVisibility(View.VISIBLE);
+            }else if(cnt==3)
+            {
+                binding.recent4.setText(cursor.getString(0));
+                binding.recent4.setVisibility(View.VISIBLE);
+            }
+                cnt++;
+            Log.d("값",cursor.getString(0));
+        }
+        db.close();
+
         backButtonPressHandler=new BackButtonPressHandler(this);
         binding.playerSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -62,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
         binding.mainRecycle.setAdapter(adapter);
        // OverScrollDecoratorHelper.setUpOverScroll(binding.mainRecycle, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
         GetRecycle();
+
+
     }
     private void GetRecycle(){
         new Thread(new Runnable() {
@@ -128,6 +170,10 @@ public class MainActivity extends AppCompatActivity {
                             PlayerNickname=binding.playerSearch.getText().toString();
                             Intent intent=new Intent(MainActivity.this, Matching_result.class);
                             intent.putExtra("nick",PlayerNickname);
+                            DBHelper helper=new DBHelper(MainActivity.this);
+                            SQLiteDatabase db=helper.getWritableDatabase();
+                            db.execSQL("insert into recent (nickname) values (?)",new String[]{PlayerNickname});
+                            db.close();
                             startActivity(intent);
                         }
                     }
@@ -140,5 +186,51 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         backButtonPressHandler.onBackPressed();
     }
+    public void onrecentClick(View view){
+        if(view==binding.recent1)
+            PlayerNickname=binding.recent1.getText().toString();
+        else if(view==binding.recent2)
+            PlayerNickname=binding.recent2.getText().toString();
+        else if(view==binding.recent3)
+            PlayerNickname=binding.recent3.getText().toString();
+        else if(view==binding.recent4)
+            PlayerNickname=binding.recent4.getText().toString();
 
+        Log.d("뭔데 ",PlayerNickname);
+        Intent intent=new Intent(MainActivity.this, Matching_result.class);
+        intent.putExtra("nick",PlayerNickname);
+        startActivity(intent);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        DBHelper helper=new DBHelper(this);
+        SQLiteDatabase db=helper.getWritableDatabase();
+        Cursor cursor=db.rawQuery("select nickname from recent order by _id desc limit 5",null);
+        int cnt=0;
+        while(cursor.moveToNext())
+        {
+            if(cnt==4)
+                break;
+            if(cnt==0) {
+                binding.recent1.setText(cursor.getString(0));
+                binding.recent1.setVisibility(View.VISIBLE);
+            }else if(cnt==1){
+                binding.recent2.setText(cursor.getString(0));
+                binding.recent2.setVisibility(View.VISIBLE);
+            }else if(cnt==2){
+                binding.recent3.setText(cursor.getString(0));
+                binding.recent3.setVisibility(View.VISIBLE);
+            }else if(cnt==3)
+            {
+                binding.recent4.setText(cursor.getString(0));
+                binding.recent4.setVisibility(View.VISIBLE);
+            }
+            cnt++;
+            Log.d("값",cursor.getString(0));
+        }
+        db.close();
+    }
 }

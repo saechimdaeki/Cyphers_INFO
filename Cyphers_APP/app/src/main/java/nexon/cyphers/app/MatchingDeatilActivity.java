@@ -62,7 +62,7 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                         List<Player> players = response.body().getPlayers();
                         for (int i = 0; i < players.size(); i++) {
                             String playerName = players.get(i).getNickname();
-                            if(playerName==null)
+                            if(playerName==null|| playerName.equals("") || playerName.equals(" "))
                                 playerName="?";
                             dealPoint.put(playerName, response.body().getPlayers().get(i).getPlayInfo().getAttackPoint());
                             damagedPoint.put(playerName, response.body().getPlayers().get(i).getPlayInfo().getDamagePoint());
@@ -77,7 +77,8 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                             kdaPoint.put(players.get(i).getNickname(), kda);
                         }
                         calculate();
-                        for(int i=0; i<winnerTeam.size(); i++)
+                        assert winnerTeam != null;
+                        for(int i = 0; i<winnerTeam.size(); i++)
                         {
                             MatchingResultDetailModel data=new MatchingResultDetailModel();
                             for(int j=0; j<players.size(); j++)
@@ -108,25 +109,34 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                                     data.setCharacterDetailNameLevel(players.get(j).getPlayInfo().getCharacterName()+" 레벨: "+players.get(j).getPlayInfo().getLevel());
                                     data.setMatchingDetailCharacterImage("https://img-api.neople.co.kr/cy/characters/"+players.get(j).getPlayInfo().getCharacterId());
                                     data.setMatchingDetailCharacterPosition(players.get(j).getPosition().getName());
+
                                     data.setMatchingDetailCharacterPositionAttribute1("https://img-api.neople.co.kr/cy/position-attributes/"+players.get(j).getPosition().getAttribute().get(0).getId());
                                     data.setMatchingDetailCharacterPositionAttribute2("https://img-api.neople.co.kr/cy/position-attributes/"+players.get(j).getPosition().getAttribute().get(1).getId());
                                     data.setMatchingDetailCharacterPositionAttribute3("https://img-api.neople.co.kr/cy/position-attributes/"+players.get(j).getPosition().getAttribute().get(2).getId());
-                                    if(players.get(j).getNickname().equals(maxKillUser))
+                                    if(players.get(j).getNickname().equals(maxKillUser)) {
                                         tmp+=" #학살자 ";
-                                    if(players.get(j).getNickname().equals(maxAssistUser))
+                                    }
+                                    if(players.get(j).getNickname().equals(maxAssistUser)) {
                                         tmp+=" #최고 도우미 ";
-                                    if(players.get(j).getNickname().equals(maxBattleUser))
+                                    }
+                                    if(players.get(j).getNickname().equals(maxBattleUser)) {
                                         tmp+=" #싸움꾼 ";
-                                    if(players.get(j).getNickname().equals(maxDamagedUser))
+                                    }
+                                    if(players.get(j).getNickname().equals(maxDamagedUser)) {
                                         tmp+=" #동네북 ";
-                                    if(players.get(j).getNickname().equals(maxSightUser))
+                                    }
+                                    if(players.get(j).getNickname().equals(maxSightUser)) {
                                         tmp+=" #이동형 센트리 ";
-                                    if(players.get(j).getNickname().equals(maxDeathUser))
+                                    }
+                                    if(players.get(j).getNickname().equals(maxDeathUser)) {
                                         tmp+=" #코인 셔틀 ";
-                                    if(players.get(j).getNickname().equals(maxDealUser))
+                                    }
+                                    if(players.get(j).getNickname().equals(maxDealUser)) {
                                         tmp+=" #최고의 딜러 ";
-                                    if(players.get(j).getNickname().equals(maxKdaUser))
+                                    }
+                                    if(players.get(j).getNickname().equals(maxKdaUser)) {
                                         tmp+=" #킬뎃왕 " ;
+                                    }
 
                                     data.setMatchingDetailTag(tmp);
                                     /* 메소드 모델 설정을 이렇게 하였기 때문에 일일이 할수밖에없음 */

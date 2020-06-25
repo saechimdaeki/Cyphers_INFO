@@ -16,7 +16,7 @@
     tools:context=".MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="200dp"
         android:background="#575757"
         android:orientation="vertical"
         >
@@ -47,8 +47,9 @@
                 android:layout_gravity="center"
                 android:layout_height="30dp"
                 android:src="@drawable/c" />
-            <EditText
+            <AutoCompleteTextView
                 android:background="@null"
+                android:completionThreshold="1"
                 android:id="@+id/player_search"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
@@ -72,6 +73,71 @@
                 android:src="@drawable/ic_search_black_24dp" />
         </LinearLayout>
 
+     <LinearLayout
+         android:layout_marginTop="12dp"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:gravity="center"
+         android:orientation="horizontal">
+         <Space
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"/>
+         <TextView
+             android:fontFamily="@font/cookiebold"
+         android:id="@+id/recent1"
+         android:clickable="true"
+         android:layout_width="wrap_content"
+             android:layout_weight="1"
+         android:layout_height="wrap_content"
+             android:onClick="@{maindata::onrecentClick}"
+            android:layout_marginLeft="4dp"
+             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+             android:textColor="@color/white"
+             android:visibility="gone"
+         android:text="123"/>
+         <TextView
+             android:layout_marginLeft="4dp"
+             android:layout_weight="1"
+             android:fontFamily="@font/cookiebold"
+             android:visibility="gone"
+             android:onClick="@{maindata::onrecentClick}"
+             android:id="@+id/recent2"
+             android:clickable="true"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+             android:textColor="@color/white"
+             android:text="123"/>
+         <TextView
+             android:layout_marginLeft="4dp"
+             android:layout_weight="1"
+             android:visibility="gone"
+             android:onClick="@{maindata::onrecentClick}"
+             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+             android:textColor="@color/white"
+             android:fontFamily="@font/cookiebold"
+             android:id="@+id/recent3"
+             android:clickable="true"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="123"/>
+         <TextView
+             android:onClick="@{maindata::onrecentClick}"
+             android:layout_marginLeft="4dp"
+             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+             android:textColor="@color/white"
+             android:fontFamily="@font/cookiebold"
+             android:visibility="gone"
+             android:id="@+id/recent4"
+             android:clickable="true"
+             android:layout_weight="1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="123"/>
+
+     </LinearLayout>
 
     </LinearLayout>
   <androidx.core.widget.NestedScrollView
