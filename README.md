@@ -11,6 +11,10 @@
     (오직 사이퍼즈를 즐겨하거나 관심있는 유저를 위한 특정타겟팅 어플리케이션입니다.) 
 
 [다운받으러가기](https://play.google.com/store/apps/details?id=nexon.cyphers.app)
+### 6월 25일 사이퍼즈 공식홈페이지에서 오늘의 사이퍼즈로 선정되었습니다
+[보러가기](http://cyphers.nexon.com/cyphers/article/bestart/topics/28012644)
+
+##### 2020 06 25기준 일부 버그와 과거전적검색이력이 제공되지 않는 4버젼이 배포중이며 버그수정과 기능추가를한 7버젼은 구글에서 검토중에있으며 아직 업데이트가 배포되지않았습니다. 
 
 ![플레이스토어1](https://user-images.githubusercontent.com/40031858/84632569-0e340980-af2a-11ea-89f9-74f289ebeec0.jpg)
 
