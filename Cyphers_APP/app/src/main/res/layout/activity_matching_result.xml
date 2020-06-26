@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/hsnoon"
+                android:fontFamily="@font/nanumbold"
                 android:background="#575757"
                 android:gravity="center"
                 android:text="사이퍼 정보"
@@ -204,7 +204,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="left"
                             android:layout_marginTop="10dp"
-                            android:fontFamily="@font/ebsm"
+                            android:fontFamily="@font/nanumbold"
                             android:text="승률 :  " />
                         <TextView
                             android:layout_marginLeft="5dp"
@@ -213,7 +213,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_marginRight="65dp"
-                            android:fontFamily="@font/ssyoung"
+                            android:fontFamily="@font/nanumbold"
 
                             android:text="승리 :  " />
 
@@ -224,7 +224,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_marginRight="65dp"
-                            android:fontFamily="@font/ssyoung"
+                            android:fontFamily="@font/nanumbold"
 
 
                             android:text="패배 :  " />
@@ -235,7 +235,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="65dp"
-                            android:fontFamily="@font/ssyoung"
+                            android:fontFamily="@font/nanumbold"
 
                             android:text="중단 :  " />
 
@@ -292,7 +292,7 @@
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:layout_marginTop="20dp"
-                           android:fontFamily="@font/ebsm"
+                           android:fontFamily="@font/nanumbold"
                            android:gravity="left"
                            android:text="승률 :  " />
                        <TextView
@@ -313,7 +313,7 @@
                            android:layout_height="wrap_content"
 
                            android:layout_marginRight="65dp"
-                           android:fontFamily="@font/ssyoung"
+                           android:fontFamily="@font/nanumbold"
 
                            android:text="패배 :  " />
 
@@ -323,7 +323,7 @@
                            android:layout_height="wrap_content"
 
                            android:layout_marginRight="65dp"
-                           android:fontFamily="@font/ssyoung"
+                           android:fontFamily="@font/nanumbold"
 
 
                            android:text="중단 :  " />

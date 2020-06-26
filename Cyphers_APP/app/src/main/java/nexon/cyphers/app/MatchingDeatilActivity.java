@@ -241,6 +241,7 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                             }
                             adapterForWinner.notifyDataSetChanged();
                         }
+                        assert loseTeam != null;
                         for(int i=0; i<loseTeam.size(); i++)
                         {
                             MatchingResultDetailModel data=new MatchingResultDetailModel();
@@ -270,23 +271,25 @@ public class MatchingDeatilActivity extends AppCompatActivity {
                                     data.setMatchingDetailCharacterPositionAttribute1("https://img-api.neople.co.kr/cy/position-attributes/"+players.get(j).getPosition().getAttribute().get(0).getId());
                                     data.setMatchingDetailCharacterPositionAttribute2("https://img-api.neople.co.kr/cy/position-attributes/"+players.get(j).getPosition().getAttribute().get(1).getId());
                                     data.setMatchingDetailCharacterPositionAttribute3("https://img-api.neople.co.kr/cy/position-attributes/"+players.get(j).getPosition().getAttribute().get(2).getId());
-                                    if(players.get(j).getNickname().equals(maxKillUser)) {
-                                        tmp += " #학살자 ";
+                                    if (players.get(j).getNickname()!=null) {
+                                        if (players.get(j).getNickname().equals(maxKillUser)) {
+                                            tmp += " #학살자 ";
+                                        }
+                                        if (players.get(j).getNickname().equals(maxAssistUser))
+                                            tmp += " #최고 도우미 ";
+                                        if (players.get(j).getNickname().equals(maxBattleUser))
+                                            tmp += " #싸움꾼 ";
+                                        if (players.get(j).getNickname().equals(maxDamagedUser))
+                                            tmp += " #동네북 ";
+                                        if (players.get(j).getNickname().equals(maxSightUser))
+                                            tmp += " #이동형 센트리 ";
+                                        if (players.get(j).getNickname().equals(maxDeathUser))
+                                            tmp += " #코인 셔틀 ";
+                                        if (players.get(j).getNickname().equals(maxDealUser))
+                                            tmp += " #최고의 딜러 ";
+                                        if (players.get(j).getNickname().equals(maxKdaUser))
+                                            tmp += " #킬뎃왕 ";
                                     }
-                                    if(players.get(j).getNickname().equals(maxAssistUser))
-                                        tmp+=" #최고 도우미 ";
-                                   if(players.get(j).getNickname().equals(maxBattleUser))
-                                       tmp+=" #싸움꾼 ";
-                                    if(players.get(j).getNickname().equals(maxDamagedUser))
-                                        tmp+=" #동네북 ";
-                                    if(players.get(j).getNickname().equals(maxSightUser))
-                                        tmp+=" #이동형 센트리 ";
-                                    if(players.get(j).getNickname().equals(maxDeathUser))
-                                        tmp+=" #코인 셔틀 ";
-                                    if(players.get(j).getNickname().equals(maxDealUser))
-                                        tmp+=" #최고의 딜러 ";
-                                    if(players.get(j).getNickname().equals(maxKdaUser))
-                                        tmp+=" #킬뎃왕 " ;
                                     data.setMatchingDetailTag(tmp);
                                     /* 메소드 모델 설정을 이렇게 하였기 때문에 일일이 할수밖에없음 */
                                     if(map.containsKey("101")) {
