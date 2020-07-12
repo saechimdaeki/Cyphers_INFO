@@ -48,6 +48,8 @@ public class BlueMoonFragment extends Fragment {
 
     private class crawlingbluemoon extends AsyncTask<Void , Void, Void> {
         ArrayList<String> listrp=new ArrayList<>();
+        StringBuilder sb=new StringBuilder();
+        int cnt=0;
         @Override
         protected Void doInBackground(Void... voids) {
             try {
@@ -59,7 +61,17 @@ public class BlueMoonFragment extends Fragment {
                     public void run() {
                         for(Element element:rp)
                             listrp.add(element.text());
-                        binding.textcrawling.append(listrp.get(0));
+                        for(int i=0; i<listrp.get(0).length(); i++)
+                        {
+                            sb.append(listrp.get(0).charAt(i));
+                            if(listrp.get(0).charAt(i)=='.')
+                                cnt++;
+                            if(cnt%2==0 && cnt!=0&& sb.length()>=2) {
+                                sb.append("\n");
+                                cnt=0;
+                            }
+                        }
+                        binding.textcrawling.append(sb);
                     }
                 });
             } catch (IOException e) {

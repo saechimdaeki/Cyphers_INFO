@@ -106,7 +106,7 @@ public class MatchingRecycleAdpater extends RecyclerView.Adapter<MatchingRecycle
             BattlePoint.setText("전투 참여: " +data.getBattlePoint());
             SightPoint.setText("시야 점수: "+data.getSightPoint());
             playtime.setText(data.getPlaytime());
-            Glide.with(itemView.getContext()).load(data.getMatchingCharacterImage()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(CharacterImage);
+            Glide.with(itemView.getContext()).load(data.getMatchingCharacterImage()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.newbie).into(CharacterImage);
             matchId.setText(data.getMatchId()); //매칭 상세정보 위한 ID값
             if(data.getMatchingCharacterPosition().contains("탱커"))
             MatchingPosition.setImageResource(R.drawable.tanker);
@@ -123,9 +123,9 @@ public class MatchingRecycleAdpater extends RecyclerView.Adapter<MatchingRecycle
                 linearLayout.setBackgroundResource(R.color.blue_100);
             else
                 linearLayout.setBackgroundResource(R.color.pink_100);
-            Glide.with(itemView.getContext()).load(data.getMatchingCharacterPositionAttribute1()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(MatchingPositionAttribute1);
-            Glide.with(itemView.getContext()).load(data.getMatchingCharacterPositionAttribute2()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(MatchingPositionAttribute2);
-            Glide.with(itemView.getContext()).load(data.getMatchingCharacterPositionAttribute3()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(MatchingPositionAttribute3);
+            Glide.with(itemView.getContext()).load(data.getMatchingCharacterPositionAttribute1()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.newbie).into(MatchingPositionAttribute1);
+            Glide.with(itemView.getContext()).load(data.getMatchingCharacterPositionAttribute2()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.newbie).into(MatchingPositionAttribute2);
+            Glide.with(itemView.getContext()).load(data.getMatchingCharacterPositionAttribute3()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.newbie).into(MatchingPositionAttribute3);
         }
     }
 }

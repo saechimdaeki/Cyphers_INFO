@@ -639,7 +639,7 @@ public class MatchingDetailRecycleAdapter extends RecyclerView.Adapter<MatchingD
             kda.setText(" "+data.getKDAPOINTDetail());
             battlePoint.setText("전투 참여: " +data.getBattlePointDetail());
             sightPoint.setText("시야 점수: "+data.getSightPointDetail());
-            Glide.with(itemView.getContext()).load(data.getMatchingDetailCharacterImage()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(characterImage);
+            Glide.with(itemView.getContext()).load(data.getMatchingDetailCharacterImage()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.newbie).into(characterImage);
             if(data.getMatchingDetailCharacterPosition().contains("탱커"))
                 characterPosition.setImageResource(R.drawable.tanker);
             else if(data.getMatchingDetailCharacterPosition().contains("원거리"))

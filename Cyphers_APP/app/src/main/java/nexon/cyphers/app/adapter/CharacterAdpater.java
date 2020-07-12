@@ -61,7 +61,7 @@ public class CharacterAdpater extends RecyclerView.Adapter<CharacterAdpater.Item
         }
         void onBind(CharacterModel data) {
             textView.setText(data.getCharacterName());
-            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/characters/"+data.getCharacterId()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imageView);
+            Glide.with(itemView.getContext()).load("https://img-api.neople.co.kr/cy/characters/"+data.getCharacterId()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.newbie).into(imageView);
         }
     }
 }
