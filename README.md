@@ -1,4 +1,4 @@
-[![HitCount](http://hits.dwyl.com/saechimdaeki/Cyphers_INFO.svg)](http://hits.dwyl.com/saechimdaeki/Cyphers_INFO)
+[![HitCount](http://hits.dwyl.com/saechimdaeki/Cyphers_INFO.svg)](http://hits.dwyl.com/saechimdaeki/Cyphers_INFO) ![license](https://img.shields.io/github/license/saechimdaeki/Cyphers_INFO) ![star](https://img.shields.io/github/stars/saechimdaeki/Cyphers_INFO) ![issue](https://img.shields.io/github/issues/saechimdaeki/Cyphers_INFO)
 # Cyphers_Info(사이퍼즈 정보통신기)
 #### 온라인게임 사이퍼즈의 전적검색 및 정보,홍보용 어플리케이션입니다.(Development Start Date: 2020-05-19) 
 
