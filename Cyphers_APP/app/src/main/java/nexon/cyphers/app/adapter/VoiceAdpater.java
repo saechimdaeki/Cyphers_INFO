@@ -92,7 +92,7 @@ public class VoiceAdpater extends RecyclerView.Adapter<VoiceAdpater.ItemViewHold
             textaction.setText(data.getAction());
             voiceurl.setText(data.getVoiceUrl());
             explain.setText(data.getExplain());
-            Glide.with(itemView.getContext()).load(data.getClickUrl()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imageView);
+            Glide.with(itemView.getContext()).load(data.getClickUrl()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.newbie).into(imageView);
         }
     }
 }

@@ -81,16 +81,20 @@ public class CharacterFragment extends Fragment {
             try {
                 Document doc = Jsoup.connect(targetsite).get();
                 final Elements skillExplain = doc.select("td.info");
-                final Elements skillName=doc.select("th.sv_open a");
+                final Elements skillName=doc.select("tr a");
                 final Elements tip=doc.select("div.char_attack table tbody td");
                 Handler handler = new Handler(Looper.getMainLooper());
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        for (Element element : skillExplain)
+                        for (Element element : skillExplain) {
                             ListExplain.add(element.text());
-                        for (Element element : skillName)
+                            Log.e("스킬설명",element.text());
+                        }
+                        for (Element element : skillName) {
                             ListSkillName.add(element.text());
+                            Log.e("스킬이름",element.text());
+                        }
                         for (Element element : tip)
                             ListCharacter.add(element.text());
                             binding.skillname1.setText(ListSkillName.get(0));
@@ -432,6 +436,10 @@ public class CharacterFragment extends Fragment {
                 premiumAction=getResources().getStringArray(R.array.premiumVoiceryanAction);
                 premiumVoiceUrl=getResources().getStringArray(R.array.premiumVoiceryanUrl);
                 premiumExplain=getResources().getStringArray(R.array.premiumVoiceryanExplain);
+                break;
+            case 67:
+                premiumVoiceUrl=getResources().getStringArray(R.array.premiumwatcherVoiceUrl);
+                premiumExplain=getResources().getStringArray(R.array.premiumwatcherExplain);
                 break;
 
 
@@ -804,6 +812,11 @@ public class CharacterFragment extends Fragment {
                 defaultVoiceUrl=getResources().getStringArray(R.array.defaultryanUrl);
                 defaultExplain=getResources().getStringArray(R.array.defaultryanExplain);
                 break;
+            case 67:
+                defaultAction=getResources().getStringArray(R.array.defaultwatcherAction);
+                defaultVoiceUrl=getResources().getStringArray(R.array.defaultwatcherUrl);
+                defaultExplain=getResources().getStringArray(R.array.defaultwatcherExplan);
+                break;
 
         }
         for(int i=0; i<defaultAction.length; i++)
@@ -1109,6 +1122,11 @@ public class CharacterFragment extends Fragment {
             case 66:
                 MessageVoiceUrl=getResources().getStringArray(R.array.messageryanUrl);
                 MessageExplain=getResources().getStringArray(R.array.messageryanExplain);
+                break;
+            case 67:
+                MessageAction=getResources().getStringArray(R.array.messagewatcherVoiceAction);
+                MessageExplain=getResources().getStringArray(R.array.messagewatcherVoiceExplain);
+                MessageVoiceUrl=getResources().getStringArray(R.array.messagewatcherVoiceUrl);
                 break;
 
 
