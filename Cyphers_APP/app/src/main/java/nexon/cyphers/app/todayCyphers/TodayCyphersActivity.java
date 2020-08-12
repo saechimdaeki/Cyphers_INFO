@@ -88,7 +88,7 @@ public class TodayCyphersActivity extends AppCompatActivity {
                     public void run() {
                         for(Element element: title) {
                             listTitle.add(element.text());
-                            
+
                         }
                         for(Element element:click){
                             clickUrl.add(element.attr("href"));
@@ -120,8 +120,8 @@ public class TodayCyphersActivity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             try {
                 Document doc = Jsoup.connect("http://cyphers.nexon.com/cyphers/article/today2").get();
-                final Elements title = doc.select("div.today_box ul.t_list li p a");
-                final Elements click=doc.select("div.today_box ul.t_list li p a");
+                final Elements title = doc.select("ul.t_list p a");
+                final Elements click=doc.select("ul.t_list p a");
                 Handler handler = new Handler(Looper.getMainLooper());
                 handler.post(new Runnable() {
                     @Override
