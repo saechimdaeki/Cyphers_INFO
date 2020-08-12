@@ -10,6 +10,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
+import com.airbnb.lottie.L;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -78,17 +80,19 @@ public class TodayCyphersActivity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             try {
                 Document doc = Jsoup.connect("http://cyphers.nexon.com/cyphers/article/notice").get();
-                final Elements title = doc.select("div.board_list td.tit p.txt2 a");
-                final Elements click=doc.select("div.board_list td.tit p.txt2 a");
+                final Elements title = doc.select("p.txt2 a");
+                final Elements click=doc.select("p.txt2 a");
                 Handler handler = new Handler(Looper.getMainLooper());
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
                         for(Element element: title) {
                             listTitle.add(element.text());
+                            
                         }
                         for(Element element:click){
                             clickUrl.add(element.attr("href"));
+
                         }
                         for (int i = 0; i < 5 ; i++) {
                             TodaytextModel data=new TodaytextModel();
@@ -116,17 +120,19 @@ public class TodayCyphersActivity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             try {
                 Document doc = Jsoup.connect("http://cyphers.nexon.com/cyphers/article/today2").get();
-                final Elements title = doc.select("div.comm_today div.today_box ul.t_list li p a");
-                final Elements click=doc.select("div.comm_today div.today_box ul.t_list li p a");
+                final Elements title = doc.select("div.today_box ul.t_list li p a");
+                final Elements click=doc.select("div.today_box ul.t_list li p a");
                 Handler handler = new Handler(Looper.getMainLooper());
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
                         for(Element element: title) {
                             listTitle.add(element.text());
+                            Log.e("오싸",element.text());
                         }
                         for(Element element:click){
                             clickUrl.add(element.attr("href"));
+                            Log.e("오싸2",element.text());
                         }
                         for (int i = 0; i < 4 ; i++) {
                             TodaytextModel data=new TodaytextModel();

@@ -34,7 +34,7 @@ public class CyphersInfoActivity extends AppCompatActivity implements OnItemClic
     CharacterFragment frag16,frag17,frag18,frag19,frag20,frag21,frag22,frag23,frag24,frag25,frag26,frag27,frag28,frag29;
     CharacterFragment frag30,frag31,frag32,frag33,frag34,frag35,frag36,frag37,frag38,frag39,frag40,frag41,frag42,frag43;
     CharacterFragment frag44,frag45,frag46,frag47,frag48,frag49,frag50,frag51,frag52,frag53,frag54,frag55,frag56,frag57;
-    CharacterFragment frag58,frag59,frag60,frag61,frag62,frag63,frag64,frag65,frag66;
+    CharacterFragment frag58,frag59,frag60,frag61,frag62,frag63,frag64,frag65,frag66,frag67;
     private FragmentManager fm;
     private FragmentTransaction ft;
     @Override
@@ -421,6 +421,11 @@ public class CyphersInfoActivity extends AppCompatActivity implements OnItemClic
             case 66:
                 frag66=new CharacterFragment("http://cyphers.nexon.com/cyphers/pages/character/ryan/1","http://static.cyphers.co.kr/img/ginfo/char_ryan.jpg?1944","http://static.cyphers.co.kr/media/voicebox/ryan/v_spawn_voice_01.mp3",66);
                 ft.replace(R.id.character_frame,frag66);
+                ft.commit();
+                break;
+            case 67:
+                frag67=new CharacterFragment("http://cyphers.nexon.com/cyphers/pages/character/watcher/1","http://static.cyphers.co.kr/img/ginfo/char_watcher.jpg?1944","http://static.cyphers.co.kr/media/voicebox/watcher/v_spawn_voice_01.mp3",67);
+                ft.replace(R.id.character_frame,frag67);
                 ft.commit();
                 break;
 

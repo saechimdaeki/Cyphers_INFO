@@ -67,7 +67,7 @@ public class todayCypherAdpater extends RecyclerView.Adapter<todayCypherAdpater.
             mView=itemView;
         }
         void onBind(TodayCypherModel data) {
-            Glide.with(itemView.getContext()).load(data.getImgurl()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imageView);
+            Glide.with(itemView.getContext()).load(data.getImgurl()).diskCacheStrategy(DiskCacheStrategy.SOURCE).error(R.drawable.newbie).into(imageView);
             titletext.setText(data.getTitle());
             datetext.setText(data.getDate());
             clicktext.setText(data.getClickUrl());
