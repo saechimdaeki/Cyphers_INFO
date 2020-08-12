@@ -37,9 +37,6 @@ public class TodayCyphersActivity extends AppCompatActivity {
         binding= DataBindingUtil.setContentView(this,R.layout.activity_todaycyphers);
         binding.setTodaydata(this);
        newsadpater=new todaytitleAdpater();
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
-        binding.todaynewsRecycle.setLayoutManager(linearLayoutManager);
-        binding.todaynewsRecycle.setAdapter(newsadpater);
        todayadapter=new todaytitleAdpater();
         LinearLayoutManager linearLayoutManager2=new LinearLayoutManager(this);
        binding.todaycyphersRecycle.setLayoutManager(linearLayoutManager2);
@@ -62,8 +59,6 @@ public class TodayCyphersActivity extends AppCompatActivity {
     }
     private void getData(){
         /* 그냥 기능마다 따로따로의 private class로 나눔. */
-        cyphers cypherstask=new cyphers();
-        cypherstask.execute();
         todycyphers todycypherstask=new todycyphers();
         todycypherstask.execute();
         todayupdate todayupdate=new todayupdate();
@@ -73,46 +68,7 @@ public class TodayCyphersActivity extends AppCompatActivity {
         magazine magazine=new magazine();
         magazine.execute();
     }
-    private class cyphers extends AsyncTask<Void , Void, Void> {
-        ArrayList<String> listTitle = new ArrayList<>();
-        ArrayList<String> clickUrl=new ArrayList<>();
-        @Override
-        protected Void doInBackground(Void... voids) {
-            try {
-                Document doc = Jsoup.connect("http://cyphers.nexon.com/cyphers/article/notice").get();
-                final Elements title = doc.select("p.txt2 a");
-                final Elements click=doc.select("p.txt2 a");
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        for(Element element: title) {
-                            listTitle.add(element.text());
 
-                        }
-                        for(Element element:click){
-                            clickUrl.add(element.attr("href"));
-
-                        }
-                        for (int i = 0; i < 5 ; i++) {
-                            TodaytextModel data=new TodaytextModel();
-                            if(listTitle.get(i)==null)
-                                data.setTitle("현재 인터넷이 원활하지않습니다");
-                            else
-                            data.setTitle(listTitle.get(i));
-                            data.setUrl(clickUrl.get(i));
-                            newsadpater.addItem(data);
-                        }
-                        newsadpater.notifyDataSetChanged();
-                    }
-                });
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-    }
     private class todycyphers extends AsyncTask<Void , Void, Void> {
         ArrayList<String> listTitle = new ArrayList<>();
         ArrayList<String> clickUrl=new ArrayList<>();
